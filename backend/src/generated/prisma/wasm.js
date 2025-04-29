@@ -117,15 +117,24 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
   Serializable: 'Serializable'
 });
 
-exports.Prisma.OculosSolScalarFieldEnum = {
-  codigo: 'codigo',
-  descricao: 'descricao',
-  marcaOculosSolId: 'marcaOculosSolId'
+exports.Prisma.CategoriaScalarFieldEnum = {
+  id: 'id',
+  descricao: 'descricao'
 };
 
-exports.Prisma.MarcaOculosSolScalarFieldEnum = {
+exports.Prisma.ProdutoScalarFieldEnum = {
   id: 'id',
-  marca: 'marca'
+  nome: 'nome',
+  sku: 'sku',
+  descricao: 'descricao',
+  url_imagem: 'url_imagem',
+  categoriaId: 'categoriaId',
+  marcaId: 'marcaId'
+};
+
+exports.Prisma.MarcaScalarFieldEnum = {
+  id: 'id',
+  nome: 'nome'
 };
 
 exports.Prisma.SortOrder = {
@@ -138,10 +147,16 @@ exports.Prisma.QueryMode = {
   insensitive: 'insensitive'
 };
 
+exports.Prisma.NullsOrder = {
+  first: 'first',
+  last: 'last'
+};
+
 
 exports.Prisma.ModelName = {
-  OculosSol: 'OculosSol',
-  MarcaOculosSol: 'MarcaOculosSol'
+  Categoria: 'Categoria',
+  Produto: 'Produto',
+  Marca: 'Marca'
 };
 
 /**

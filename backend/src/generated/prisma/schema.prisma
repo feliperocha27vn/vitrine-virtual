@@ -1,9 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
   output   = "../src/generated/prisma"
@@ -15,19 +9,36 @@ datasource db {
   shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
 }
 
-model OculosSol {
-  codigo           String         @id @default(uuid())
-  descricao        String
-  marcaOculosSol   MarcaOculosSol @relation(fields: [marcaOculosSolId], references: [id])
-  marcaOculosSolId String
+model Categoria {
+  id        String @id @default(uuid())
+  descricao String
 
-  @@map("oculos_sol")
+  Produto Produto[]
+
+  @@map("categoria")
 }
 
-model MarcaOculosSol {
-  id        String      @id @default(uuid())
-  marca     String
-  OculosSol OculosSol[]
+model Produto {
+  id         String  @id
+  nome       String
+  sku        String
+  descricao  String?
+  url_imagem String
 
-  @@map("marca_oculos_sol")
+  categoria   Categoria @relation(fields: [categoriaId], references: [id])
+  categoriaId String
+
+  marca   Marca  @relation(fields: [marcaId], references: [id])
+  marcaId String
+
+  @@map("produto")
+}
+
+model Marca {
+  id   String @id @default(uuid())
+  nome String
+
+  Produto Produto[]
+
+  @@map("marca")
 }

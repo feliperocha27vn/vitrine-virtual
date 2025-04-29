@@ -1,5 +1,5 @@
 import z from 'zod'
-import { prisma } from '../prisma/prisma'
+import { prisma } from '../../prisma/prisma'
 import type { FastifyPluginAsyncZod } from 'fastify-type-provider-zod'
 
 export const brandInsertRoute: FastifyPluginAsyncZod = async app => {

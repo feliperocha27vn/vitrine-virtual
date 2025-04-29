@@ -3,13 +3,14 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "tsx watch src/server.ts"
+    "dev": "tsx watch --env-file=.env src/server.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
     "@types/node": "^22.14.1",
     "prisma": "^6.6.0",
     "tsup": "^8.4.0",
@@ -17,8 +18,11 @@
     "typescript": "^5.8.3"
   },
   "dependencies": {
-    "@biomejs/biome": "^1.9.4",
+    "@fastify/swagger": "^9.5.0",
+    "@fastify/swagger-ui": "^5.2.2",
     "@prisma/client": "^6.6.0",
-    "fastify": "^5.3.0"
+    "fastify": "^5.3.0",
+    "fastify-type-provider-zod": "^4.0.2",
+    "zod": "^3.24.3"
   }
 }

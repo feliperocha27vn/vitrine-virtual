@@ -14,15 +14,20 @@ export type PrismaPromise<T> = $Public.PrismaPromise<T>
 
 
 /**
- * Model OculosSol
+ * Model Categoria
  * 
  */
-export type OculosSol = $Result.DefaultSelection<Prisma.$OculosSolPayload>
+export type Categoria = $Result.DefaultSelection<Prisma.$CategoriaPayload>
 /**
- * Model MarcaOculosSol
+ * Model Produto
  * 
  */
-export type MarcaOculosSol = $Result.DefaultSelection<Prisma.$MarcaOculosSolPayload>
+export type Produto = $Result.DefaultSelection<Prisma.$ProdutoPayload>
+/**
+ * Model Marca
+ * 
+ */
+export type Marca = $Result.DefaultSelection<Prisma.$MarcaPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -31,8 +36,8 @@ export type MarcaOculosSol = $Result.DefaultSelection<Prisma.$MarcaOculosSolPayl
  * @example
  * ```
  * const prisma = new PrismaClient()
- * // Fetch zero or more OculosSols
- * const oculosSols = await prisma.oculosSol.findMany()
+ * // Fetch zero or more Categorias
+ * const categorias = await prisma.categoria.findMany()
  * ```
  *
  *
@@ -52,8 +57,8 @@ export class PrismaClient<
    * @example
    * ```
    * const prisma = new PrismaClient()
-   * // Fetch zero or more OculosSols
-   * const oculosSols = await prisma.oculosSol.findMany()
+   * // Fetch zero or more Categorias
+   * const categorias = await prisma.categoria.findMany()
    * ```
    *
    *
@@ -150,24 +155,34 @@ export class PrismaClient<
   }>>
 
       /**
-   * `prisma.oculosSol`: Exposes CRUD operations for the **OculosSol** model.
+   * `prisma.categoria`: Exposes CRUD operations for the **Categoria** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more OculosSols
-    * const oculosSols = await prisma.oculosSol.findMany()
+    * // Fetch zero or more Categorias
+    * const categorias = await prisma.categoria.findMany()
     * ```
     */
-  get oculosSol(): Prisma.OculosSolDelegate<ExtArgs, ClientOptions>;
+  get categoria(): Prisma.CategoriaDelegate<ExtArgs, ClientOptions>;
 
   /**
-   * `prisma.marcaOculosSol`: Exposes CRUD operations for the **MarcaOculosSol** model.
+   * `prisma.produto`: Exposes CRUD operations for the **Produto** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more MarcaOculosSols
-    * const marcaOculosSols = await prisma.marcaOculosSol.findMany()
+    * // Fetch zero or more Produtos
+    * const produtos = await prisma.produto.findMany()
     * ```
     */
-  get marcaOculosSol(): Prisma.MarcaOculosSolDelegate<ExtArgs, ClientOptions>;
+  get produto(): Prisma.ProdutoDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.marca`: Exposes CRUD operations for the **Marca** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Marcas
+    * const marcas = await prisma.marca.findMany()
+    * ```
+    */
+  get marca(): Prisma.MarcaDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -608,8 +623,9 @@ export namespace Prisma {
 
 
   export const ModelName: {
-    OculosSol: 'OculosSol',
-    MarcaOculosSol: 'MarcaOculosSol'
+    Categoria: 'Categoria',
+    Produto: 'Produto',
+    Marca: 'Marca'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -628,155 +644,229 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "oculosSol" | "marcaOculosSol"
+      modelProps: "categoria" | "produto" | "marca"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
-      OculosSol: {
-        payload: Prisma.$OculosSolPayload<ExtArgs>
-        fields: Prisma.OculosSolFieldRefs
+      Categoria: {
+        payload: Prisma.$CategoriaPayload<ExtArgs>
+        fields: Prisma.CategoriaFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.OculosSolFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$OculosSolPayload> | null
+            args: Prisma.CategoriaFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CategoriaPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.OculosSolFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$OculosSolPayload>
+            args: Prisma.CategoriaFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CategoriaPayload>
           }
           findFirst: {
-            args: Prisma.OculosSolFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$OculosSolPayload> | null
+            args: Prisma.CategoriaFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CategoriaPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.OculosSolFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$OculosSolPayload>
+            args: Prisma.CategoriaFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CategoriaPayload>
           }
           findMany: {
-            args: Prisma.OculosSolFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$OculosSolPayload>[]
+            args: Prisma.CategoriaFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CategoriaPayload>[]
           }
           create: {
-            args: Prisma.OculosSolCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$OculosSolPayload>
+            args: Prisma.CategoriaCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CategoriaPayload>
           }
           createMany: {
-            args: Prisma.OculosSolCreateManyArgs<ExtArgs>
+            args: Prisma.CategoriaCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           createManyAndReturn: {
-            args: Prisma.OculosSolCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$OculosSolPayload>[]
+            args: Prisma.CategoriaCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CategoriaPayload>[]
           }
           delete: {
-            args: Prisma.OculosSolDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$OculosSolPayload>
+            args: Prisma.CategoriaDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CategoriaPayload>
           }
           update: {
-            args: Prisma.OculosSolUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$OculosSolPayload>
+            args: Prisma.CategoriaUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CategoriaPayload>
           }
           deleteMany: {
-            args: Prisma.OculosSolDeleteManyArgs<ExtArgs>
+            args: Prisma.CategoriaDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.OculosSolUpdateManyArgs<ExtArgs>
+            args: Prisma.CategoriaUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateManyAndReturn: {
-            args: Prisma.OculosSolUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$OculosSolPayload>[]
+            args: Prisma.CategoriaUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CategoriaPayload>[]
           }
           upsert: {
-            args: Prisma.OculosSolUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$OculosSolPayload>
+            args: Prisma.CategoriaUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CategoriaPayload>
           }
           aggregate: {
-            args: Prisma.OculosSolAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateOculosSol>
+            args: Prisma.CategoriaAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateCategoria>
           }
           groupBy: {
-            args: Prisma.OculosSolGroupByArgs<ExtArgs>
-            result: $Utils.Optional<OculosSolGroupByOutputType>[]
+            args: Prisma.CategoriaGroupByArgs<ExtArgs>
+            result: $Utils.Optional<CategoriaGroupByOutputType>[]
           }
           count: {
-            args: Prisma.OculosSolCountArgs<ExtArgs>
-            result: $Utils.Optional<OculosSolCountAggregateOutputType> | number
+            args: Prisma.CategoriaCountArgs<ExtArgs>
+            result: $Utils.Optional<CategoriaCountAggregateOutputType> | number
           }
         }
       }
-      MarcaOculosSol: {
-        payload: Prisma.$MarcaOculosSolPayload<ExtArgs>
-        fields: Prisma.MarcaOculosSolFieldRefs
+      Produto: {
+        payload: Prisma.$ProdutoPayload<ExtArgs>
+        fields: Prisma.ProdutoFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.MarcaOculosSolFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MarcaOculosSolPayload> | null
+            args: Prisma.ProdutoFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProdutoPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.MarcaOculosSolFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MarcaOculosSolPayload>
+            args: Prisma.ProdutoFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProdutoPayload>
           }
           findFirst: {
-            args: Prisma.MarcaOculosSolFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MarcaOculosSolPayload> | null
+            args: Prisma.ProdutoFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProdutoPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.MarcaOculosSolFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MarcaOculosSolPayload>
+            args: Prisma.ProdutoFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProdutoPayload>
           }
           findMany: {
-            args: Prisma.MarcaOculosSolFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MarcaOculosSolPayload>[]
+            args: Prisma.ProdutoFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProdutoPayload>[]
           }
           create: {
-            args: Prisma.MarcaOculosSolCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MarcaOculosSolPayload>
+            args: Prisma.ProdutoCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProdutoPayload>
           }
           createMany: {
-            args: Prisma.MarcaOculosSolCreateManyArgs<ExtArgs>
+            args: Prisma.ProdutoCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           createManyAndReturn: {
-            args: Prisma.MarcaOculosSolCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MarcaOculosSolPayload>[]
+            args: Prisma.ProdutoCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProdutoPayload>[]
           }
           delete: {
-            args: Prisma.MarcaOculosSolDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MarcaOculosSolPayload>
+            args: Prisma.ProdutoDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProdutoPayload>
           }
           update: {
-            args: Prisma.MarcaOculosSolUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MarcaOculosSolPayload>
+            args: Prisma.ProdutoUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProdutoPayload>
           }
           deleteMany: {
-            args: Prisma.MarcaOculosSolDeleteManyArgs<ExtArgs>
+            args: Prisma.ProdutoDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.MarcaOculosSolUpdateManyArgs<ExtArgs>
+            args: Prisma.ProdutoUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateManyAndReturn: {
-            args: Prisma.MarcaOculosSolUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MarcaOculosSolPayload>[]
+            args: Prisma.ProdutoUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProdutoPayload>[]
           }
           upsert: {
-            args: Prisma.MarcaOculosSolUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MarcaOculosSolPayload>
+            args: Prisma.ProdutoUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProdutoPayload>
           }
           aggregate: {
-            args: Prisma.MarcaOculosSolAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateMarcaOculosSol>
+            args: Prisma.ProdutoAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateProduto>
           }
           groupBy: {
-            args: Prisma.MarcaOculosSolGroupByArgs<ExtArgs>
-            result: $Utils.Optional<MarcaOculosSolGroupByOutputType>[]
+            args: Prisma.ProdutoGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ProdutoGroupByOutputType>[]
           }
           count: {
-            args: Prisma.MarcaOculosSolCountArgs<ExtArgs>
-            result: $Utils.Optional<MarcaOculosSolCountAggregateOutputType> | number
+            args: Prisma.ProdutoCountArgs<ExtArgs>
+            result: $Utils.Optional<ProdutoCountAggregateOutputType> | number
+          }
+        }
+      }
+      Marca: {
+        payload: Prisma.$MarcaPayload<ExtArgs>
+        fields: Prisma.MarcaFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.MarcaFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MarcaPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.MarcaFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MarcaPayload>
+          }
+          findFirst: {
+            args: Prisma.MarcaFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MarcaPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.MarcaFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MarcaPayload>
+          }
+          findMany: {
+            args: Prisma.MarcaFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MarcaPayload>[]
+          }
+          create: {
+            args: Prisma.MarcaCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MarcaPayload>
+          }
+          createMany: {
+            args: Prisma.MarcaCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.MarcaCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MarcaPayload>[]
+          }
+          delete: {
+            args: Prisma.MarcaDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MarcaPayload>
+          }
+          update: {
+            args: Prisma.MarcaUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MarcaPayload>
+          }
+          deleteMany: {
+            args: Prisma.MarcaDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.MarcaUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.MarcaUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MarcaPayload>[]
+          }
+          upsert: {
+            args: Prisma.MarcaUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MarcaPayload>
+          }
+          aggregate: {
+            args: Prisma.MarcaAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateMarca>
+          }
+          groupBy: {
+            args: Prisma.MarcaGroupByArgs<ExtArgs>
+            result: $Utils.Optional<MarcaGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.MarcaCountArgs<ExtArgs>
+            result: $Utils.Optional<MarcaCountAggregateOutputType> | number
           }
         }
       }
@@ -864,8 +954,9 @@ export namespace Prisma {
     omit?: Prisma.GlobalOmitConfig
   }
   export type GlobalOmitConfig = {
-    oculosSol?: OculosSolOmit
-    marcaOculosSol?: MarcaOculosSolOmit
+    categoria?: CategoriaOmit
+    produto?: ProdutoOmit
+    marca?: MarcaOmit
   }
 
   /* Types for Logging */
@@ -956,33 +1047,64 @@ export namespace Prisma {
 
 
   /**
-   * Count Type MarcaOculosSolCountOutputType
+   * Count Type CategoriaCountOutputType
    */
 
-  export type MarcaOculosSolCountOutputType = {
-    OculosSol: number
+  export type CategoriaCountOutputType = {
+    Produto: number
   }
 
-  export type MarcaOculosSolCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    OculosSol?: boolean | MarcaOculosSolCountOutputTypeCountOculosSolArgs
+  export type CategoriaCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Produto?: boolean | CategoriaCountOutputTypeCountProdutoArgs
   }
 
   // Custom InputTypes
   /**
-   * MarcaOculosSolCountOutputType without action
+   * CategoriaCountOutputType without action
    */
-  export type MarcaOculosSolCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CategoriaCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the MarcaOculosSolCountOutputType
+     * Select specific fields to fetch from the CategoriaCountOutputType
      */
-    select?: MarcaOculosSolCountOutputTypeSelect<ExtArgs> | null
+    select?: CategoriaCountOutputTypeSelect<ExtArgs> | null
   }
 
   /**
-   * MarcaOculosSolCountOutputType without action
+   * CategoriaCountOutputType without action
    */
-  export type MarcaOculosSolCountOutputTypeCountOculosSolArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: OculosSolWhereInput
+  export type CategoriaCountOutputTypeCountProdutoArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ProdutoWhereInput
+  }
+
+
+  /**
+   * Count Type MarcaCountOutputType
+   */
+
+  export type MarcaCountOutputType = {
+    Produto: number
+  }
+
+  export type MarcaCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Produto?: boolean | MarcaCountOutputTypeCountProdutoArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * MarcaCountOutputType without action
+   */
+  export type MarcaCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MarcaCountOutputType
+     */
+    select?: MarcaCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * MarcaCountOutputType without action
+   */
+  export type MarcaCountOutputTypeCountProdutoArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ProdutoWhereInput
   }
 
 
@@ -991,1342 +1113,310 @@ export namespace Prisma {
    */
 
   /**
-   * Model OculosSol
+   * Model Categoria
    */
 
-  export type AggregateOculosSol = {
-    _count: OculosSolCountAggregateOutputType | null
-    _min: OculosSolMinAggregateOutputType | null
-    _max: OculosSolMaxAggregateOutputType | null
+  export type AggregateCategoria = {
+    _count: CategoriaCountAggregateOutputType | null
+    _min: CategoriaMinAggregateOutputType | null
+    _max: CategoriaMaxAggregateOutputType | null
   }
 
-  export type OculosSolMinAggregateOutputType = {
-    codigo: string | null
-    descricao: string | null
-    marcaOculosSolId: string | null
-  }
-
-  export type OculosSolMaxAggregateOutputType = {
-    codigo: string | null
-    descricao: string | null
-    marcaOculosSolId: string | null
-  }
-
-  export type OculosSolCountAggregateOutputType = {
-    codigo: number
-    descricao: number
-    marcaOculosSolId: number
-    _all: number
-  }
-
-
-  export type OculosSolMinAggregateInputType = {
-    codigo?: true
-    descricao?: true
-    marcaOculosSolId?: true
-  }
-
-  export type OculosSolMaxAggregateInputType = {
-    codigo?: true
-    descricao?: true
-    marcaOculosSolId?: true
-  }
-
-  export type OculosSolCountAggregateInputType = {
-    codigo?: true
-    descricao?: true
-    marcaOculosSolId?: true
-    _all?: true
-  }
-
-  export type OculosSolAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which OculosSol to aggregate.
-     */
-    where?: OculosSolWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of OculosSols to fetch.
-     */
-    orderBy?: OculosSolOrderByWithRelationInput | OculosSolOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the start position
-     */
-    cursor?: OculosSolWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` OculosSols from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` OculosSols.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Count returned OculosSols
-    **/
-    _count?: true | OculosSolCountAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the minimum value
-    **/
-    _min?: OculosSolMinAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the maximum value
-    **/
-    _max?: OculosSolMaxAggregateInputType
-  }
-
-  export type GetOculosSolAggregateType<T extends OculosSolAggregateArgs> = {
-        [P in keyof T & keyof AggregateOculosSol]: P extends '_count' | 'count'
-      ? T[P] extends true
-        ? number
-        : GetScalarType<T[P], AggregateOculosSol[P]>
-      : GetScalarType<T[P], AggregateOculosSol[P]>
-  }
-
-
-
-
-  export type OculosSolGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: OculosSolWhereInput
-    orderBy?: OculosSolOrderByWithAggregationInput | OculosSolOrderByWithAggregationInput[]
-    by: OculosSolScalarFieldEnum[] | OculosSolScalarFieldEnum
-    having?: OculosSolScalarWhereWithAggregatesInput
-    take?: number
-    skip?: number
-    _count?: OculosSolCountAggregateInputType | true
-    _min?: OculosSolMinAggregateInputType
-    _max?: OculosSolMaxAggregateInputType
-  }
-
-  export type OculosSolGroupByOutputType = {
-    codigo: string
-    descricao: string
-    marcaOculosSolId: string
-    _count: OculosSolCountAggregateOutputType | null
-    _min: OculosSolMinAggregateOutputType | null
-    _max: OculosSolMaxAggregateOutputType | null
-  }
-
-  type GetOculosSolGroupByPayload<T extends OculosSolGroupByArgs> = Prisma.PrismaPromise<
-    Array<
-      PickEnumerable<OculosSolGroupByOutputType, T['by']> &
-        {
-          [P in ((keyof T) & (keyof OculosSolGroupByOutputType))]: P extends '_count'
-            ? T[P] extends boolean
-              ? number
-              : GetScalarType<T[P], OculosSolGroupByOutputType[P]>
-            : GetScalarType<T[P], OculosSolGroupByOutputType[P]>
-        }
-      >
-    >
-
-
-  export type OculosSolSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    codigo?: boolean
-    descricao?: boolean
-    marcaOculosSolId?: boolean
-    marcaOculosSol?: boolean | MarcaOculosSolDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["oculosSol"]>
-
-  export type OculosSolSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    codigo?: boolean
-    descricao?: boolean
-    marcaOculosSolId?: boolean
-    marcaOculosSol?: boolean | MarcaOculosSolDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["oculosSol"]>
-
-  export type OculosSolSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    codigo?: boolean
-    descricao?: boolean
-    marcaOculosSolId?: boolean
-    marcaOculosSol?: boolean | MarcaOculosSolDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["oculosSol"]>
-
-  export type OculosSolSelectScalar = {
-    codigo?: boolean
-    descricao?: boolean
-    marcaOculosSolId?: boolean
-  }
-
-  export type OculosSolOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"codigo" | "descricao" | "marcaOculosSolId", ExtArgs["result"]["oculosSol"]>
-  export type OculosSolInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    marcaOculosSol?: boolean | MarcaOculosSolDefaultArgs<ExtArgs>
-  }
-  export type OculosSolIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    marcaOculosSol?: boolean | MarcaOculosSolDefaultArgs<ExtArgs>
-  }
-  export type OculosSolIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    marcaOculosSol?: boolean | MarcaOculosSolDefaultArgs<ExtArgs>
-  }
-
-  export type $OculosSolPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "OculosSol"
-    objects: {
-      marcaOculosSol: Prisma.$MarcaOculosSolPayload<ExtArgs>
-    }
-    scalars: $Extensions.GetPayloadResult<{
-      codigo: string
-      descricao: string
-      marcaOculosSolId: string
-    }, ExtArgs["result"]["oculosSol"]>
-    composites: {}
-  }
-
-  type OculosSolGetPayload<S extends boolean | null | undefined | OculosSolDefaultArgs> = $Result.GetResult<Prisma.$OculosSolPayload, S>
-
-  type OculosSolCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<OculosSolFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: OculosSolCountAggregateInputType | true
-    }
-
-  export interface OculosSolDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['OculosSol'], meta: { name: 'OculosSol' } }
-    /**
-     * Find zero or one OculosSol that matches the filter.
-     * @param {OculosSolFindUniqueArgs} args - Arguments to find a OculosSol
-     * @example
-     * // Get one OculosSol
-     * const oculosSol = await prisma.oculosSol.findUnique({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUnique<T extends OculosSolFindUniqueArgs>(args: SelectSubset<T, OculosSolFindUniqueArgs<ExtArgs>>): Prisma__OculosSolClient<$Result.GetResult<Prisma.$OculosSolPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find one OculosSol that matches the filter or throw an error with `error.code='P2025'`
-     * if no matches were found.
-     * @param {OculosSolFindUniqueOrThrowArgs} args - Arguments to find a OculosSol
-     * @example
-     * // Get one OculosSol
-     * const oculosSol = await prisma.oculosSol.findUniqueOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUniqueOrThrow<T extends OculosSolFindUniqueOrThrowArgs>(args: SelectSubset<T, OculosSolFindUniqueOrThrowArgs<ExtArgs>>): Prisma__OculosSolClient<$Result.GetResult<Prisma.$OculosSolPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first OculosSol that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {OculosSolFindFirstArgs} args - Arguments to find a OculosSol
-     * @example
-     * // Get one OculosSol
-     * const oculosSol = await prisma.oculosSol.findFirst({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirst<T extends OculosSolFindFirstArgs>(args?: SelectSubset<T, OculosSolFindFirstArgs<ExtArgs>>): Prisma__OculosSolClient<$Result.GetResult<Prisma.$OculosSolPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first OculosSol that matches the filter or
-     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {OculosSolFindFirstOrThrowArgs} args - Arguments to find a OculosSol
-     * @example
-     * // Get one OculosSol
-     * const oculosSol = await prisma.oculosSol.findFirstOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirstOrThrow<T extends OculosSolFindFirstOrThrowArgs>(args?: SelectSubset<T, OculosSolFindFirstOrThrowArgs<ExtArgs>>): Prisma__OculosSolClient<$Result.GetResult<Prisma.$OculosSolPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find zero or more OculosSols that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {OculosSolFindManyArgs} args - Arguments to filter and select certain fields only.
-     * @example
-     * // Get all OculosSols
-     * const oculosSols = await prisma.oculosSol.findMany()
-     * 
-     * // Get first 10 OculosSols
-     * const oculosSols = await prisma.oculosSol.findMany({ take: 10 })
-     * 
-     * // Only select the `codigo`
-     * const oculosSolWithCodigoOnly = await prisma.oculosSol.findMany({ select: { codigo: true } })
-     * 
-     */
-    findMany<T extends OculosSolFindManyArgs>(args?: SelectSubset<T, OculosSolFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OculosSolPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
-
-    /**
-     * Create a OculosSol.
-     * @param {OculosSolCreateArgs} args - Arguments to create a OculosSol.
-     * @example
-     * // Create one OculosSol
-     * const OculosSol = await prisma.oculosSol.create({
-     *   data: {
-     *     // ... data to create a OculosSol
-     *   }
-     * })
-     * 
-     */
-    create<T extends OculosSolCreateArgs>(args: SelectSubset<T, OculosSolCreateArgs<ExtArgs>>): Prisma__OculosSolClient<$Result.GetResult<Prisma.$OculosSolPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Create many OculosSols.
-     * @param {OculosSolCreateManyArgs} args - Arguments to create many OculosSols.
-     * @example
-     * // Create many OculosSols
-     * const oculosSol = await prisma.oculosSol.createMany({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     *     
-     */
-    createMany<T extends OculosSolCreateManyArgs>(args?: SelectSubset<T, OculosSolCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create many OculosSols and returns the data saved in the database.
-     * @param {OculosSolCreateManyAndReturnArgs} args - Arguments to create many OculosSols.
-     * @example
-     * // Create many OculosSols
-     * const oculosSol = await prisma.oculosSol.createManyAndReturn({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Create many OculosSols and only return the `codigo`
-     * const oculosSolWithCodigoOnly = await prisma.oculosSol.createManyAndReturn({
-     *   select: { codigo: true },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    createManyAndReturn<T extends OculosSolCreateManyAndReturnArgs>(args?: SelectSubset<T, OculosSolCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OculosSolPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
-
-    /**
-     * Delete a OculosSol.
-     * @param {OculosSolDeleteArgs} args - Arguments to delete one OculosSol.
-     * @example
-     * // Delete one OculosSol
-     * const OculosSol = await prisma.oculosSol.delete({
-     *   where: {
-     *     // ... filter to delete one OculosSol
-     *   }
-     * })
-     * 
-     */
-    delete<T extends OculosSolDeleteArgs>(args: SelectSubset<T, OculosSolDeleteArgs<ExtArgs>>): Prisma__OculosSolClient<$Result.GetResult<Prisma.$OculosSolPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Update one OculosSol.
-     * @param {OculosSolUpdateArgs} args - Arguments to update one OculosSol.
-     * @example
-     * // Update one OculosSol
-     * const oculosSol = await prisma.oculosSol.update({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    update<T extends OculosSolUpdateArgs>(args: SelectSubset<T, OculosSolUpdateArgs<ExtArgs>>): Prisma__OculosSolClient<$Result.GetResult<Prisma.$OculosSolPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Delete zero or more OculosSols.
-     * @param {OculosSolDeleteManyArgs} args - Arguments to filter OculosSols to delete.
-     * @example
-     * // Delete a few OculosSols
-     * const { count } = await prisma.oculosSol.deleteMany({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     * 
-     */
-    deleteMany<T extends OculosSolDeleteManyArgs>(args?: SelectSubset<T, OculosSolDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more OculosSols.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {OculosSolUpdateManyArgs} args - Arguments to update one or more rows.
-     * @example
-     * // Update many OculosSols
-     * const oculosSol = await prisma.oculosSol.updateMany({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    updateMany<T extends OculosSolUpdateManyArgs>(args: SelectSubset<T, OculosSolUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more OculosSols and returns the data updated in the database.
-     * @param {OculosSolUpdateManyAndReturnArgs} args - Arguments to update many OculosSols.
-     * @example
-     * // Update many OculosSols
-     * const oculosSol = await prisma.oculosSol.updateManyAndReturn({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Update zero or more OculosSols and only return the `codigo`
-     * const oculosSolWithCodigoOnly = await prisma.oculosSol.updateManyAndReturn({
-     *   select: { codigo: true },
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    updateManyAndReturn<T extends OculosSolUpdateManyAndReturnArgs>(args: SelectSubset<T, OculosSolUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OculosSolPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
-
-    /**
-     * Create or update one OculosSol.
-     * @param {OculosSolUpsertArgs} args - Arguments to update or create a OculosSol.
-     * @example
-     * // Update or create a OculosSol
-     * const oculosSol = await prisma.oculosSol.upsert({
-     *   create: {
-     *     // ... data to create a OculosSol
-     *   },
-     *   update: {
-     *     // ... in case it already exists, update
-     *   },
-     *   where: {
-     *     // ... the filter for the OculosSol we want to update
-     *   }
-     * })
-     */
-    upsert<T extends OculosSolUpsertArgs>(args: SelectSubset<T, OculosSolUpsertArgs<ExtArgs>>): Prisma__OculosSolClient<$Result.GetResult<Prisma.$OculosSolPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-
-    /**
-     * Count the number of OculosSols.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {OculosSolCountArgs} args - Arguments to filter OculosSols to count.
-     * @example
-     * // Count the number of OculosSols
-     * const count = await prisma.oculosSol.count({
-     *   where: {
-     *     // ... the filter for the OculosSols we want to count
-     *   }
-     * })
-    **/
-    count<T extends OculosSolCountArgs>(
-      args?: Subset<T, OculosSolCountArgs>,
-    ): Prisma.PrismaPromise<
-      T extends $Utils.Record<'select', any>
-        ? T['select'] extends true
-          ? number
-          : GetScalarType<T['select'], OculosSolCountAggregateOutputType>
-        : number
-    >
-
-    /**
-     * Allows you to perform aggregations operations on a OculosSol.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {OculosSolAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
-     * @example
-     * // Ordered by age ascending
-     * // Where email contains prisma.io
-     * // Limited to the 10 users
-     * const aggregations = await prisma.user.aggregate({
-     *   _avg: {
-     *     age: true,
-     *   },
-     *   where: {
-     *     email: {
-     *       contains: "prisma.io",
-     *     },
-     *   },
-     *   orderBy: {
-     *     age: "asc",
-     *   },
-     *   take: 10,
-     * })
-    **/
-    aggregate<T extends OculosSolAggregateArgs>(args: Subset<T, OculosSolAggregateArgs>): Prisma.PrismaPromise<GetOculosSolAggregateType<T>>
-
-    /**
-     * Group by OculosSol.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {OculosSolGroupByArgs} args - Group by arguments.
-     * @example
-     * // Group by city, order by createdAt, get count
-     * const result = await prisma.user.groupBy({
-     *   by: ['city', 'createdAt'],
-     *   orderBy: {
-     *     createdAt: true
-     *   },
-     *   _count: {
-     *     _all: true
-     *   },
-     * })
-     * 
-    **/
-    groupBy<
-      T extends OculosSolGroupByArgs,
-      HasSelectOrTake extends Or<
-        Extends<'skip', Keys<T>>,
-        Extends<'take', Keys<T>>
-      >,
-      OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: OculosSolGroupByArgs['orderBy'] }
-        : { orderBy?: OculosSolGroupByArgs['orderBy'] },
-      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
-      ByFields extends MaybeTupleToUnion<T['by']>,
-      ByValid extends Has<ByFields, OrderFields>,
-      HavingFields extends GetHavingFields<T['having']>,
-      HavingValid extends Has<ByFields, HavingFields>,
-      ByEmpty extends T['by'] extends never[] ? True : False,
-      InputErrors extends ByEmpty extends True
-      ? `Error: "by" must not be empty.`
-      : HavingValid extends False
-      ? {
-          [P in HavingFields]: P extends ByFields
-            ? never
-            : P extends string
-            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
-            : [
-                Error,
-                'Field ',
-                P,
-                ` in "having" needs to be provided in "by"`,
-              ]
-        }[HavingFields]
-      : 'take' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "take", you also need to provide "orderBy"'
-      : 'skip' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "skip", you also need to provide "orderBy"'
-      : ByValid extends True
-      ? {}
-      : {
-          [P in OrderFields]: P extends ByFields
-            ? never
-            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-        }[OrderFields]
-    >(args: SubsetIntersection<T, OculosSolGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetOculosSolGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
-  /**
-   * Fields of the OculosSol model
-   */
-  readonly fields: OculosSolFieldRefs;
-  }
-
-  /**
-   * The delegate class that acts as a "Promise-like" for OculosSol.
-   * Why is this prefixed with `Prisma__`?
-   * Because we want to prevent naming conflicts as mentioned in
-   * https://github.com/prisma/prisma-client-js/issues/707
-   */
-  export interface Prisma__OculosSolClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
-    readonly [Symbol.toStringTag]: "PrismaPromise"
-    marcaOculosSol<T extends MarcaOculosSolDefaultArgs<ExtArgs> = {}>(args?: Subset<T, MarcaOculosSolDefaultArgs<ExtArgs>>): Prisma__MarcaOculosSolClient<$Result.GetResult<Prisma.$MarcaOculosSolPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    /**
-     * Attaches callbacks for the resolution and/or rejection of the Promise.
-     * @param onfulfilled The callback to execute when the Promise is resolved.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of which ever callback is executed.
-     */
-    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
-    /**
-     * Attaches a callback for only the rejection of the Promise.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of the callback.
-     */
-    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
-    /**
-     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
-     * resolved value cannot be modified from the callback.
-     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
-     * @returns A Promise for the completion of the callback.
-     */
-    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
-  }
-
-
-
-
-  /**
-   * Fields of the OculosSol model
-   */
-  interface OculosSolFieldRefs {
-    readonly codigo: FieldRef<"OculosSol", 'String'>
-    readonly descricao: FieldRef<"OculosSol", 'String'>
-    readonly marcaOculosSolId: FieldRef<"OculosSol", 'String'>
-  }
-    
-
-  // Custom InputTypes
-  /**
-   * OculosSol findUnique
-   */
-  export type OculosSolFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the OculosSol
-     */
-    select?: OculosSolSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the OculosSol
-     */
-    omit?: OculosSolOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: OculosSolInclude<ExtArgs> | null
-    /**
-     * Filter, which OculosSol to fetch.
-     */
-    where: OculosSolWhereUniqueInput
-  }
-
-  /**
-   * OculosSol findUniqueOrThrow
-   */
-  export type OculosSolFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the OculosSol
-     */
-    select?: OculosSolSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the OculosSol
-     */
-    omit?: OculosSolOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: OculosSolInclude<ExtArgs> | null
-    /**
-     * Filter, which OculosSol to fetch.
-     */
-    where: OculosSolWhereUniqueInput
-  }
-
-  /**
-   * OculosSol findFirst
-   */
-  export type OculosSolFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the OculosSol
-     */
-    select?: OculosSolSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the OculosSol
-     */
-    omit?: OculosSolOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: OculosSolInclude<ExtArgs> | null
-    /**
-     * Filter, which OculosSol to fetch.
-     */
-    where?: OculosSolWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of OculosSols to fetch.
-     */
-    orderBy?: OculosSolOrderByWithRelationInput | OculosSolOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for OculosSols.
-     */
-    cursor?: OculosSolWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` OculosSols from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` OculosSols.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of OculosSols.
-     */
-    distinct?: OculosSolScalarFieldEnum | OculosSolScalarFieldEnum[]
-  }
-
-  /**
-   * OculosSol findFirstOrThrow
-   */
-  export type OculosSolFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the OculosSol
-     */
-    select?: OculosSolSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the OculosSol
-     */
-    omit?: OculosSolOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: OculosSolInclude<ExtArgs> | null
-    /**
-     * Filter, which OculosSol to fetch.
-     */
-    where?: OculosSolWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of OculosSols to fetch.
-     */
-    orderBy?: OculosSolOrderByWithRelationInput | OculosSolOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for OculosSols.
-     */
-    cursor?: OculosSolWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` OculosSols from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` OculosSols.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of OculosSols.
-     */
-    distinct?: OculosSolScalarFieldEnum | OculosSolScalarFieldEnum[]
-  }
-
-  /**
-   * OculosSol findMany
-   */
-  export type OculosSolFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the OculosSol
-     */
-    select?: OculosSolSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the OculosSol
-     */
-    omit?: OculosSolOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: OculosSolInclude<ExtArgs> | null
-    /**
-     * Filter, which OculosSols to fetch.
-     */
-    where?: OculosSolWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of OculosSols to fetch.
-     */
-    orderBy?: OculosSolOrderByWithRelationInput | OculosSolOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for listing OculosSols.
-     */
-    cursor?: OculosSolWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` OculosSols from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` OculosSols.
-     */
-    skip?: number
-    distinct?: OculosSolScalarFieldEnum | OculosSolScalarFieldEnum[]
-  }
-
-  /**
-   * OculosSol create
-   */
-  export type OculosSolCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the OculosSol
-     */
-    select?: OculosSolSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the OculosSol
-     */
-    omit?: OculosSolOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: OculosSolInclude<ExtArgs> | null
-    /**
-     * The data needed to create a OculosSol.
-     */
-    data: XOR<OculosSolCreateInput, OculosSolUncheckedCreateInput>
-  }
-
-  /**
-   * OculosSol createMany
-   */
-  export type OculosSolCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to create many OculosSols.
-     */
-    data: OculosSolCreateManyInput | OculosSolCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * OculosSol createManyAndReturn
-   */
-  export type OculosSolCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the OculosSol
-     */
-    select?: OculosSolSelectCreateManyAndReturn<ExtArgs> | null
-    /**
-     * Omit specific fields from the OculosSol
-     */
-    omit?: OculosSolOmit<ExtArgs> | null
-    /**
-     * The data used to create many OculosSols.
-     */
-    data: OculosSolCreateManyInput | OculosSolCreateManyInput[]
-    skipDuplicates?: boolean
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: OculosSolIncludeCreateManyAndReturn<ExtArgs> | null
-  }
-
-  /**
-   * OculosSol update
-   */
-  export type OculosSolUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the OculosSol
-     */
-    select?: OculosSolSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the OculosSol
-     */
-    omit?: OculosSolOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: OculosSolInclude<ExtArgs> | null
-    /**
-     * The data needed to update a OculosSol.
-     */
-    data: XOR<OculosSolUpdateInput, OculosSolUncheckedUpdateInput>
-    /**
-     * Choose, which OculosSol to update.
-     */
-    where: OculosSolWhereUniqueInput
-  }
-
-  /**
-   * OculosSol updateMany
-   */
-  export type OculosSolUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to update OculosSols.
-     */
-    data: XOR<OculosSolUpdateManyMutationInput, OculosSolUncheckedUpdateManyInput>
-    /**
-     * Filter which OculosSols to update
-     */
-    where?: OculosSolWhereInput
-    /**
-     * Limit how many OculosSols to update.
-     */
-    limit?: number
-  }
-
-  /**
-   * OculosSol updateManyAndReturn
-   */
-  export type OculosSolUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the OculosSol
-     */
-    select?: OculosSolSelectUpdateManyAndReturn<ExtArgs> | null
-    /**
-     * Omit specific fields from the OculosSol
-     */
-    omit?: OculosSolOmit<ExtArgs> | null
-    /**
-     * The data used to update OculosSols.
-     */
-    data: XOR<OculosSolUpdateManyMutationInput, OculosSolUncheckedUpdateManyInput>
-    /**
-     * Filter which OculosSols to update
-     */
-    where?: OculosSolWhereInput
-    /**
-     * Limit how many OculosSols to update.
-     */
-    limit?: number
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: OculosSolIncludeUpdateManyAndReturn<ExtArgs> | null
-  }
-
-  /**
-   * OculosSol upsert
-   */
-  export type OculosSolUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the OculosSol
-     */
-    select?: OculosSolSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the OculosSol
-     */
-    omit?: OculosSolOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: OculosSolInclude<ExtArgs> | null
-    /**
-     * The filter to search for the OculosSol to update in case it exists.
-     */
-    where: OculosSolWhereUniqueInput
-    /**
-     * In case the OculosSol found by the `where` argument doesn't exist, create a new OculosSol with this data.
-     */
-    create: XOR<OculosSolCreateInput, OculosSolUncheckedCreateInput>
-    /**
-     * In case the OculosSol was found with the provided `where` argument, update it with this data.
-     */
-    update: XOR<OculosSolUpdateInput, OculosSolUncheckedUpdateInput>
-  }
-
-  /**
-   * OculosSol delete
-   */
-  export type OculosSolDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the OculosSol
-     */
-    select?: OculosSolSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the OculosSol
-     */
-    omit?: OculosSolOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: OculosSolInclude<ExtArgs> | null
-    /**
-     * Filter which OculosSol to delete.
-     */
-    where: OculosSolWhereUniqueInput
-  }
-
-  /**
-   * OculosSol deleteMany
-   */
-  export type OculosSolDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which OculosSols to delete
-     */
-    where?: OculosSolWhereInput
-    /**
-     * Limit how many OculosSols to delete.
-     */
-    limit?: number
-  }
-
-  /**
-   * OculosSol without action
-   */
-  export type OculosSolDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the OculosSol
-     */
-    select?: OculosSolSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the OculosSol
-     */
-    omit?: OculosSolOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: OculosSolInclude<ExtArgs> | null
-  }
-
-
-  /**
-   * Model MarcaOculosSol
-   */
-
-  export type AggregateMarcaOculosSol = {
-    _count: MarcaOculosSolCountAggregateOutputType | null
-    _min: MarcaOculosSolMinAggregateOutputType | null
-    _max: MarcaOculosSolMaxAggregateOutputType | null
-  }
-
-  export type MarcaOculosSolMinAggregateOutputType = {
+  export type CategoriaMinAggregateOutputType = {
     id: string | null
-    marca: string | null
+    descricao: string | null
   }
 
-  export type MarcaOculosSolMaxAggregateOutputType = {
+  export type CategoriaMaxAggregateOutputType = {
     id: string | null
-    marca: string | null
+    descricao: string | null
   }
 
-  export type MarcaOculosSolCountAggregateOutputType = {
+  export type CategoriaCountAggregateOutputType = {
     id: number
-    marca: number
+    descricao: number
     _all: number
   }
 
 
-  export type MarcaOculosSolMinAggregateInputType = {
+  export type CategoriaMinAggregateInputType = {
     id?: true
-    marca?: true
+    descricao?: true
   }
 
-  export type MarcaOculosSolMaxAggregateInputType = {
+  export type CategoriaMaxAggregateInputType = {
     id?: true
-    marca?: true
+    descricao?: true
   }
 
-  export type MarcaOculosSolCountAggregateInputType = {
+  export type CategoriaCountAggregateInputType = {
     id?: true
-    marca?: true
+    descricao?: true
     _all?: true
   }
 
-  export type MarcaOculosSolAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CategoriaAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which MarcaOculosSol to aggregate.
+     * Filter which Categoria to aggregate.
      */
-    where?: MarcaOculosSolWhereInput
+    where?: CategoriaWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of MarcaOculosSols to fetch.
+     * Determine the order of Categorias to fetch.
      */
-    orderBy?: MarcaOculosSolOrderByWithRelationInput | MarcaOculosSolOrderByWithRelationInput[]
+    orderBy?: CategoriaOrderByWithRelationInput | CategoriaOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: MarcaOculosSolWhereUniqueInput
+    cursor?: CategoriaWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` MarcaOculosSols from the position of the cursor.
+     * Take `±n` Categorias from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` MarcaOculosSols.
+     * Skip the first `n` Categorias.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned MarcaOculosSols
+     * Count returned Categorias
     **/
-    _count?: true | MarcaOculosSolCountAggregateInputType
+    _count?: true | CategoriaCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: MarcaOculosSolMinAggregateInputType
+    _min?: CategoriaMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: MarcaOculosSolMaxAggregateInputType
+    _max?: CategoriaMaxAggregateInputType
   }
 
-  export type GetMarcaOculosSolAggregateType<T extends MarcaOculosSolAggregateArgs> = {
-        [P in keyof T & keyof AggregateMarcaOculosSol]: P extends '_count' | 'count'
+  export type GetCategoriaAggregateType<T extends CategoriaAggregateArgs> = {
+        [P in keyof T & keyof AggregateCategoria]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateMarcaOculosSol[P]>
-      : GetScalarType<T[P], AggregateMarcaOculosSol[P]>
+        : GetScalarType<T[P], AggregateCategoria[P]>
+      : GetScalarType<T[P], AggregateCategoria[P]>
   }
 
 
 
 
-  export type MarcaOculosSolGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: MarcaOculosSolWhereInput
-    orderBy?: MarcaOculosSolOrderByWithAggregationInput | MarcaOculosSolOrderByWithAggregationInput[]
-    by: MarcaOculosSolScalarFieldEnum[] | MarcaOculosSolScalarFieldEnum
-    having?: MarcaOculosSolScalarWhereWithAggregatesInput
+  export type CategoriaGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CategoriaWhereInput
+    orderBy?: CategoriaOrderByWithAggregationInput | CategoriaOrderByWithAggregationInput[]
+    by: CategoriaScalarFieldEnum[] | CategoriaScalarFieldEnum
+    having?: CategoriaScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: MarcaOculosSolCountAggregateInputType | true
-    _min?: MarcaOculosSolMinAggregateInputType
-    _max?: MarcaOculosSolMaxAggregateInputType
+    _count?: CategoriaCountAggregateInputType | true
+    _min?: CategoriaMinAggregateInputType
+    _max?: CategoriaMaxAggregateInputType
   }
 
-  export type MarcaOculosSolGroupByOutputType = {
+  export type CategoriaGroupByOutputType = {
     id: string
-    marca: string
-    _count: MarcaOculosSolCountAggregateOutputType | null
-    _min: MarcaOculosSolMinAggregateOutputType | null
-    _max: MarcaOculosSolMaxAggregateOutputType | null
+    descricao: string
+    _count: CategoriaCountAggregateOutputType | null
+    _min: CategoriaMinAggregateOutputType | null
+    _max: CategoriaMaxAggregateOutputType | null
   }
 
-  type GetMarcaOculosSolGroupByPayload<T extends MarcaOculosSolGroupByArgs> = Prisma.PrismaPromise<
+  type GetCategoriaGroupByPayload<T extends CategoriaGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<MarcaOculosSolGroupByOutputType, T['by']> &
+      PickEnumerable<CategoriaGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof MarcaOculosSolGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof CategoriaGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], MarcaOculosSolGroupByOutputType[P]>
-            : GetScalarType<T[P], MarcaOculosSolGroupByOutputType[P]>
+              : GetScalarType<T[P], CategoriaGroupByOutputType[P]>
+            : GetScalarType<T[P], CategoriaGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type MarcaOculosSolSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type CategoriaSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    marca?: boolean
-    OculosSol?: boolean | MarcaOculosSol$OculosSolArgs<ExtArgs>
-    _count?: boolean | MarcaOculosSolCountOutputTypeDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["marcaOculosSol"]>
+    descricao?: boolean
+    Produto?: boolean | Categoria$ProdutoArgs<ExtArgs>
+    _count?: boolean | CategoriaCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["categoria"]>
 
-  export type MarcaOculosSolSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type CategoriaSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    marca?: boolean
-  }, ExtArgs["result"]["marcaOculosSol"]>
+    descricao?: boolean
+  }, ExtArgs["result"]["categoria"]>
 
-  export type MarcaOculosSolSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type CategoriaSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    marca?: boolean
-  }, ExtArgs["result"]["marcaOculosSol"]>
+    descricao?: boolean
+  }, ExtArgs["result"]["categoria"]>
 
-  export type MarcaOculosSolSelectScalar = {
+  export type CategoriaSelectScalar = {
     id?: boolean
-    marca?: boolean
+    descricao?: boolean
   }
 
-  export type MarcaOculosSolOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "marca", ExtArgs["result"]["marcaOculosSol"]>
-  export type MarcaOculosSolInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    OculosSol?: boolean | MarcaOculosSol$OculosSolArgs<ExtArgs>
-    _count?: boolean | MarcaOculosSolCountOutputTypeDefaultArgs<ExtArgs>
+  export type CategoriaOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "descricao", ExtArgs["result"]["categoria"]>
+  export type CategoriaInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Produto?: boolean | Categoria$ProdutoArgs<ExtArgs>
+    _count?: boolean | CategoriaCountOutputTypeDefaultArgs<ExtArgs>
   }
-  export type MarcaOculosSolIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
-  export type MarcaOculosSolIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type CategoriaIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type CategoriaIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
 
-  export type $MarcaOculosSolPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "MarcaOculosSol"
+  export type $CategoriaPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Categoria"
     objects: {
-      OculosSol: Prisma.$OculosSolPayload<ExtArgs>[]
+      Produto: Prisma.$ProdutoPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
-      marca: string
-    }, ExtArgs["result"]["marcaOculosSol"]>
+      descricao: string
+    }, ExtArgs["result"]["categoria"]>
     composites: {}
   }
 
-  type MarcaOculosSolGetPayload<S extends boolean | null | undefined | MarcaOculosSolDefaultArgs> = $Result.GetResult<Prisma.$MarcaOculosSolPayload, S>
+  type CategoriaGetPayload<S extends boolean | null | undefined | CategoriaDefaultArgs> = $Result.GetResult<Prisma.$CategoriaPayload, S>
 
-  type MarcaOculosSolCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<MarcaOculosSolFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: MarcaOculosSolCountAggregateInputType | true
+  type CategoriaCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<CategoriaFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: CategoriaCountAggregateInputType | true
     }
 
-  export interface MarcaOculosSolDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['MarcaOculosSol'], meta: { name: 'MarcaOculosSol' } }
+  export interface CategoriaDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Categoria'], meta: { name: 'Categoria' } }
     /**
-     * Find zero or one MarcaOculosSol that matches the filter.
-     * @param {MarcaOculosSolFindUniqueArgs} args - Arguments to find a MarcaOculosSol
+     * Find zero or one Categoria that matches the filter.
+     * @param {CategoriaFindUniqueArgs} args - Arguments to find a Categoria
      * @example
-     * // Get one MarcaOculosSol
-     * const marcaOculosSol = await prisma.marcaOculosSol.findUnique({
+     * // Get one Categoria
+     * const categoria = await prisma.categoria.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends MarcaOculosSolFindUniqueArgs>(args: SelectSubset<T, MarcaOculosSolFindUniqueArgs<ExtArgs>>): Prisma__MarcaOculosSolClient<$Result.GetResult<Prisma.$MarcaOculosSolPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findUnique<T extends CategoriaFindUniqueArgs>(args: SelectSubset<T, CategoriaFindUniqueArgs<ExtArgs>>): Prisma__CategoriaClient<$Result.GetResult<Prisma.$CategoriaPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find one MarcaOculosSol that matches the filter or throw an error with `error.code='P2025'`
+     * Find one Categoria that matches the filter or throw an error with `error.code='P2025'`
      * if no matches were found.
-     * @param {MarcaOculosSolFindUniqueOrThrowArgs} args - Arguments to find a MarcaOculosSol
+     * @param {CategoriaFindUniqueOrThrowArgs} args - Arguments to find a Categoria
      * @example
-     * // Get one MarcaOculosSol
-     * const marcaOculosSol = await prisma.marcaOculosSol.findUniqueOrThrow({
+     * // Get one Categoria
+     * const categoria = await prisma.categoria.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends MarcaOculosSolFindUniqueOrThrowArgs>(args: SelectSubset<T, MarcaOculosSolFindUniqueOrThrowArgs<ExtArgs>>): Prisma__MarcaOculosSolClient<$Result.GetResult<Prisma.$MarcaOculosSolPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findUniqueOrThrow<T extends CategoriaFindUniqueOrThrowArgs>(args: SelectSubset<T, CategoriaFindUniqueOrThrowArgs<ExtArgs>>): Prisma__CategoriaClient<$Result.GetResult<Prisma.$CategoriaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first MarcaOculosSol that matches the filter.
+     * Find the first Categoria that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {MarcaOculosSolFindFirstArgs} args - Arguments to find a MarcaOculosSol
+     * @param {CategoriaFindFirstArgs} args - Arguments to find a Categoria
      * @example
-     * // Get one MarcaOculosSol
-     * const marcaOculosSol = await prisma.marcaOculosSol.findFirst({
+     * // Get one Categoria
+     * const categoria = await prisma.categoria.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends MarcaOculosSolFindFirstArgs>(args?: SelectSubset<T, MarcaOculosSolFindFirstArgs<ExtArgs>>): Prisma__MarcaOculosSolClient<$Result.GetResult<Prisma.$MarcaOculosSolPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findFirst<T extends CategoriaFindFirstArgs>(args?: SelectSubset<T, CategoriaFindFirstArgs<ExtArgs>>): Prisma__CategoriaClient<$Result.GetResult<Prisma.$CategoriaPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first MarcaOculosSol that matches the filter or
+     * Find the first Categoria that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {MarcaOculosSolFindFirstOrThrowArgs} args - Arguments to find a MarcaOculosSol
+     * @param {CategoriaFindFirstOrThrowArgs} args - Arguments to find a Categoria
      * @example
-     * // Get one MarcaOculosSol
-     * const marcaOculosSol = await prisma.marcaOculosSol.findFirstOrThrow({
+     * // Get one Categoria
+     * const categoria = await prisma.categoria.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends MarcaOculosSolFindFirstOrThrowArgs>(args?: SelectSubset<T, MarcaOculosSolFindFirstOrThrowArgs<ExtArgs>>): Prisma__MarcaOculosSolClient<$Result.GetResult<Prisma.$MarcaOculosSolPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findFirstOrThrow<T extends CategoriaFindFirstOrThrowArgs>(args?: SelectSubset<T, CategoriaFindFirstOrThrowArgs<ExtArgs>>): Prisma__CategoriaClient<$Result.GetResult<Prisma.$CategoriaPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find zero or more MarcaOculosSols that matches the filter.
+     * Find zero or more Categorias that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {MarcaOculosSolFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {CategoriaFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all MarcaOculosSols
-     * const marcaOculosSols = await prisma.marcaOculosSol.findMany()
+     * // Get all Categorias
+     * const categorias = await prisma.categoria.findMany()
      * 
-     * // Get first 10 MarcaOculosSols
-     * const marcaOculosSols = await prisma.marcaOculosSol.findMany({ take: 10 })
+     * // Get first 10 Categorias
+     * const categorias = await prisma.categoria.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const marcaOculosSolWithIdOnly = await prisma.marcaOculosSol.findMany({ select: { id: true } })
+     * const categoriaWithIdOnly = await prisma.categoria.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends MarcaOculosSolFindManyArgs>(args?: SelectSubset<T, MarcaOculosSolFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MarcaOculosSolPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+    findMany<T extends CategoriaFindManyArgs>(args?: SelectSubset<T, CategoriaFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CategoriaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
     /**
-     * Create a MarcaOculosSol.
-     * @param {MarcaOculosSolCreateArgs} args - Arguments to create a MarcaOculosSol.
+     * Create a Categoria.
+     * @param {CategoriaCreateArgs} args - Arguments to create a Categoria.
      * @example
-     * // Create one MarcaOculosSol
-     * const MarcaOculosSol = await prisma.marcaOculosSol.create({
+     * // Create one Categoria
+     * const Categoria = await prisma.categoria.create({
      *   data: {
-     *     // ... data to create a MarcaOculosSol
+     *     // ... data to create a Categoria
      *   }
      * })
      * 
      */
-    create<T extends MarcaOculosSolCreateArgs>(args: SelectSubset<T, MarcaOculosSolCreateArgs<ExtArgs>>): Prisma__MarcaOculosSolClient<$Result.GetResult<Prisma.$MarcaOculosSolPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    create<T extends CategoriaCreateArgs>(args: SelectSubset<T, CategoriaCreateArgs<ExtArgs>>): Prisma__CategoriaClient<$Result.GetResult<Prisma.$CategoriaPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Create many MarcaOculosSols.
-     * @param {MarcaOculosSolCreateManyArgs} args - Arguments to create many MarcaOculosSols.
+     * Create many Categorias.
+     * @param {CategoriaCreateManyArgs} args - Arguments to create many Categorias.
      * @example
-     * // Create many MarcaOculosSols
-     * const marcaOculosSol = await prisma.marcaOculosSol.createMany({
+     * // Create many Categorias
+     * const categoria = await prisma.categoria.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends MarcaOculosSolCreateManyArgs>(args?: SelectSubset<T, MarcaOculosSolCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends CategoriaCreateManyArgs>(args?: SelectSubset<T, CategoriaCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create many MarcaOculosSols and returns the data saved in the database.
-     * @param {MarcaOculosSolCreateManyAndReturnArgs} args - Arguments to create many MarcaOculosSols.
+     * Create many Categorias and returns the data saved in the database.
+     * @param {CategoriaCreateManyAndReturnArgs} args - Arguments to create many Categorias.
      * @example
-     * // Create many MarcaOculosSols
-     * const marcaOculosSol = await prisma.marcaOculosSol.createManyAndReturn({
+     * // Create many Categorias
+     * const categoria = await prisma.categoria.createManyAndReturn({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      * 
-     * // Create many MarcaOculosSols and only return the `id`
-     * const marcaOculosSolWithIdOnly = await prisma.marcaOculosSol.createManyAndReturn({
+     * // Create many Categorias and only return the `id`
+     * const categoriaWithIdOnly = await prisma.categoria.createManyAndReturn({
      *   select: { id: true },
      *   data: [
      *     // ... provide data here
@@ -2336,28 +1426,28 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    createManyAndReturn<T extends MarcaOculosSolCreateManyAndReturnArgs>(args?: SelectSubset<T, MarcaOculosSolCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MarcaOculosSolPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+    createManyAndReturn<T extends CategoriaCreateManyAndReturnArgs>(args?: SelectSubset<T, CategoriaCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CategoriaPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Delete a MarcaOculosSol.
-     * @param {MarcaOculosSolDeleteArgs} args - Arguments to delete one MarcaOculosSol.
+     * Delete a Categoria.
+     * @param {CategoriaDeleteArgs} args - Arguments to delete one Categoria.
      * @example
-     * // Delete one MarcaOculosSol
-     * const MarcaOculosSol = await prisma.marcaOculosSol.delete({
+     * // Delete one Categoria
+     * const Categoria = await prisma.categoria.delete({
      *   where: {
-     *     // ... filter to delete one MarcaOculosSol
+     *     // ... filter to delete one Categoria
      *   }
      * })
      * 
      */
-    delete<T extends MarcaOculosSolDeleteArgs>(args: SelectSubset<T, MarcaOculosSolDeleteArgs<ExtArgs>>): Prisma__MarcaOculosSolClient<$Result.GetResult<Prisma.$MarcaOculosSolPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    delete<T extends CategoriaDeleteArgs>(args: SelectSubset<T, CategoriaDeleteArgs<ExtArgs>>): Prisma__CategoriaClient<$Result.GetResult<Prisma.$CategoriaPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Update one MarcaOculosSol.
-     * @param {MarcaOculosSolUpdateArgs} args - Arguments to update one MarcaOculosSol.
+     * Update one Categoria.
+     * @param {CategoriaUpdateArgs} args - Arguments to update one Categoria.
      * @example
-     * // Update one MarcaOculosSol
-     * const marcaOculosSol = await prisma.marcaOculosSol.update({
+     * // Update one Categoria
+     * const categoria = await prisma.categoria.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -2367,30 +1457,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends MarcaOculosSolUpdateArgs>(args: SelectSubset<T, MarcaOculosSolUpdateArgs<ExtArgs>>): Prisma__MarcaOculosSolClient<$Result.GetResult<Prisma.$MarcaOculosSolPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    update<T extends CategoriaUpdateArgs>(args: SelectSubset<T, CategoriaUpdateArgs<ExtArgs>>): Prisma__CategoriaClient<$Result.GetResult<Prisma.$CategoriaPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Delete zero or more MarcaOculosSols.
-     * @param {MarcaOculosSolDeleteManyArgs} args - Arguments to filter MarcaOculosSols to delete.
+     * Delete zero or more Categorias.
+     * @param {CategoriaDeleteManyArgs} args - Arguments to filter Categorias to delete.
      * @example
-     * // Delete a few MarcaOculosSols
-     * const { count } = await prisma.marcaOculosSol.deleteMany({
+     * // Delete a few Categorias
+     * const { count } = await prisma.categoria.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends MarcaOculosSolDeleteManyArgs>(args?: SelectSubset<T, MarcaOculosSolDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends CategoriaDeleteManyArgs>(args?: SelectSubset<T, CategoriaDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more MarcaOculosSols.
+     * Update zero or more Categorias.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {MarcaOculosSolUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {CategoriaUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many MarcaOculosSols
-     * const marcaOculosSol = await prisma.marcaOculosSol.updateMany({
+     * // Update many Categorias
+     * const categoria = await prisma.categoria.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -2400,14 +1490,14 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends MarcaOculosSolUpdateManyArgs>(args: SelectSubset<T, MarcaOculosSolUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends CategoriaUpdateManyArgs>(args: SelectSubset<T, CategoriaUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more MarcaOculosSols and returns the data updated in the database.
-     * @param {MarcaOculosSolUpdateManyAndReturnArgs} args - Arguments to update many MarcaOculosSols.
+     * Update zero or more Categorias and returns the data updated in the database.
+     * @param {CategoriaUpdateManyAndReturnArgs} args - Arguments to update many Categorias.
      * @example
-     * // Update many MarcaOculosSols
-     * const marcaOculosSol = await prisma.marcaOculosSol.updateManyAndReturn({
+     * // Update many Categorias
+     * const categoria = await prisma.categoria.updateManyAndReturn({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -2416,8 +1506,8 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Update zero or more MarcaOculosSols and only return the `id`
-     * const marcaOculosSolWithIdOnly = await prisma.marcaOculosSol.updateManyAndReturn({
+     * // Update zero or more Categorias and only return the `id`
+     * const categoriaWithIdOnly = await prisma.categoria.updateManyAndReturn({
      *   select: { id: true },
      *   where: {
      *     // ... provide filter here
@@ -2430,56 +1520,56 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    updateManyAndReturn<T extends MarcaOculosSolUpdateManyAndReturnArgs>(args: SelectSubset<T, MarcaOculosSolUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MarcaOculosSolPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+    updateManyAndReturn<T extends CategoriaUpdateManyAndReturnArgs>(args: SelectSubset<T, CategoriaUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CategoriaPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Create or update one MarcaOculosSol.
-     * @param {MarcaOculosSolUpsertArgs} args - Arguments to update or create a MarcaOculosSol.
+     * Create or update one Categoria.
+     * @param {CategoriaUpsertArgs} args - Arguments to update or create a Categoria.
      * @example
-     * // Update or create a MarcaOculosSol
-     * const marcaOculosSol = await prisma.marcaOculosSol.upsert({
+     * // Update or create a Categoria
+     * const categoria = await prisma.categoria.upsert({
      *   create: {
-     *     // ... data to create a MarcaOculosSol
+     *     // ... data to create a Categoria
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the MarcaOculosSol we want to update
+     *     // ... the filter for the Categoria we want to update
      *   }
      * })
      */
-    upsert<T extends MarcaOculosSolUpsertArgs>(args: SelectSubset<T, MarcaOculosSolUpsertArgs<ExtArgs>>): Prisma__MarcaOculosSolClient<$Result.GetResult<Prisma.$MarcaOculosSolPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    upsert<T extends CategoriaUpsertArgs>(args: SelectSubset<T, CategoriaUpsertArgs<ExtArgs>>): Prisma__CategoriaClient<$Result.GetResult<Prisma.$CategoriaPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
     /**
-     * Count the number of MarcaOculosSols.
+     * Count the number of Categorias.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {MarcaOculosSolCountArgs} args - Arguments to filter MarcaOculosSols to count.
+     * @param {CategoriaCountArgs} args - Arguments to filter Categorias to count.
      * @example
-     * // Count the number of MarcaOculosSols
-     * const count = await prisma.marcaOculosSol.count({
+     * // Count the number of Categorias
+     * const count = await prisma.categoria.count({
      *   where: {
-     *     // ... the filter for the MarcaOculosSols we want to count
+     *     // ... the filter for the Categorias we want to count
      *   }
      * })
     **/
-    count<T extends MarcaOculosSolCountArgs>(
-      args?: Subset<T, MarcaOculosSolCountArgs>,
+    count<T extends CategoriaCountArgs>(
+      args?: Subset<T, CategoriaCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], MarcaOculosSolCountAggregateOutputType>
+          : GetScalarType<T['select'], CategoriaCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a MarcaOculosSol.
+     * Allows you to perform aggregations operations on a Categoria.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {MarcaOculosSolAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {CategoriaAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -2499,13 +1589,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends MarcaOculosSolAggregateArgs>(args: Subset<T, MarcaOculosSolAggregateArgs>): Prisma.PrismaPromise<GetMarcaOculosSolAggregateType<T>>
+    aggregate<T extends CategoriaAggregateArgs>(args: Subset<T, CategoriaAggregateArgs>): Prisma.PrismaPromise<GetCategoriaAggregateType<T>>
 
     /**
-     * Group by MarcaOculosSol.
+     * Group by Categoria.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {MarcaOculosSolGroupByArgs} args - Group by arguments.
+     * @param {CategoriaGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -2520,14 +1610,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends MarcaOculosSolGroupByArgs,
+      T extends CategoriaGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: MarcaOculosSolGroupByArgs['orderBy'] }
-        : { orderBy?: MarcaOculosSolGroupByArgs['orderBy'] },
+        ? { orderBy: CategoriaGroupByArgs['orderBy'] }
+        : { orderBy?: CategoriaGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -2576,22 +1666,22 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, MarcaOculosSolGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetMarcaOculosSolGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, CategoriaGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetCategoriaGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the MarcaOculosSol model
+   * Fields of the Categoria model
    */
-  readonly fields: MarcaOculosSolFieldRefs;
+  readonly fields: CategoriaFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for MarcaOculosSol.
+   * The delegate class that acts as a "Promise-like" for Categoria.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__MarcaOculosSolClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__CategoriaClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    OculosSol<T extends MarcaOculosSol$OculosSolArgs<ExtArgs> = {}>(args?: Subset<T, MarcaOculosSol$OculosSolArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OculosSolPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    Produto<T extends Categoria$ProdutoArgs<ExtArgs> = {}>(args?: Subset<T, Categoria$ProdutoArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProdutoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2618,438 +1708,2561 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the MarcaOculosSol model
+   * Fields of the Categoria model
    */
-  interface MarcaOculosSolFieldRefs {
-    readonly id: FieldRef<"MarcaOculosSol", 'String'>
-    readonly marca: FieldRef<"MarcaOculosSol", 'String'>
+  interface CategoriaFieldRefs {
+    readonly id: FieldRef<"Categoria", 'String'>
+    readonly descricao: FieldRef<"Categoria", 'String'>
   }
     
 
   // Custom InputTypes
   /**
-   * MarcaOculosSol findUnique
+   * Categoria findUnique
    */
-  export type MarcaOculosSolFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CategoriaFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the MarcaOculosSol
+     * Select specific fields to fetch from the Categoria
      */
-    select?: MarcaOculosSolSelect<ExtArgs> | null
+    select?: CategoriaSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the MarcaOculosSol
+     * Omit specific fields from the Categoria
      */
-    omit?: MarcaOculosSolOmit<ExtArgs> | null
+    omit?: CategoriaOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: MarcaOculosSolInclude<ExtArgs> | null
+    include?: CategoriaInclude<ExtArgs> | null
     /**
-     * Filter, which MarcaOculosSol to fetch.
+     * Filter, which Categoria to fetch.
      */
-    where: MarcaOculosSolWhereUniqueInput
+    where: CategoriaWhereUniqueInput
   }
 
   /**
-   * MarcaOculosSol findUniqueOrThrow
+   * Categoria findUniqueOrThrow
    */
-  export type MarcaOculosSolFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CategoriaFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the MarcaOculosSol
+     * Select specific fields to fetch from the Categoria
      */
-    select?: MarcaOculosSolSelect<ExtArgs> | null
+    select?: CategoriaSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the MarcaOculosSol
+     * Omit specific fields from the Categoria
      */
-    omit?: MarcaOculosSolOmit<ExtArgs> | null
+    omit?: CategoriaOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: MarcaOculosSolInclude<ExtArgs> | null
+    include?: CategoriaInclude<ExtArgs> | null
     /**
-     * Filter, which MarcaOculosSol to fetch.
+     * Filter, which Categoria to fetch.
      */
-    where: MarcaOculosSolWhereUniqueInput
+    where: CategoriaWhereUniqueInput
   }
 
   /**
-   * MarcaOculosSol findFirst
+   * Categoria findFirst
    */
-  export type MarcaOculosSolFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CategoriaFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the MarcaOculosSol
+     * Select specific fields to fetch from the Categoria
      */
-    select?: MarcaOculosSolSelect<ExtArgs> | null
+    select?: CategoriaSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the MarcaOculosSol
+     * Omit specific fields from the Categoria
      */
-    omit?: MarcaOculosSolOmit<ExtArgs> | null
+    omit?: CategoriaOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: MarcaOculosSolInclude<ExtArgs> | null
+    include?: CategoriaInclude<ExtArgs> | null
     /**
-     * Filter, which MarcaOculosSol to fetch.
+     * Filter, which Categoria to fetch.
      */
-    where?: MarcaOculosSolWhereInput
+    where?: CategoriaWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of MarcaOculosSols to fetch.
+     * Determine the order of Categorias to fetch.
      */
-    orderBy?: MarcaOculosSolOrderByWithRelationInput | MarcaOculosSolOrderByWithRelationInput[]
+    orderBy?: CategoriaOrderByWithRelationInput | CategoriaOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for MarcaOculosSols.
+     * Sets the position for searching for Categorias.
      */
-    cursor?: MarcaOculosSolWhereUniqueInput
+    cursor?: CategoriaWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` MarcaOculosSols from the position of the cursor.
+     * Take `±n` Categorias from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` MarcaOculosSols.
+     * Skip the first `n` Categorias.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of MarcaOculosSols.
+     * Filter by unique combinations of Categorias.
      */
-    distinct?: MarcaOculosSolScalarFieldEnum | MarcaOculosSolScalarFieldEnum[]
+    distinct?: CategoriaScalarFieldEnum | CategoriaScalarFieldEnum[]
   }
 
   /**
-   * MarcaOculosSol findFirstOrThrow
+   * Categoria findFirstOrThrow
    */
-  export type MarcaOculosSolFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CategoriaFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the MarcaOculosSol
+     * Select specific fields to fetch from the Categoria
      */
-    select?: MarcaOculosSolSelect<ExtArgs> | null
+    select?: CategoriaSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the MarcaOculosSol
+     * Omit specific fields from the Categoria
      */
-    omit?: MarcaOculosSolOmit<ExtArgs> | null
+    omit?: CategoriaOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: MarcaOculosSolInclude<ExtArgs> | null
+    include?: CategoriaInclude<ExtArgs> | null
     /**
-     * Filter, which MarcaOculosSol to fetch.
+     * Filter, which Categoria to fetch.
      */
-    where?: MarcaOculosSolWhereInput
+    where?: CategoriaWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of MarcaOculosSols to fetch.
+     * Determine the order of Categorias to fetch.
      */
-    orderBy?: MarcaOculosSolOrderByWithRelationInput | MarcaOculosSolOrderByWithRelationInput[]
+    orderBy?: CategoriaOrderByWithRelationInput | CategoriaOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for MarcaOculosSols.
+     * Sets the position for searching for Categorias.
      */
-    cursor?: MarcaOculosSolWhereUniqueInput
+    cursor?: CategoriaWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` MarcaOculosSols from the position of the cursor.
+     * Take `±n` Categorias from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` MarcaOculosSols.
+     * Skip the first `n` Categorias.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of MarcaOculosSols.
+     * Filter by unique combinations of Categorias.
      */
-    distinct?: MarcaOculosSolScalarFieldEnum | MarcaOculosSolScalarFieldEnum[]
+    distinct?: CategoriaScalarFieldEnum | CategoriaScalarFieldEnum[]
   }
 
   /**
-   * MarcaOculosSol findMany
+   * Categoria findMany
    */
-  export type MarcaOculosSolFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CategoriaFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the MarcaOculosSol
+     * Select specific fields to fetch from the Categoria
      */
-    select?: MarcaOculosSolSelect<ExtArgs> | null
+    select?: CategoriaSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the MarcaOculosSol
+     * Omit specific fields from the Categoria
      */
-    omit?: MarcaOculosSolOmit<ExtArgs> | null
+    omit?: CategoriaOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: MarcaOculosSolInclude<ExtArgs> | null
+    include?: CategoriaInclude<ExtArgs> | null
     /**
-     * Filter, which MarcaOculosSols to fetch.
+     * Filter, which Categorias to fetch.
      */
-    where?: MarcaOculosSolWhereInput
+    where?: CategoriaWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of MarcaOculosSols to fetch.
+     * Determine the order of Categorias to fetch.
      */
-    orderBy?: MarcaOculosSolOrderByWithRelationInput | MarcaOculosSolOrderByWithRelationInput[]
+    orderBy?: CategoriaOrderByWithRelationInput | CategoriaOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing MarcaOculosSols.
+     * Sets the position for listing Categorias.
      */
-    cursor?: MarcaOculosSolWhereUniqueInput
+    cursor?: CategoriaWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` MarcaOculosSols from the position of the cursor.
+     * Take `±n` Categorias from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` MarcaOculosSols.
+     * Skip the first `n` Categorias.
      */
     skip?: number
-    distinct?: MarcaOculosSolScalarFieldEnum | MarcaOculosSolScalarFieldEnum[]
+    distinct?: CategoriaScalarFieldEnum | CategoriaScalarFieldEnum[]
   }
 
   /**
-   * MarcaOculosSol create
+   * Categoria create
    */
-  export type MarcaOculosSolCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CategoriaCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the MarcaOculosSol
+     * Select specific fields to fetch from the Categoria
      */
-    select?: MarcaOculosSolSelect<ExtArgs> | null
+    select?: CategoriaSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the MarcaOculosSol
+     * Omit specific fields from the Categoria
      */
-    omit?: MarcaOculosSolOmit<ExtArgs> | null
+    omit?: CategoriaOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: MarcaOculosSolInclude<ExtArgs> | null
+    include?: CategoriaInclude<ExtArgs> | null
     /**
-     * The data needed to create a MarcaOculosSol.
+     * The data needed to create a Categoria.
      */
-    data: XOR<MarcaOculosSolCreateInput, MarcaOculosSolUncheckedCreateInput>
+    data: XOR<CategoriaCreateInput, CategoriaUncheckedCreateInput>
   }
 
   /**
-   * MarcaOculosSol createMany
+   * Categoria createMany
    */
-  export type MarcaOculosSolCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CategoriaCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many MarcaOculosSols.
+     * The data used to create many Categorias.
      */
-    data: MarcaOculosSolCreateManyInput | MarcaOculosSolCreateManyInput[]
+    data: CategoriaCreateManyInput | CategoriaCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * MarcaOculosSol createManyAndReturn
+   * Categoria createManyAndReturn
    */
-  export type MarcaOculosSolCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CategoriaCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the MarcaOculosSol
+     * Select specific fields to fetch from the Categoria
      */
-    select?: MarcaOculosSolSelectCreateManyAndReturn<ExtArgs> | null
+    select?: CategoriaSelectCreateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the MarcaOculosSol
+     * Omit specific fields from the Categoria
      */
-    omit?: MarcaOculosSolOmit<ExtArgs> | null
+    omit?: CategoriaOmit<ExtArgs> | null
     /**
-     * The data used to create many MarcaOculosSols.
+     * The data used to create many Categorias.
      */
-    data: MarcaOculosSolCreateManyInput | MarcaOculosSolCreateManyInput[]
+    data: CategoriaCreateManyInput | CategoriaCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * MarcaOculosSol update
+   * Categoria update
    */
-  export type MarcaOculosSolUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CategoriaUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the MarcaOculosSol
+     * Select specific fields to fetch from the Categoria
      */
-    select?: MarcaOculosSolSelect<ExtArgs> | null
+    select?: CategoriaSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the MarcaOculosSol
+     * Omit specific fields from the Categoria
      */
-    omit?: MarcaOculosSolOmit<ExtArgs> | null
+    omit?: CategoriaOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: MarcaOculosSolInclude<ExtArgs> | null
+    include?: CategoriaInclude<ExtArgs> | null
     /**
-     * The data needed to update a MarcaOculosSol.
+     * The data needed to update a Categoria.
      */
-    data: XOR<MarcaOculosSolUpdateInput, MarcaOculosSolUncheckedUpdateInput>
+    data: XOR<CategoriaUpdateInput, CategoriaUncheckedUpdateInput>
     /**
-     * Choose, which MarcaOculosSol to update.
+     * Choose, which Categoria to update.
      */
-    where: MarcaOculosSolWhereUniqueInput
+    where: CategoriaWhereUniqueInput
   }
 
   /**
-   * MarcaOculosSol updateMany
+   * Categoria updateMany
    */
-  export type MarcaOculosSolUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CategoriaUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update MarcaOculosSols.
+     * The data used to update Categorias.
      */
-    data: XOR<MarcaOculosSolUpdateManyMutationInput, MarcaOculosSolUncheckedUpdateManyInput>
+    data: XOR<CategoriaUpdateManyMutationInput, CategoriaUncheckedUpdateManyInput>
     /**
-     * Filter which MarcaOculosSols to update
+     * Filter which Categorias to update
      */
-    where?: MarcaOculosSolWhereInput
+    where?: CategoriaWhereInput
     /**
-     * Limit how many MarcaOculosSols to update.
+     * Limit how many Categorias to update.
      */
     limit?: number
   }
 
   /**
-   * MarcaOculosSol updateManyAndReturn
+   * Categoria updateManyAndReturn
    */
-  export type MarcaOculosSolUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CategoriaUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the MarcaOculosSol
+     * Select specific fields to fetch from the Categoria
      */
-    select?: MarcaOculosSolSelectUpdateManyAndReturn<ExtArgs> | null
+    select?: CategoriaSelectUpdateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the MarcaOculosSol
+     * Omit specific fields from the Categoria
      */
-    omit?: MarcaOculosSolOmit<ExtArgs> | null
+    omit?: CategoriaOmit<ExtArgs> | null
     /**
-     * The data used to update MarcaOculosSols.
+     * The data used to update Categorias.
      */
-    data: XOR<MarcaOculosSolUpdateManyMutationInput, MarcaOculosSolUncheckedUpdateManyInput>
+    data: XOR<CategoriaUpdateManyMutationInput, CategoriaUncheckedUpdateManyInput>
     /**
-     * Filter which MarcaOculosSols to update
+     * Filter which Categorias to update
      */
-    where?: MarcaOculosSolWhereInput
+    where?: CategoriaWhereInput
     /**
-     * Limit how many MarcaOculosSols to update.
+     * Limit how many Categorias to update.
      */
     limit?: number
   }
 
   /**
-   * MarcaOculosSol upsert
+   * Categoria upsert
    */
-  export type MarcaOculosSolUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CategoriaUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the MarcaOculosSol
+     * Select specific fields to fetch from the Categoria
      */
-    select?: MarcaOculosSolSelect<ExtArgs> | null
+    select?: CategoriaSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the MarcaOculosSol
+     * Omit specific fields from the Categoria
      */
-    omit?: MarcaOculosSolOmit<ExtArgs> | null
+    omit?: CategoriaOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: MarcaOculosSolInclude<ExtArgs> | null
+    include?: CategoriaInclude<ExtArgs> | null
     /**
-     * The filter to search for the MarcaOculosSol to update in case it exists.
+     * The filter to search for the Categoria to update in case it exists.
      */
-    where: MarcaOculosSolWhereUniqueInput
+    where: CategoriaWhereUniqueInput
     /**
-     * In case the MarcaOculosSol found by the `where` argument doesn't exist, create a new MarcaOculosSol with this data.
+     * In case the Categoria found by the `where` argument doesn't exist, create a new Categoria with this data.
      */
-    create: XOR<MarcaOculosSolCreateInput, MarcaOculosSolUncheckedCreateInput>
+    create: XOR<CategoriaCreateInput, CategoriaUncheckedCreateInput>
     /**
-     * In case the MarcaOculosSol was found with the provided `where` argument, update it with this data.
+     * In case the Categoria was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<MarcaOculosSolUpdateInput, MarcaOculosSolUncheckedUpdateInput>
+    update: XOR<CategoriaUpdateInput, CategoriaUncheckedUpdateInput>
   }
 
   /**
-   * MarcaOculosSol delete
+   * Categoria delete
    */
-  export type MarcaOculosSolDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CategoriaDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the MarcaOculosSol
+     * Select specific fields to fetch from the Categoria
      */
-    select?: MarcaOculosSolSelect<ExtArgs> | null
+    select?: CategoriaSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the MarcaOculosSol
+     * Omit specific fields from the Categoria
      */
-    omit?: MarcaOculosSolOmit<ExtArgs> | null
+    omit?: CategoriaOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: MarcaOculosSolInclude<ExtArgs> | null
+    include?: CategoriaInclude<ExtArgs> | null
     /**
-     * Filter which MarcaOculosSol to delete.
+     * Filter which Categoria to delete.
      */
-    where: MarcaOculosSolWhereUniqueInput
+    where: CategoriaWhereUniqueInput
   }
 
   /**
-   * MarcaOculosSol deleteMany
+   * Categoria deleteMany
    */
-  export type MarcaOculosSolDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CategoriaDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which MarcaOculosSols to delete
+     * Filter which Categorias to delete
      */
-    where?: MarcaOculosSolWhereInput
+    where?: CategoriaWhereInput
     /**
-     * Limit how many MarcaOculosSols to delete.
+     * Limit how many Categorias to delete.
      */
     limit?: number
   }
 
   /**
-   * MarcaOculosSol.OculosSol
+   * Categoria.Produto
    */
-  export type MarcaOculosSol$OculosSolArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Categoria$ProdutoArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the OculosSol
+     * Select specific fields to fetch from the Produto
      */
-    select?: OculosSolSelect<ExtArgs> | null
+    select?: ProdutoSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the OculosSol
+     * Omit specific fields from the Produto
      */
-    omit?: OculosSolOmit<ExtArgs> | null
+    omit?: ProdutoOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: OculosSolInclude<ExtArgs> | null
-    where?: OculosSolWhereInput
-    orderBy?: OculosSolOrderByWithRelationInput | OculosSolOrderByWithRelationInput[]
-    cursor?: OculosSolWhereUniqueInput
+    include?: ProdutoInclude<ExtArgs> | null
+    where?: ProdutoWhereInput
+    orderBy?: ProdutoOrderByWithRelationInput | ProdutoOrderByWithRelationInput[]
+    cursor?: ProdutoWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: OculosSolScalarFieldEnum | OculosSolScalarFieldEnum[]
+    distinct?: ProdutoScalarFieldEnum | ProdutoScalarFieldEnum[]
   }
 
   /**
-   * MarcaOculosSol without action
+   * Categoria without action
    */
-  export type MarcaOculosSolDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CategoriaDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the MarcaOculosSol
+     * Select specific fields to fetch from the Categoria
      */
-    select?: MarcaOculosSolSelect<ExtArgs> | null
+    select?: CategoriaSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the MarcaOculosSol
+     * Omit specific fields from the Categoria
      */
-    omit?: MarcaOculosSolOmit<ExtArgs> | null
+    omit?: CategoriaOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: MarcaOculosSolInclude<ExtArgs> | null
+    include?: CategoriaInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Produto
+   */
+
+  export type AggregateProduto = {
+    _count: ProdutoCountAggregateOutputType | null
+    _min: ProdutoMinAggregateOutputType | null
+    _max: ProdutoMaxAggregateOutputType | null
+  }
+
+  export type ProdutoMinAggregateOutputType = {
+    id: string | null
+    nome: string | null
+    sku: string | null
+    descricao: string | null
+    url_imagem: string | null
+    categoriaId: string | null
+    marcaId: string | null
+  }
+
+  export type ProdutoMaxAggregateOutputType = {
+    id: string | null
+    nome: string | null
+    sku: string | null
+    descricao: string | null
+    url_imagem: string | null
+    categoriaId: string | null
+    marcaId: string | null
+  }
+
+  export type ProdutoCountAggregateOutputType = {
+    id: number
+    nome: number
+    sku: number
+    descricao: number
+    url_imagem: number
+    categoriaId: number
+    marcaId: number
+    _all: number
+  }
+
+
+  export type ProdutoMinAggregateInputType = {
+    id?: true
+    nome?: true
+    sku?: true
+    descricao?: true
+    url_imagem?: true
+    categoriaId?: true
+    marcaId?: true
+  }
+
+  export type ProdutoMaxAggregateInputType = {
+    id?: true
+    nome?: true
+    sku?: true
+    descricao?: true
+    url_imagem?: true
+    categoriaId?: true
+    marcaId?: true
+  }
+
+  export type ProdutoCountAggregateInputType = {
+    id?: true
+    nome?: true
+    sku?: true
+    descricao?: true
+    url_imagem?: true
+    categoriaId?: true
+    marcaId?: true
+    _all?: true
+  }
+
+  export type ProdutoAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Produto to aggregate.
+     */
+    where?: ProdutoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Produtos to fetch.
+     */
+    orderBy?: ProdutoOrderByWithRelationInput | ProdutoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ProdutoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Produtos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Produtos.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Produtos
+    **/
+    _count?: true | ProdutoCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ProdutoMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ProdutoMaxAggregateInputType
+  }
+
+  export type GetProdutoAggregateType<T extends ProdutoAggregateArgs> = {
+        [P in keyof T & keyof AggregateProduto]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateProduto[P]>
+      : GetScalarType<T[P], AggregateProduto[P]>
+  }
+
+
+
+
+  export type ProdutoGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ProdutoWhereInput
+    orderBy?: ProdutoOrderByWithAggregationInput | ProdutoOrderByWithAggregationInput[]
+    by: ProdutoScalarFieldEnum[] | ProdutoScalarFieldEnum
+    having?: ProdutoScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ProdutoCountAggregateInputType | true
+    _min?: ProdutoMinAggregateInputType
+    _max?: ProdutoMaxAggregateInputType
+  }
+
+  export type ProdutoGroupByOutputType = {
+    id: string
+    nome: string
+    sku: string
+    descricao: string | null
+    url_imagem: string
+    categoriaId: string
+    marcaId: string
+    _count: ProdutoCountAggregateOutputType | null
+    _min: ProdutoMinAggregateOutputType | null
+    _max: ProdutoMaxAggregateOutputType | null
+  }
+
+  type GetProdutoGroupByPayload<T extends ProdutoGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ProdutoGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ProdutoGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ProdutoGroupByOutputType[P]>
+            : GetScalarType<T[P], ProdutoGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ProdutoSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    nome?: boolean
+    sku?: boolean
+    descricao?: boolean
+    url_imagem?: boolean
+    categoriaId?: boolean
+    marcaId?: boolean
+    categoria?: boolean | CategoriaDefaultArgs<ExtArgs>
+    marca?: boolean | MarcaDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["produto"]>
+
+  export type ProdutoSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    nome?: boolean
+    sku?: boolean
+    descricao?: boolean
+    url_imagem?: boolean
+    categoriaId?: boolean
+    marcaId?: boolean
+    categoria?: boolean | CategoriaDefaultArgs<ExtArgs>
+    marca?: boolean | MarcaDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["produto"]>
+
+  export type ProdutoSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    nome?: boolean
+    sku?: boolean
+    descricao?: boolean
+    url_imagem?: boolean
+    categoriaId?: boolean
+    marcaId?: boolean
+    categoria?: boolean | CategoriaDefaultArgs<ExtArgs>
+    marca?: boolean | MarcaDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["produto"]>
+
+  export type ProdutoSelectScalar = {
+    id?: boolean
+    nome?: boolean
+    sku?: boolean
+    descricao?: boolean
+    url_imagem?: boolean
+    categoriaId?: boolean
+    marcaId?: boolean
+  }
+
+  export type ProdutoOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "nome" | "sku" | "descricao" | "url_imagem" | "categoriaId" | "marcaId", ExtArgs["result"]["produto"]>
+  export type ProdutoInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    categoria?: boolean | CategoriaDefaultArgs<ExtArgs>
+    marca?: boolean | MarcaDefaultArgs<ExtArgs>
+  }
+  export type ProdutoIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    categoria?: boolean | CategoriaDefaultArgs<ExtArgs>
+    marca?: boolean | MarcaDefaultArgs<ExtArgs>
+  }
+  export type ProdutoIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    categoria?: boolean | CategoriaDefaultArgs<ExtArgs>
+    marca?: boolean | MarcaDefaultArgs<ExtArgs>
+  }
+
+  export type $ProdutoPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Produto"
+    objects: {
+      categoria: Prisma.$CategoriaPayload<ExtArgs>
+      marca: Prisma.$MarcaPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      nome: string
+      sku: string
+      descricao: string | null
+      url_imagem: string
+      categoriaId: string
+      marcaId: string
+    }, ExtArgs["result"]["produto"]>
+    composites: {}
+  }
+
+  type ProdutoGetPayload<S extends boolean | null | undefined | ProdutoDefaultArgs> = $Result.GetResult<Prisma.$ProdutoPayload, S>
+
+  type ProdutoCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ProdutoFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ProdutoCountAggregateInputType | true
+    }
+
+  export interface ProdutoDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Produto'], meta: { name: 'Produto' } }
+    /**
+     * Find zero or one Produto that matches the filter.
+     * @param {ProdutoFindUniqueArgs} args - Arguments to find a Produto
+     * @example
+     * // Get one Produto
+     * const produto = await prisma.produto.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ProdutoFindUniqueArgs>(args: SelectSubset<T, ProdutoFindUniqueArgs<ExtArgs>>): Prisma__ProdutoClient<$Result.GetResult<Prisma.$ProdutoPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Produto that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ProdutoFindUniqueOrThrowArgs} args - Arguments to find a Produto
+     * @example
+     * // Get one Produto
+     * const produto = await prisma.produto.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ProdutoFindUniqueOrThrowArgs>(args: SelectSubset<T, ProdutoFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ProdutoClient<$Result.GetResult<Prisma.$ProdutoPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Produto that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProdutoFindFirstArgs} args - Arguments to find a Produto
+     * @example
+     * // Get one Produto
+     * const produto = await prisma.produto.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ProdutoFindFirstArgs>(args?: SelectSubset<T, ProdutoFindFirstArgs<ExtArgs>>): Prisma__ProdutoClient<$Result.GetResult<Prisma.$ProdutoPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Produto that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProdutoFindFirstOrThrowArgs} args - Arguments to find a Produto
+     * @example
+     * // Get one Produto
+     * const produto = await prisma.produto.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ProdutoFindFirstOrThrowArgs>(args?: SelectSubset<T, ProdutoFindFirstOrThrowArgs<ExtArgs>>): Prisma__ProdutoClient<$Result.GetResult<Prisma.$ProdutoPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Produtos that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProdutoFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Produtos
+     * const produtos = await prisma.produto.findMany()
+     * 
+     * // Get first 10 Produtos
+     * const produtos = await prisma.produto.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const produtoWithIdOnly = await prisma.produto.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ProdutoFindManyArgs>(args?: SelectSubset<T, ProdutoFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProdutoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Produto.
+     * @param {ProdutoCreateArgs} args - Arguments to create a Produto.
+     * @example
+     * // Create one Produto
+     * const Produto = await prisma.produto.create({
+     *   data: {
+     *     // ... data to create a Produto
+     *   }
+     * })
+     * 
+     */
+    create<T extends ProdutoCreateArgs>(args: SelectSubset<T, ProdutoCreateArgs<ExtArgs>>): Prisma__ProdutoClient<$Result.GetResult<Prisma.$ProdutoPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Produtos.
+     * @param {ProdutoCreateManyArgs} args - Arguments to create many Produtos.
+     * @example
+     * // Create many Produtos
+     * const produto = await prisma.produto.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ProdutoCreateManyArgs>(args?: SelectSubset<T, ProdutoCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Produtos and returns the data saved in the database.
+     * @param {ProdutoCreateManyAndReturnArgs} args - Arguments to create many Produtos.
+     * @example
+     * // Create many Produtos
+     * const produto = await prisma.produto.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Produtos and only return the `id`
+     * const produtoWithIdOnly = await prisma.produto.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ProdutoCreateManyAndReturnArgs>(args?: SelectSubset<T, ProdutoCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProdutoPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Produto.
+     * @param {ProdutoDeleteArgs} args - Arguments to delete one Produto.
+     * @example
+     * // Delete one Produto
+     * const Produto = await prisma.produto.delete({
+     *   where: {
+     *     // ... filter to delete one Produto
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ProdutoDeleteArgs>(args: SelectSubset<T, ProdutoDeleteArgs<ExtArgs>>): Prisma__ProdutoClient<$Result.GetResult<Prisma.$ProdutoPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Produto.
+     * @param {ProdutoUpdateArgs} args - Arguments to update one Produto.
+     * @example
+     * // Update one Produto
+     * const produto = await prisma.produto.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ProdutoUpdateArgs>(args: SelectSubset<T, ProdutoUpdateArgs<ExtArgs>>): Prisma__ProdutoClient<$Result.GetResult<Prisma.$ProdutoPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Produtos.
+     * @param {ProdutoDeleteManyArgs} args - Arguments to filter Produtos to delete.
+     * @example
+     * // Delete a few Produtos
+     * const { count } = await prisma.produto.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ProdutoDeleteManyArgs>(args?: SelectSubset<T, ProdutoDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Produtos.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProdutoUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Produtos
+     * const produto = await prisma.produto.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ProdutoUpdateManyArgs>(args: SelectSubset<T, ProdutoUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Produtos and returns the data updated in the database.
+     * @param {ProdutoUpdateManyAndReturnArgs} args - Arguments to update many Produtos.
+     * @example
+     * // Update many Produtos
+     * const produto = await prisma.produto.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Produtos and only return the `id`
+     * const produtoWithIdOnly = await prisma.produto.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends ProdutoUpdateManyAndReturnArgs>(args: SelectSubset<T, ProdutoUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProdutoPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Produto.
+     * @param {ProdutoUpsertArgs} args - Arguments to update or create a Produto.
+     * @example
+     * // Update or create a Produto
+     * const produto = await prisma.produto.upsert({
+     *   create: {
+     *     // ... data to create a Produto
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Produto we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ProdutoUpsertArgs>(args: SelectSubset<T, ProdutoUpsertArgs<ExtArgs>>): Prisma__ProdutoClient<$Result.GetResult<Prisma.$ProdutoPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Produtos.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProdutoCountArgs} args - Arguments to filter Produtos to count.
+     * @example
+     * // Count the number of Produtos
+     * const count = await prisma.produto.count({
+     *   where: {
+     *     // ... the filter for the Produtos we want to count
+     *   }
+     * })
+    **/
+    count<T extends ProdutoCountArgs>(
+      args?: Subset<T, ProdutoCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ProdutoCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Produto.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProdutoAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ProdutoAggregateArgs>(args: Subset<T, ProdutoAggregateArgs>): Prisma.PrismaPromise<GetProdutoAggregateType<T>>
+
+    /**
+     * Group by Produto.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProdutoGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ProdutoGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ProdutoGroupByArgs['orderBy'] }
+        : { orderBy?: ProdutoGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ProdutoGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetProdutoGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Produto model
+   */
+  readonly fields: ProdutoFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Produto.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ProdutoClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    categoria<T extends CategoriaDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CategoriaDefaultArgs<ExtArgs>>): Prisma__CategoriaClient<$Result.GetResult<Prisma.$CategoriaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    marca<T extends MarcaDefaultArgs<ExtArgs> = {}>(args?: Subset<T, MarcaDefaultArgs<ExtArgs>>): Prisma__MarcaClient<$Result.GetResult<Prisma.$MarcaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Produto model
+   */
+  interface ProdutoFieldRefs {
+    readonly id: FieldRef<"Produto", 'String'>
+    readonly nome: FieldRef<"Produto", 'String'>
+    readonly sku: FieldRef<"Produto", 'String'>
+    readonly descricao: FieldRef<"Produto", 'String'>
+    readonly url_imagem: FieldRef<"Produto", 'String'>
+    readonly categoriaId: FieldRef<"Produto", 'String'>
+    readonly marcaId: FieldRef<"Produto", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Produto findUnique
+   */
+  export type ProdutoFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Produto
+     */
+    select?: ProdutoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Produto
+     */
+    omit?: ProdutoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProdutoInclude<ExtArgs> | null
+    /**
+     * Filter, which Produto to fetch.
+     */
+    where: ProdutoWhereUniqueInput
+  }
+
+  /**
+   * Produto findUniqueOrThrow
+   */
+  export type ProdutoFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Produto
+     */
+    select?: ProdutoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Produto
+     */
+    omit?: ProdutoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProdutoInclude<ExtArgs> | null
+    /**
+     * Filter, which Produto to fetch.
+     */
+    where: ProdutoWhereUniqueInput
+  }
+
+  /**
+   * Produto findFirst
+   */
+  export type ProdutoFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Produto
+     */
+    select?: ProdutoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Produto
+     */
+    omit?: ProdutoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProdutoInclude<ExtArgs> | null
+    /**
+     * Filter, which Produto to fetch.
+     */
+    where?: ProdutoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Produtos to fetch.
+     */
+    orderBy?: ProdutoOrderByWithRelationInput | ProdutoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Produtos.
+     */
+    cursor?: ProdutoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Produtos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Produtos.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Produtos.
+     */
+    distinct?: ProdutoScalarFieldEnum | ProdutoScalarFieldEnum[]
+  }
+
+  /**
+   * Produto findFirstOrThrow
+   */
+  export type ProdutoFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Produto
+     */
+    select?: ProdutoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Produto
+     */
+    omit?: ProdutoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProdutoInclude<ExtArgs> | null
+    /**
+     * Filter, which Produto to fetch.
+     */
+    where?: ProdutoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Produtos to fetch.
+     */
+    orderBy?: ProdutoOrderByWithRelationInput | ProdutoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Produtos.
+     */
+    cursor?: ProdutoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Produtos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Produtos.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Produtos.
+     */
+    distinct?: ProdutoScalarFieldEnum | ProdutoScalarFieldEnum[]
+  }
+
+  /**
+   * Produto findMany
+   */
+  export type ProdutoFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Produto
+     */
+    select?: ProdutoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Produto
+     */
+    omit?: ProdutoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProdutoInclude<ExtArgs> | null
+    /**
+     * Filter, which Produtos to fetch.
+     */
+    where?: ProdutoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Produtos to fetch.
+     */
+    orderBy?: ProdutoOrderByWithRelationInput | ProdutoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Produtos.
+     */
+    cursor?: ProdutoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Produtos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Produtos.
+     */
+    skip?: number
+    distinct?: ProdutoScalarFieldEnum | ProdutoScalarFieldEnum[]
+  }
+
+  /**
+   * Produto create
+   */
+  export type ProdutoCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Produto
+     */
+    select?: ProdutoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Produto
+     */
+    omit?: ProdutoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProdutoInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Produto.
+     */
+    data: XOR<ProdutoCreateInput, ProdutoUncheckedCreateInput>
+  }
+
+  /**
+   * Produto createMany
+   */
+  export type ProdutoCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Produtos.
+     */
+    data: ProdutoCreateManyInput | ProdutoCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Produto createManyAndReturn
+   */
+  export type ProdutoCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Produto
+     */
+    select?: ProdutoSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Produto
+     */
+    omit?: ProdutoOmit<ExtArgs> | null
+    /**
+     * The data used to create many Produtos.
+     */
+    data: ProdutoCreateManyInput | ProdutoCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProdutoIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Produto update
+   */
+  export type ProdutoUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Produto
+     */
+    select?: ProdutoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Produto
+     */
+    omit?: ProdutoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProdutoInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Produto.
+     */
+    data: XOR<ProdutoUpdateInput, ProdutoUncheckedUpdateInput>
+    /**
+     * Choose, which Produto to update.
+     */
+    where: ProdutoWhereUniqueInput
+  }
+
+  /**
+   * Produto updateMany
+   */
+  export type ProdutoUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Produtos.
+     */
+    data: XOR<ProdutoUpdateManyMutationInput, ProdutoUncheckedUpdateManyInput>
+    /**
+     * Filter which Produtos to update
+     */
+    where?: ProdutoWhereInput
+    /**
+     * Limit how many Produtos to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Produto updateManyAndReturn
+   */
+  export type ProdutoUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Produto
+     */
+    select?: ProdutoSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Produto
+     */
+    omit?: ProdutoOmit<ExtArgs> | null
+    /**
+     * The data used to update Produtos.
+     */
+    data: XOR<ProdutoUpdateManyMutationInput, ProdutoUncheckedUpdateManyInput>
+    /**
+     * Filter which Produtos to update
+     */
+    where?: ProdutoWhereInput
+    /**
+     * Limit how many Produtos to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProdutoIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Produto upsert
+   */
+  export type ProdutoUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Produto
+     */
+    select?: ProdutoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Produto
+     */
+    omit?: ProdutoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProdutoInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Produto to update in case it exists.
+     */
+    where: ProdutoWhereUniqueInput
+    /**
+     * In case the Produto found by the `where` argument doesn't exist, create a new Produto with this data.
+     */
+    create: XOR<ProdutoCreateInput, ProdutoUncheckedCreateInput>
+    /**
+     * In case the Produto was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ProdutoUpdateInput, ProdutoUncheckedUpdateInput>
+  }
+
+  /**
+   * Produto delete
+   */
+  export type ProdutoDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Produto
+     */
+    select?: ProdutoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Produto
+     */
+    omit?: ProdutoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProdutoInclude<ExtArgs> | null
+    /**
+     * Filter which Produto to delete.
+     */
+    where: ProdutoWhereUniqueInput
+  }
+
+  /**
+   * Produto deleteMany
+   */
+  export type ProdutoDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Produtos to delete
+     */
+    where?: ProdutoWhereInput
+    /**
+     * Limit how many Produtos to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Produto without action
+   */
+  export type ProdutoDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Produto
+     */
+    select?: ProdutoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Produto
+     */
+    omit?: ProdutoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProdutoInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Marca
+   */
+
+  export type AggregateMarca = {
+    _count: MarcaCountAggregateOutputType | null
+    _min: MarcaMinAggregateOutputType | null
+    _max: MarcaMaxAggregateOutputType | null
+  }
+
+  export type MarcaMinAggregateOutputType = {
+    id: string | null
+    nome: string | null
+  }
+
+  export type MarcaMaxAggregateOutputType = {
+    id: string | null
+    nome: string | null
+  }
+
+  export type MarcaCountAggregateOutputType = {
+    id: number
+    nome: number
+    _all: number
+  }
+
+
+  export type MarcaMinAggregateInputType = {
+    id?: true
+    nome?: true
+  }
+
+  export type MarcaMaxAggregateInputType = {
+    id?: true
+    nome?: true
+  }
+
+  export type MarcaCountAggregateInputType = {
+    id?: true
+    nome?: true
+    _all?: true
+  }
+
+  export type MarcaAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Marca to aggregate.
+     */
+    where?: MarcaWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Marcas to fetch.
+     */
+    orderBy?: MarcaOrderByWithRelationInput | MarcaOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: MarcaWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Marcas from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Marcas.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Marcas
+    **/
+    _count?: true | MarcaCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: MarcaMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: MarcaMaxAggregateInputType
+  }
+
+  export type GetMarcaAggregateType<T extends MarcaAggregateArgs> = {
+        [P in keyof T & keyof AggregateMarca]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateMarca[P]>
+      : GetScalarType<T[P], AggregateMarca[P]>
+  }
+
+
+
+
+  export type MarcaGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: MarcaWhereInput
+    orderBy?: MarcaOrderByWithAggregationInput | MarcaOrderByWithAggregationInput[]
+    by: MarcaScalarFieldEnum[] | MarcaScalarFieldEnum
+    having?: MarcaScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: MarcaCountAggregateInputType | true
+    _min?: MarcaMinAggregateInputType
+    _max?: MarcaMaxAggregateInputType
+  }
+
+  export type MarcaGroupByOutputType = {
+    id: string
+    nome: string
+    _count: MarcaCountAggregateOutputType | null
+    _min: MarcaMinAggregateOutputType | null
+    _max: MarcaMaxAggregateOutputType | null
+  }
+
+  type GetMarcaGroupByPayload<T extends MarcaGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<MarcaGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof MarcaGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], MarcaGroupByOutputType[P]>
+            : GetScalarType<T[P], MarcaGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type MarcaSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    nome?: boolean
+    Produto?: boolean | Marca$ProdutoArgs<ExtArgs>
+    _count?: boolean | MarcaCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["marca"]>
+
+  export type MarcaSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    nome?: boolean
+  }, ExtArgs["result"]["marca"]>
+
+  export type MarcaSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    nome?: boolean
+  }, ExtArgs["result"]["marca"]>
+
+  export type MarcaSelectScalar = {
+    id?: boolean
+    nome?: boolean
+  }
+
+  export type MarcaOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "nome", ExtArgs["result"]["marca"]>
+  export type MarcaInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Produto?: boolean | Marca$ProdutoArgs<ExtArgs>
+    _count?: boolean | MarcaCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type MarcaIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type MarcaIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+
+  export type $MarcaPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Marca"
+    objects: {
+      Produto: Prisma.$ProdutoPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      nome: string
+    }, ExtArgs["result"]["marca"]>
+    composites: {}
+  }
+
+  type MarcaGetPayload<S extends boolean | null | undefined | MarcaDefaultArgs> = $Result.GetResult<Prisma.$MarcaPayload, S>
+
+  type MarcaCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<MarcaFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: MarcaCountAggregateInputType | true
+    }
+
+  export interface MarcaDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Marca'], meta: { name: 'Marca' } }
+    /**
+     * Find zero or one Marca that matches the filter.
+     * @param {MarcaFindUniqueArgs} args - Arguments to find a Marca
+     * @example
+     * // Get one Marca
+     * const marca = await prisma.marca.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends MarcaFindUniqueArgs>(args: SelectSubset<T, MarcaFindUniqueArgs<ExtArgs>>): Prisma__MarcaClient<$Result.GetResult<Prisma.$MarcaPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Marca that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {MarcaFindUniqueOrThrowArgs} args - Arguments to find a Marca
+     * @example
+     * // Get one Marca
+     * const marca = await prisma.marca.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends MarcaFindUniqueOrThrowArgs>(args: SelectSubset<T, MarcaFindUniqueOrThrowArgs<ExtArgs>>): Prisma__MarcaClient<$Result.GetResult<Prisma.$MarcaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Marca that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MarcaFindFirstArgs} args - Arguments to find a Marca
+     * @example
+     * // Get one Marca
+     * const marca = await prisma.marca.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends MarcaFindFirstArgs>(args?: SelectSubset<T, MarcaFindFirstArgs<ExtArgs>>): Prisma__MarcaClient<$Result.GetResult<Prisma.$MarcaPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Marca that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MarcaFindFirstOrThrowArgs} args - Arguments to find a Marca
+     * @example
+     * // Get one Marca
+     * const marca = await prisma.marca.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends MarcaFindFirstOrThrowArgs>(args?: SelectSubset<T, MarcaFindFirstOrThrowArgs<ExtArgs>>): Prisma__MarcaClient<$Result.GetResult<Prisma.$MarcaPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Marcas that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MarcaFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Marcas
+     * const marcas = await prisma.marca.findMany()
+     * 
+     * // Get first 10 Marcas
+     * const marcas = await prisma.marca.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const marcaWithIdOnly = await prisma.marca.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends MarcaFindManyArgs>(args?: SelectSubset<T, MarcaFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MarcaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Marca.
+     * @param {MarcaCreateArgs} args - Arguments to create a Marca.
+     * @example
+     * // Create one Marca
+     * const Marca = await prisma.marca.create({
+     *   data: {
+     *     // ... data to create a Marca
+     *   }
+     * })
+     * 
+     */
+    create<T extends MarcaCreateArgs>(args: SelectSubset<T, MarcaCreateArgs<ExtArgs>>): Prisma__MarcaClient<$Result.GetResult<Prisma.$MarcaPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Marcas.
+     * @param {MarcaCreateManyArgs} args - Arguments to create many Marcas.
+     * @example
+     * // Create many Marcas
+     * const marca = await prisma.marca.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends MarcaCreateManyArgs>(args?: SelectSubset<T, MarcaCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Marcas and returns the data saved in the database.
+     * @param {MarcaCreateManyAndReturnArgs} args - Arguments to create many Marcas.
+     * @example
+     * // Create many Marcas
+     * const marca = await prisma.marca.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Marcas and only return the `id`
+     * const marcaWithIdOnly = await prisma.marca.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends MarcaCreateManyAndReturnArgs>(args?: SelectSubset<T, MarcaCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MarcaPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Marca.
+     * @param {MarcaDeleteArgs} args - Arguments to delete one Marca.
+     * @example
+     * // Delete one Marca
+     * const Marca = await prisma.marca.delete({
+     *   where: {
+     *     // ... filter to delete one Marca
+     *   }
+     * })
+     * 
+     */
+    delete<T extends MarcaDeleteArgs>(args: SelectSubset<T, MarcaDeleteArgs<ExtArgs>>): Prisma__MarcaClient<$Result.GetResult<Prisma.$MarcaPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Marca.
+     * @param {MarcaUpdateArgs} args - Arguments to update one Marca.
+     * @example
+     * // Update one Marca
+     * const marca = await prisma.marca.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends MarcaUpdateArgs>(args: SelectSubset<T, MarcaUpdateArgs<ExtArgs>>): Prisma__MarcaClient<$Result.GetResult<Prisma.$MarcaPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Marcas.
+     * @param {MarcaDeleteManyArgs} args - Arguments to filter Marcas to delete.
+     * @example
+     * // Delete a few Marcas
+     * const { count } = await prisma.marca.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends MarcaDeleteManyArgs>(args?: SelectSubset<T, MarcaDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Marcas.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MarcaUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Marcas
+     * const marca = await prisma.marca.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends MarcaUpdateManyArgs>(args: SelectSubset<T, MarcaUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Marcas and returns the data updated in the database.
+     * @param {MarcaUpdateManyAndReturnArgs} args - Arguments to update many Marcas.
+     * @example
+     * // Update many Marcas
+     * const marca = await prisma.marca.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Marcas and only return the `id`
+     * const marcaWithIdOnly = await prisma.marca.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends MarcaUpdateManyAndReturnArgs>(args: SelectSubset<T, MarcaUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MarcaPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Marca.
+     * @param {MarcaUpsertArgs} args - Arguments to update or create a Marca.
+     * @example
+     * // Update or create a Marca
+     * const marca = await prisma.marca.upsert({
+     *   create: {
+     *     // ... data to create a Marca
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Marca we want to update
+     *   }
+     * })
+     */
+    upsert<T extends MarcaUpsertArgs>(args: SelectSubset<T, MarcaUpsertArgs<ExtArgs>>): Prisma__MarcaClient<$Result.GetResult<Prisma.$MarcaPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Marcas.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MarcaCountArgs} args - Arguments to filter Marcas to count.
+     * @example
+     * // Count the number of Marcas
+     * const count = await prisma.marca.count({
+     *   where: {
+     *     // ... the filter for the Marcas we want to count
+     *   }
+     * })
+    **/
+    count<T extends MarcaCountArgs>(
+      args?: Subset<T, MarcaCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], MarcaCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Marca.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MarcaAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends MarcaAggregateArgs>(args: Subset<T, MarcaAggregateArgs>): Prisma.PrismaPromise<GetMarcaAggregateType<T>>
+
+    /**
+     * Group by Marca.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MarcaGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends MarcaGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: MarcaGroupByArgs['orderBy'] }
+        : { orderBy?: MarcaGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, MarcaGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetMarcaGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Marca model
+   */
+  readonly fields: MarcaFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Marca.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__MarcaClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    Produto<T extends Marca$ProdutoArgs<ExtArgs> = {}>(args?: Subset<T, Marca$ProdutoArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProdutoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Marca model
+   */
+  interface MarcaFieldRefs {
+    readonly id: FieldRef<"Marca", 'String'>
+    readonly nome: FieldRef<"Marca", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Marca findUnique
+   */
+  export type MarcaFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Marca
+     */
+    select?: MarcaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Marca
+     */
+    omit?: MarcaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MarcaInclude<ExtArgs> | null
+    /**
+     * Filter, which Marca to fetch.
+     */
+    where: MarcaWhereUniqueInput
+  }
+
+  /**
+   * Marca findUniqueOrThrow
+   */
+  export type MarcaFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Marca
+     */
+    select?: MarcaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Marca
+     */
+    omit?: MarcaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MarcaInclude<ExtArgs> | null
+    /**
+     * Filter, which Marca to fetch.
+     */
+    where: MarcaWhereUniqueInput
+  }
+
+  /**
+   * Marca findFirst
+   */
+  export type MarcaFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Marca
+     */
+    select?: MarcaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Marca
+     */
+    omit?: MarcaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MarcaInclude<ExtArgs> | null
+    /**
+     * Filter, which Marca to fetch.
+     */
+    where?: MarcaWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Marcas to fetch.
+     */
+    orderBy?: MarcaOrderByWithRelationInput | MarcaOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Marcas.
+     */
+    cursor?: MarcaWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Marcas from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Marcas.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Marcas.
+     */
+    distinct?: MarcaScalarFieldEnum | MarcaScalarFieldEnum[]
+  }
+
+  /**
+   * Marca findFirstOrThrow
+   */
+  export type MarcaFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Marca
+     */
+    select?: MarcaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Marca
+     */
+    omit?: MarcaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MarcaInclude<ExtArgs> | null
+    /**
+     * Filter, which Marca to fetch.
+     */
+    where?: MarcaWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Marcas to fetch.
+     */
+    orderBy?: MarcaOrderByWithRelationInput | MarcaOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Marcas.
+     */
+    cursor?: MarcaWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Marcas from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Marcas.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Marcas.
+     */
+    distinct?: MarcaScalarFieldEnum | MarcaScalarFieldEnum[]
+  }
+
+  /**
+   * Marca findMany
+   */
+  export type MarcaFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Marca
+     */
+    select?: MarcaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Marca
+     */
+    omit?: MarcaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MarcaInclude<ExtArgs> | null
+    /**
+     * Filter, which Marcas to fetch.
+     */
+    where?: MarcaWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Marcas to fetch.
+     */
+    orderBy?: MarcaOrderByWithRelationInput | MarcaOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Marcas.
+     */
+    cursor?: MarcaWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Marcas from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Marcas.
+     */
+    skip?: number
+    distinct?: MarcaScalarFieldEnum | MarcaScalarFieldEnum[]
+  }
+
+  /**
+   * Marca create
+   */
+  export type MarcaCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Marca
+     */
+    select?: MarcaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Marca
+     */
+    omit?: MarcaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MarcaInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Marca.
+     */
+    data: XOR<MarcaCreateInput, MarcaUncheckedCreateInput>
+  }
+
+  /**
+   * Marca createMany
+   */
+  export type MarcaCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Marcas.
+     */
+    data: MarcaCreateManyInput | MarcaCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Marca createManyAndReturn
+   */
+  export type MarcaCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Marca
+     */
+    select?: MarcaSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Marca
+     */
+    omit?: MarcaOmit<ExtArgs> | null
+    /**
+     * The data used to create many Marcas.
+     */
+    data: MarcaCreateManyInput | MarcaCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Marca update
+   */
+  export type MarcaUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Marca
+     */
+    select?: MarcaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Marca
+     */
+    omit?: MarcaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MarcaInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Marca.
+     */
+    data: XOR<MarcaUpdateInput, MarcaUncheckedUpdateInput>
+    /**
+     * Choose, which Marca to update.
+     */
+    where: MarcaWhereUniqueInput
+  }
+
+  /**
+   * Marca updateMany
+   */
+  export type MarcaUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Marcas.
+     */
+    data: XOR<MarcaUpdateManyMutationInput, MarcaUncheckedUpdateManyInput>
+    /**
+     * Filter which Marcas to update
+     */
+    where?: MarcaWhereInput
+    /**
+     * Limit how many Marcas to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Marca updateManyAndReturn
+   */
+  export type MarcaUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Marca
+     */
+    select?: MarcaSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Marca
+     */
+    omit?: MarcaOmit<ExtArgs> | null
+    /**
+     * The data used to update Marcas.
+     */
+    data: XOR<MarcaUpdateManyMutationInput, MarcaUncheckedUpdateManyInput>
+    /**
+     * Filter which Marcas to update
+     */
+    where?: MarcaWhereInput
+    /**
+     * Limit how many Marcas to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Marca upsert
+   */
+  export type MarcaUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Marca
+     */
+    select?: MarcaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Marca
+     */
+    omit?: MarcaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MarcaInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Marca to update in case it exists.
+     */
+    where: MarcaWhereUniqueInput
+    /**
+     * In case the Marca found by the `where` argument doesn't exist, create a new Marca with this data.
+     */
+    create: XOR<MarcaCreateInput, MarcaUncheckedCreateInput>
+    /**
+     * In case the Marca was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<MarcaUpdateInput, MarcaUncheckedUpdateInput>
+  }
+
+  /**
+   * Marca delete
+   */
+  export type MarcaDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Marca
+     */
+    select?: MarcaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Marca
+     */
+    omit?: MarcaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MarcaInclude<ExtArgs> | null
+    /**
+     * Filter which Marca to delete.
+     */
+    where: MarcaWhereUniqueInput
+  }
+
+  /**
+   * Marca deleteMany
+   */
+  export type MarcaDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Marcas to delete
+     */
+    where?: MarcaWhereInput
+    /**
+     * Limit how many Marcas to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Marca.Produto
+   */
+  export type Marca$ProdutoArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Produto
+     */
+    select?: ProdutoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Produto
+     */
+    omit?: ProdutoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProdutoInclude<ExtArgs> | null
+    where?: ProdutoWhereInput
+    orderBy?: ProdutoOrderByWithRelationInput | ProdutoOrderByWithRelationInput[]
+    cursor?: ProdutoWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ProdutoScalarFieldEnum | ProdutoScalarFieldEnum[]
+  }
+
+  /**
+   * Marca without action
+   */
+  export type MarcaDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Marca
+     */
+    select?: MarcaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Marca
+     */
+    omit?: MarcaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MarcaInclude<ExtArgs> | null
   }
 
 
@@ -3067,21 +4280,33 @@ export namespace Prisma {
   export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel]
 
 
-  export const OculosSolScalarFieldEnum: {
-    codigo: 'codigo',
-    descricao: 'descricao',
-    marcaOculosSolId: 'marcaOculosSolId'
-  };
-
-  export type OculosSolScalarFieldEnum = (typeof OculosSolScalarFieldEnum)[keyof typeof OculosSolScalarFieldEnum]
-
-
-  export const MarcaOculosSolScalarFieldEnum: {
+  export const CategoriaScalarFieldEnum: {
     id: 'id',
-    marca: 'marca'
+    descricao: 'descricao'
   };
 
-  export type MarcaOculosSolScalarFieldEnum = (typeof MarcaOculosSolScalarFieldEnum)[keyof typeof MarcaOculosSolScalarFieldEnum]
+  export type CategoriaScalarFieldEnum = (typeof CategoriaScalarFieldEnum)[keyof typeof CategoriaScalarFieldEnum]
+
+
+  export const ProdutoScalarFieldEnum: {
+    id: 'id',
+    nome: 'nome',
+    sku: 'sku',
+    descricao: 'descricao',
+    url_imagem: 'url_imagem',
+    categoriaId: 'categoriaId',
+    marcaId: 'marcaId'
+  };
+
+  export type ProdutoScalarFieldEnum = (typeof ProdutoScalarFieldEnum)[keyof typeof ProdutoScalarFieldEnum]
+
+
+  export const MarcaScalarFieldEnum: {
+    id: 'id',
+    nome: 'nome'
+  };
+
+  export type MarcaScalarFieldEnum = (typeof MarcaScalarFieldEnum)[keyof typeof MarcaScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -3098,6 +4323,14 @@ export namespace Prisma {
   };
 
   export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode]
+
+
+  export const NullsOrder: {
+    first: 'first',
+    last: 'last'
+  };
+
+  export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
 
 
   /**
@@ -3136,169 +4369,298 @@ export namespace Prisma {
    */
 
 
-  export type OculosSolWhereInput = {
-    AND?: OculosSolWhereInput | OculosSolWhereInput[]
-    OR?: OculosSolWhereInput[]
-    NOT?: OculosSolWhereInput | OculosSolWhereInput[]
-    codigo?: StringFilter<"OculosSol"> | string
-    descricao?: StringFilter<"OculosSol"> | string
-    marcaOculosSolId?: StringFilter<"OculosSol"> | string
-    marcaOculosSol?: XOR<MarcaOculosSolScalarRelationFilter, MarcaOculosSolWhereInput>
+  export type CategoriaWhereInput = {
+    AND?: CategoriaWhereInput | CategoriaWhereInput[]
+    OR?: CategoriaWhereInput[]
+    NOT?: CategoriaWhereInput | CategoriaWhereInput[]
+    id?: StringFilter<"Categoria"> | string
+    descricao?: StringFilter<"Categoria"> | string
+    Produto?: ProdutoListRelationFilter
   }
 
-  export type OculosSolOrderByWithRelationInput = {
-    codigo?: SortOrder
-    descricao?: SortOrder
-    marcaOculosSolId?: SortOrder
-    marcaOculosSol?: MarcaOculosSolOrderByWithRelationInput
-  }
-
-  export type OculosSolWhereUniqueInput = Prisma.AtLeast<{
-    codigo?: string
-    AND?: OculosSolWhereInput | OculosSolWhereInput[]
-    OR?: OculosSolWhereInput[]
-    NOT?: OculosSolWhereInput | OculosSolWhereInput[]
-    descricao?: StringFilter<"OculosSol"> | string
-    marcaOculosSolId?: StringFilter<"OculosSol"> | string
-    marcaOculosSol?: XOR<MarcaOculosSolScalarRelationFilter, MarcaOculosSolWhereInput>
-  }, "codigo">
-
-  export type OculosSolOrderByWithAggregationInput = {
-    codigo?: SortOrder
-    descricao?: SortOrder
-    marcaOculosSolId?: SortOrder
-    _count?: OculosSolCountOrderByAggregateInput
-    _max?: OculosSolMaxOrderByAggregateInput
-    _min?: OculosSolMinOrderByAggregateInput
-  }
-
-  export type OculosSolScalarWhereWithAggregatesInput = {
-    AND?: OculosSolScalarWhereWithAggregatesInput | OculosSolScalarWhereWithAggregatesInput[]
-    OR?: OculosSolScalarWhereWithAggregatesInput[]
-    NOT?: OculosSolScalarWhereWithAggregatesInput | OculosSolScalarWhereWithAggregatesInput[]
-    codigo?: StringWithAggregatesFilter<"OculosSol"> | string
-    descricao?: StringWithAggregatesFilter<"OculosSol"> | string
-    marcaOculosSolId?: StringWithAggregatesFilter<"OculosSol"> | string
-  }
-
-  export type MarcaOculosSolWhereInput = {
-    AND?: MarcaOculosSolWhereInput | MarcaOculosSolWhereInput[]
-    OR?: MarcaOculosSolWhereInput[]
-    NOT?: MarcaOculosSolWhereInput | MarcaOculosSolWhereInput[]
-    id?: StringFilter<"MarcaOculosSol"> | string
-    marca?: StringFilter<"MarcaOculosSol"> | string
-    OculosSol?: OculosSolListRelationFilter
-  }
-
-  export type MarcaOculosSolOrderByWithRelationInput = {
+  export type CategoriaOrderByWithRelationInput = {
     id?: SortOrder
-    marca?: SortOrder
-    OculosSol?: OculosSolOrderByRelationAggregateInput
+    descricao?: SortOrder
+    Produto?: ProdutoOrderByRelationAggregateInput
   }
 
-  export type MarcaOculosSolWhereUniqueInput = Prisma.AtLeast<{
+  export type CategoriaWhereUniqueInput = Prisma.AtLeast<{
     id?: string
-    AND?: MarcaOculosSolWhereInput | MarcaOculosSolWhereInput[]
-    OR?: MarcaOculosSolWhereInput[]
-    NOT?: MarcaOculosSolWhereInput | MarcaOculosSolWhereInput[]
-    marca?: StringFilter<"MarcaOculosSol"> | string
-    OculosSol?: OculosSolListRelationFilter
+    AND?: CategoriaWhereInput | CategoriaWhereInput[]
+    OR?: CategoriaWhereInput[]
+    NOT?: CategoriaWhereInput | CategoriaWhereInput[]
+    descricao?: StringFilter<"Categoria"> | string
+    Produto?: ProdutoListRelationFilter
   }, "id">
 
-  export type MarcaOculosSolOrderByWithAggregationInput = {
+  export type CategoriaOrderByWithAggregationInput = {
     id?: SortOrder
-    marca?: SortOrder
-    _count?: MarcaOculosSolCountOrderByAggregateInput
-    _max?: MarcaOculosSolMaxOrderByAggregateInput
-    _min?: MarcaOculosSolMinOrderByAggregateInput
+    descricao?: SortOrder
+    _count?: CategoriaCountOrderByAggregateInput
+    _max?: CategoriaMaxOrderByAggregateInput
+    _min?: CategoriaMinOrderByAggregateInput
   }
 
-  export type MarcaOculosSolScalarWhereWithAggregatesInput = {
-    AND?: MarcaOculosSolScalarWhereWithAggregatesInput | MarcaOculosSolScalarWhereWithAggregatesInput[]
-    OR?: MarcaOculosSolScalarWhereWithAggregatesInput[]
-    NOT?: MarcaOculosSolScalarWhereWithAggregatesInput | MarcaOculosSolScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"MarcaOculosSol"> | string
-    marca?: StringWithAggregatesFilter<"MarcaOculosSol"> | string
+  export type CategoriaScalarWhereWithAggregatesInput = {
+    AND?: CategoriaScalarWhereWithAggregatesInput | CategoriaScalarWhereWithAggregatesInput[]
+    OR?: CategoriaScalarWhereWithAggregatesInput[]
+    NOT?: CategoriaScalarWhereWithAggregatesInput | CategoriaScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Categoria"> | string
+    descricao?: StringWithAggregatesFilter<"Categoria"> | string
   }
 
-  export type OculosSolCreateInput = {
-    codigo?: string
-    descricao: string
-    marcaOculosSol: MarcaOculosSolCreateNestedOneWithoutOculosSolInput
+  export type ProdutoWhereInput = {
+    AND?: ProdutoWhereInput | ProdutoWhereInput[]
+    OR?: ProdutoWhereInput[]
+    NOT?: ProdutoWhereInput | ProdutoWhereInput[]
+    id?: StringFilter<"Produto"> | string
+    nome?: StringFilter<"Produto"> | string
+    sku?: StringFilter<"Produto"> | string
+    descricao?: StringNullableFilter<"Produto"> | string | null
+    url_imagem?: StringFilter<"Produto"> | string
+    categoriaId?: StringFilter<"Produto"> | string
+    marcaId?: StringFilter<"Produto"> | string
+    categoria?: XOR<CategoriaScalarRelationFilter, CategoriaWhereInput>
+    marca?: XOR<MarcaScalarRelationFilter, MarcaWhereInput>
   }
 
-  export type OculosSolUncheckedCreateInput = {
-    codigo?: string
-    descricao: string
-    marcaOculosSolId: string
+  export type ProdutoOrderByWithRelationInput = {
+    id?: SortOrder
+    nome?: SortOrder
+    sku?: SortOrder
+    descricao?: SortOrderInput | SortOrder
+    url_imagem?: SortOrder
+    categoriaId?: SortOrder
+    marcaId?: SortOrder
+    categoria?: CategoriaOrderByWithRelationInput
+    marca?: MarcaOrderByWithRelationInput
   }
 
-  export type OculosSolUpdateInput = {
-    codigo?: StringFieldUpdateOperationsInput | string
-    descricao?: StringFieldUpdateOperationsInput | string
-    marcaOculosSol?: MarcaOculosSolUpdateOneRequiredWithoutOculosSolNestedInput
-  }
-
-  export type OculosSolUncheckedUpdateInput = {
-    codigo?: StringFieldUpdateOperationsInput | string
-    descricao?: StringFieldUpdateOperationsInput | string
-    marcaOculosSolId?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type OculosSolCreateManyInput = {
-    codigo?: string
-    descricao: string
-    marcaOculosSolId: string
-  }
-
-  export type OculosSolUpdateManyMutationInput = {
-    codigo?: StringFieldUpdateOperationsInput | string
-    descricao?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type OculosSolUncheckedUpdateManyInput = {
-    codigo?: StringFieldUpdateOperationsInput | string
-    descricao?: StringFieldUpdateOperationsInput | string
-    marcaOculosSolId?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type MarcaOculosSolCreateInput = {
+  export type ProdutoWhereUniqueInput = Prisma.AtLeast<{
     id?: string
-    marca: string
-    OculosSol?: OculosSolCreateNestedManyWithoutMarcaOculosSolInput
+    AND?: ProdutoWhereInput | ProdutoWhereInput[]
+    OR?: ProdutoWhereInput[]
+    NOT?: ProdutoWhereInput | ProdutoWhereInput[]
+    nome?: StringFilter<"Produto"> | string
+    sku?: StringFilter<"Produto"> | string
+    descricao?: StringNullableFilter<"Produto"> | string | null
+    url_imagem?: StringFilter<"Produto"> | string
+    categoriaId?: StringFilter<"Produto"> | string
+    marcaId?: StringFilter<"Produto"> | string
+    categoria?: XOR<CategoriaScalarRelationFilter, CategoriaWhereInput>
+    marca?: XOR<MarcaScalarRelationFilter, MarcaWhereInput>
+  }, "id">
+
+  export type ProdutoOrderByWithAggregationInput = {
+    id?: SortOrder
+    nome?: SortOrder
+    sku?: SortOrder
+    descricao?: SortOrderInput | SortOrder
+    url_imagem?: SortOrder
+    categoriaId?: SortOrder
+    marcaId?: SortOrder
+    _count?: ProdutoCountOrderByAggregateInput
+    _max?: ProdutoMaxOrderByAggregateInput
+    _min?: ProdutoMinOrderByAggregateInput
   }
 
-  export type MarcaOculosSolUncheckedCreateInput = {
+  export type ProdutoScalarWhereWithAggregatesInput = {
+    AND?: ProdutoScalarWhereWithAggregatesInput | ProdutoScalarWhereWithAggregatesInput[]
+    OR?: ProdutoScalarWhereWithAggregatesInput[]
+    NOT?: ProdutoScalarWhereWithAggregatesInput | ProdutoScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Produto"> | string
+    nome?: StringWithAggregatesFilter<"Produto"> | string
+    sku?: StringWithAggregatesFilter<"Produto"> | string
+    descricao?: StringNullableWithAggregatesFilter<"Produto"> | string | null
+    url_imagem?: StringWithAggregatesFilter<"Produto"> | string
+    categoriaId?: StringWithAggregatesFilter<"Produto"> | string
+    marcaId?: StringWithAggregatesFilter<"Produto"> | string
+  }
+
+  export type MarcaWhereInput = {
+    AND?: MarcaWhereInput | MarcaWhereInput[]
+    OR?: MarcaWhereInput[]
+    NOT?: MarcaWhereInput | MarcaWhereInput[]
+    id?: StringFilter<"Marca"> | string
+    nome?: StringFilter<"Marca"> | string
+    Produto?: ProdutoListRelationFilter
+  }
+
+  export type MarcaOrderByWithRelationInput = {
+    id?: SortOrder
+    nome?: SortOrder
+    Produto?: ProdutoOrderByRelationAggregateInput
+  }
+
+  export type MarcaWhereUniqueInput = Prisma.AtLeast<{
     id?: string
-    marca: string
-    OculosSol?: OculosSolUncheckedCreateNestedManyWithoutMarcaOculosSolInput
+    AND?: MarcaWhereInput | MarcaWhereInput[]
+    OR?: MarcaWhereInput[]
+    NOT?: MarcaWhereInput | MarcaWhereInput[]
+    nome?: StringFilter<"Marca"> | string
+    Produto?: ProdutoListRelationFilter
+  }, "id">
+
+  export type MarcaOrderByWithAggregationInput = {
+    id?: SortOrder
+    nome?: SortOrder
+    _count?: MarcaCountOrderByAggregateInput
+    _max?: MarcaMaxOrderByAggregateInput
+    _min?: MarcaMinOrderByAggregateInput
   }
 
-  export type MarcaOculosSolUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    marca?: StringFieldUpdateOperationsInput | string
-    OculosSol?: OculosSolUpdateManyWithoutMarcaOculosSolNestedInput
+  export type MarcaScalarWhereWithAggregatesInput = {
+    AND?: MarcaScalarWhereWithAggregatesInput | MarcaScalarWhereWithAggregatesInput[]
+    OR?: MarcaScalarWhereWithAggregatesInput[]
+    NOT?: MarcaScalarWhereWithAggregatesInput | MarcaScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Marca"> | string
+    nome?: StringWithAggregatesFilter<"Marca"> | string
   }
 
-  export type MarcaOculosSolUncheckedUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    marca?: StringFieldUpdateOperationsInput | string
-    OculosSol?: OculosSolUncheckedUpdateManyWithoutMarcaOculosSolNestedInput
-  }
-
-  export type MarcaOculosSolCreateManyInput = {
+  export type CategoriaCreateInput = {
     id?: string
-    marca: string
+    descricao: string
+    Produto?: ProdutoCreateNestedManyWithoutCategoriaInput
   }
 
-  export type MarcaOculosSolUpdateManyMutationInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    marca?: StringFieldUpdateOperationsInput | string
+  export type CategoriaUncheckedCreateInput = {
+    id?: string
+    descricao: string
+    Produto?: ProdutoUncheckedCreateNestedManyWithoutCategoriaInput
   }
 
-  export type MarcaOculosSolUncheckedUpdateManyInput = {
+  export type CategoriaUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    marca?: StringFieldUpdateOperationsInput | string
+    descricao?: StringFieldUpdateOperationsInput | string
+    Produto?: ProdutoUpdateManyWithoutCategoriaNestedInput
+  }
+
+  export type CategoriaUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    descricao?: StringFieldUpdateOperationsInput | string
+    Produto?: ProdutoUncheckedUpdateManyWithoutCategoriaNestedInput
+  }
+
+  export type CategoriaCreateManyInput = {
+    id?: string
+    descricao: string
+  }
+
+  export type CategoriaUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    descricao?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type CategoriaUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    descricao?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ProdutoCreateInput = {
+    id: string
+    nome: string
+    sku: string
+    descricao?: string | null
+    url_imagem: string
+    categoria: CategoriaCreateNestedOneWithoutProdutoInput
+    marca: MarcaCreateNestedOneWithoutProdutoInput
+  }
+
+  export type ProdutoUncheckedCreateInput = {
+    id: string
+    nome: string
+    sku: string
+    descricao?: string | null
+    url_imagem: string
+    categoriaId: string
+    marcaId: string
+  }
+
+  export type ProdutoUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nome?: StringFieldUpdateOperationsInput | string
+    sku?: StringFieldUpdateOperationsInput | string
+    descricao?: NullableStringFieldUpdateOperationsInput | string | null
+    url_imagem?: StringFieldUpdateOperationsInput | string
+    categoria?: CategoriaUpdateOneRequiredWithoutProdutoNestedInput
+    marca?: MarcaUpdateOneRequiredWithoutProdutoNestedInput
+  }
+
+  export type ProdutoUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nome?: StringFieldUpdateOperationsInput | string
+    sku?: StringFieldUpdateOperationsInput | string
+    descricao?: NullableStringFieldUpdateOperationsInput | string | null
+    url_imagem?: StringFieldUpdateOperationsInput | string
+    categoriaId?: StringFieldUpdateOperationsInput | string
+    marcaId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ProdutoCreateManyInput = {
+    id: string
+    nome: string
+    sku: string
+    descricao?: string | null
+    url_imagem: string
+    categoriaId: string
+    marcaId: string
+  }
+
+  export type ProdutoUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nome?: StringFieldUpdateOperationsInput | string
+    sku?: StringFieldUpdateOperationsInput | string
+    descricao?: NullableStringFieldUpdateOperationsInput | string | null
+    url_imagem?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ProdutoUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nome?: StringFieldUpdateOperationsInput | string
+    sku?: StringFieldUpdateOperationsInput | string
+    descricao?: NullableStringFieldUpdateOperationsInput | string | null
+    url_imagem?: StringFieldUpdateOperationsInput | string
+    categoriaId?: StringFieldUpdateOperationsInput | string
+    marcaId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type MarcaCreateInput = {
+    id?: string
+    nome: string
+    Produto?: ProdutoCreateNestedManyWithoutMarcaInput
+  }
+
+  export type MarcaUncheckedCreateInput = {
+    id?: string
+    nome: string
+    Produto?: ProdutoUncheckedCreateNestedManyWithoutMarcaInput
+  }
+
+  export type MarcaUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nome?: StringFieldUpdateOperationsInput | string
+    Produto?: ProdutoUpdateManyWithoutMarcaNestedInput
+  }
+
+  export type MarcaUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nome?: StringFieldUpdateOperationsInput | string
+    Produto?: ProdutoUncheckedUpdateManyWithoutMarcaNestedInput
+  }
+
+  export type MarcaCreateManyInput = {
+    id?: string
+    nome: string
+  }
+
+  export type MarcaUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nome?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type MarcaUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nome?: StringFieldUpdateOperationsInput | string
   }
 
   export type StringFilter<$PrismaModel = never> = {
@@ -3316,27 +4678,29 @@ export namespace Prisma {
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
-  export type MarcaOculosSolScalarRelationFilter = {
-    is?: MarcaOculosSolWhereInput
-    isNot?: MarcaOculosSolWhereInput
+  export type ProdutoListRelationFilter = {
+    every?: ProdutoWhereInput
+    some?: ProdutoWhereInput
+    none?: ProdutoWhereInput
   }
 
-  export type OculosSolCountOrderByAggregateInput = {
-    codigo?: SortOrder
-    descricao?: SortOrder
-    marcaOculosSolId?: SortOrder
+  export type ProdutoOrderByRelationAggregateInput = {
+    _count?: SortOrder
   }
 
-  export type OculosSolMaxOrderByAggregateInput = {
-    codigo?: SortOrder
+  export type CategoriaCountOrderByAggregateInput = {
+    id?: SortOrder
     descricao?: SortOrder
-    marcaOculosSolId?: SortOrder
   }
 
-  export type OculosSolMinOrderByAggregateInput = {
-    codigo?: SortOrder
+  export type CategoriaMaxOrderByAggregateInput = {
+    id?: SortOrder
     descricao?: SortOrder
-    marcaOculosSolId?: SortOrder
+  }
+
+  export type CategoriaMinOrderByAggregateInput = {
+    id?: SortOrder
+    descricao?: SortOrder
   }
 
   export type StringWithAggregatesFilter<$PrismaModel = never> = {
@@ -3357,89 +4721,217 @@ export namespace Prisma {
     _max?: NestedStringFilter<$PrismaModel>
   }
 
-  export type OculosSolListRelationFilter = {
-    every?: OculosSolWhereInput
-    some?: OculosSolWhereInput
-    none?: OculosSolWhereInput
+  export type StringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
-  export type OculosSolOrderByRelationAggregateInput = {
-    _count?: SortOrder
+  export type CategoriaScalarRelationFilter = {
+    is?: CategoriaWhereInput
+    isNot?: CategoriaWhereInput
   }
 
-  export type MarcaOculosSolCountOrderByAggregateInput = {
+  export type MarcaScalarRelationFilter = {
+    is?: MarcaWhereInput
+    isNot?: MarcaWhereInput
+  }
+
+  export type SortOrderInput = {
+    sort: SortOrder
+    nulls?: NullsOrder
+  }
+
+  export type ProdutoCountOrderByAggregateInput = {
     id?: SortOrder
-    marca?: SortOrder
+    nome?: SortOrder
+    sku?: SortOrder
+    descricao?: SortOrder
+    url_imagem?: SortOrder
+    categoriaId?: SortOrder
+    marcaId?: SortOrder
   }
 
-  export type MarcaOculosSolMaxOrderByAggregateInput = {
+  export type ProdutoMaxOrderByAggregateInput = {
     id?: SortOrder
-    marca?: SortOrder
+    nome?: SortOrder
+    sku?: SortOrder
+    descricao?: SortOrder
+    url_imagem?: SortOrder
+    categoriaId?: SortOrder
+    marcaId?: SortOrder
   }
 
-  export type MarcaOculosSolMinOrderByAggregateInput = {
+  export type ProdutoMinOrderByAggregateInput = {
     id?: SortOrder
-    marca?: SortOrder
+    nome?: SortOrder
+    sku?: SortOrder
+    descricao?: SortOrder
+    url_imagem?: SortOrder
+    categoriaId?: SortOrder
+    marcaId?: SortOrder
   }
 
-  export type MarcaOculosSolCreateNestedOneWithoutOculosSolInput = {
-    create?: XOR<MarcaOculosSolCreateWithoutOculosSolInput, MarcaOculosSolUncheckedCreateWithoutOculosSolInput>
-    connectOrCreate?: MarcaOculosSolCreateOrConnectWithoutOculosSolInput
-    connect?: MarcaOculosSolWhereUniqueInput
+  export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
+  }
+
+  export type MarcaCountOrderByAggregateInput = {
+    id?: SortOrder
+    nome?: SortOrder
+  }
+
+  export type MarcaMaxOrderByAggregateInput = {
+    id?: SortOrder
+    nome?: SortOrder
+  }
+
+  export type MarcaMinOrderByAggregateInput = {
+    id?: SortOrder
+    nome?: SortOrder
+  }
+
+  export type ProdutoCreateNestedManyWithoutCategoriaInput = {
+    create?: XOR<ProdutoCreateWithoutCategoriaInput, ProdutoUncheckedCreateWithoutCategoriaInput> | ProdutoCreateWithoutCategoriaInput[] | ProdutoUncheckedCreateWithoutCategoriaInput[]
+    connectOrCreate?: ProdutoCreateOrConnectWithoutCategoriaInput | ProdutoCreateOrConnectWithoutCategoriaInput[]
+    createMany?: ProdutoCreateManyCategoriaInputEnvelope
+    connect?: ProdutoWhereUniqueInput | ProdutoWhereUniqueInput[]
+  }
+
+  export type ProdutoUncheckedCreateNestedManyWithoutCategoriaInput = {
+    create?: XOR<ProdutoCreateWithoutCategoriaInput, ProdutoUncheckedCreateWithoutCategoriaInput> | ProdutoCreateWithoutCategoriaInput[] | ProdutoUncheckedCreateWithoutCategoriaInput[]
+    connectOrCreate?: ProdutoCreateOrConnectWithoutCategoriaInput | ProdutoCreateOrConnectWithoutCategoriaInput[]
+    createMany?: ProdutoCreateManyCategoriaInputEnvelope
+    connect?: ProdutoWhereUniqueInput | ProdutoWhereUniqueInput[]
   }
 
   export type StringFieldUpdateOperationsInput = {
     set?: string
   }
 
-  export type MarcaOculosSolUpdateOneRequiredWithoutOculosSolNestedInput = {
-    create?: XOR<MarcaOculosSolCreateWithoutOculosSolInput, MarcaOculosSolUncheckedCreateWithoutOculosSolInput>
-    connectOrCreate?: MarcaOculosSolCreateOrConnectWithoutOculosSolInput
-    upsert?: MarcaOculosSolUpsertWithoutOculosSolInput
-    connect?: MarcaOculosSolWhereUniqueInput
-    update?: XOR<XOR<MarcaOculosSolUpdateToOneWithWhereWithoutOculosSolInput, MarcaOculosSolUpdateWithoutOculosSolInput>, MarcaOculosSolUncheckedUpdateWithoutOculosSolInput>
+  export type ProdutoUpdateManyWithoutCategoriaNestedInput = {
+    create?: XOR<ProdutoCreateWithoutCategoriaInput, ProdutoUncheckedCreateWithoutCategoriaInput> | ProdutoCreateWithoutCategoriaInput[] | ProdutoUncheckedCreateWithoutCategoriaInput[]
+    connectOrCreate?: ProdutoCreateOrConnectWithoutCategoriaInput | ProdutoCreateOrConnectWithoutCategoriaInput[]
+    upsert?: ProdutoUpsertWithWhereUniqueWithoutCategoriaInput | ProdutoUpsertWithWhereUniqueWithoutCategoriaInput[]
+    createMany?: ProdutoCreateManyCategoriaInputEnvelope
+    set?: ProdutoWhereUniqueInput | ProdutoWhereUniqueInput[]
+    disconnect?: ProdutoWhereUniqueInput | ProdutoWhereUniqueInput[]
+    delete?: ProdutoWhereUniqueInput | ProdutoWhereUniqueInput[]
+    connect?: ProdutoWhereUniqueInput | ProdutoWhereUniqueInput[]
+    update?: ProdutoUpdateWithWhereUniqueWithoutCategoriaInput | ProdutoUpdateWithWhereUniqueWithoutCategoriaInput[]
+    updateMany?: ProdutoUpdateManyWithWhereWithoutCategoriaInput | ProdutoUpdateManyWithWhereWithoutCategoriaInput[]
+    deleteMany?: ProdutoScalarWhereInput | ProdutoScalarWhereInput[]
   }
 
-  export type OculosSolCreateNestedManyWithoutMarcaOculosSolInput = {
-    create?: XOR<OculosSolCreateWithoutMarcaOculosSolInput, OculosSolUncheckedCreateWithoutMarcaOculosSolInput> | OculosSolCreateWithoutMarcaOculosSolInput[] | OculosSolUncheckedCreateWithoutMarcaOculosSolInput[]
-    connectOrCreate?: OculosSolCreateOrConnectWithoutMarcaOculosSolInput | OculosSolCreateOrConnectWithoutMarcaOculosSolInput[]
-    createMany?: OculosSolCreateManyMarcaOculosSolInputEnvelope
-    connect?: OculosSolWhereUniqueInput | OculosSolWhereUniqueInput[]
+  export type ProdutoUncheckedUpdateManyWithoutCategoriaNestedInput = {
+    create?: XOR<ProdutoCreateWithoutCategoriaInput, ProdutoUncheckedCreateWithoutCategoriaInput> | ProdutoCreateWithoutCategoriaInput[] | ProdutoUncheckedCreateWithoutCategoriaInput[]
+    connectOrCreate?: ProdutoCreateOrConnectWithoutCategoriaInput | ProdutoCreateOrConnectWithoutCategoriaInput[]
+    upsert?: ProdutoUpsertWithWhereUniqueWithoutCategoriaInput | ProdutoUpsertWithWhereUniqueWithoutCategoriaInput[]
+    createMany?: ProdutoCreateManyCategoriaInputEnvelope
+    set?: ProdutoWhereUniqueInput | ProdutoWhereUniqueInput[]
+    disconnect?: ProdutoWhereUniqueInput | ProdutoWhereUniqueInput[]
+    delete?: ProdutoWhereUniqueInput | ProdutoWhereUniqueInput[]
+    connect?: ProdutoWhereUniqueInput | ProdutoWhereUniqueInput[]
+    update?: ProdutoUpdateWithWhereUniqueWithoutCategoriaInput | ProdutoUpdateWithWhereUniqueWithoutCategoriaInput[]
+    updateMany?: ProdutoUpdateManyWithWhereWithoutCategoriaInput | ProdutoUpdateManyWithWhereWithoutCategoriaInput[]
+    deleteMany?: ProdutoScalarWhereInput | ProdutoScalarWhereInput[]
   }
 
-  export type OculosSolUncheckedCreateNestedManyWithoutMarcaOculosSolInput = {
-    create?: XOR<OculosSolCreateWithoutMarcaOculosSolInput, OculosSolUncheckedCreateWithoutMarcaOculosSolInput> | OculosSolCreateWithoutMarcaOculosSolInput[] | OculosSolUncheckedCreateWithoutMarcaOculosSolInput[]
-    connectOrCreate?: OculosSolCreateOrConnectWithoutMarcaOculosSolInput | OculosSolCreateOrConnectWithoutMarcaOculosSolInput[]
-    createMany?: OculosSolCreateManyMarcaOculosSolInputEnvelope
-    connect?: OculosSolWhereUniqueInput | OculosSolWhereUniqueInput[]
+  export type CategoriaCreateNestedOneWithoutProdutoInput = {
+    create?: XOR<CategoriaCreateWithoutProdutoInput, CategoriaUncheckedCreateWithoutProdutoInput>
+    connectOrCreate?: CategoriaCreateOrConnectWithoutProdutoInput
+    connect?: CategoriaWhereUniqueInput
   }
 
-  export type OculosSolUpdateManyWithoutMarcaOculosSolNestedInput = {
-    create?: XOR<OculosSolCreateWithoutMarcaOculosSolInput, OculosSolUncheckedCreateWithoutMarcaOculosSolInput> | OculosSolCreateWithoutMarcaOculosSolInput[] | OculosSolUncheckedCreateWithoutMarcaOculosSolInput[]
-    connectOrCreate?: OculosSolCreateOrConnectWithoutMarcaOculosSolInput | OculosSolCreateOrConnectWithoutMarcaOculosSolInput[]
-    upsert?: OculosSolUpsertWithWhereUniqueWithoutMarcaOculosSolInput | OculosSolUpsertWithWhereUniqueWithoutMarcaOculosSolInput[]
-    createMany?: OculosSolCreateManyMarcaOculosSolInputEnvelope
-    set?: OculosSolWhereUniqueInput | OculosSolWhereUniqueInput[]
-    disconnect?: OculosSolWhereUniqueInput | OculosSolWhereUniqueInput[]
-    delete?: OculosSolWhereUniqueInput | OculosSolWhereUniqueInput[]
-    connect?: OculosSolWhereUniqueInput | OculosSolWhereUniqueInput[]
-    update?: OculosSolUpdateWithWhereUniqueWithoutMarcaOculosSolInput | OculosSolUpdateWithWhereUniqueWithoutMarcaOculosSolInput[]
-    updateMany?: OculosSolUpdateManyWithWhereWithoutMarcaOculosSolInput | OculosSolUpdateManyWithWhereWithoutMarcaOculosSolInput[]
-    deleteMany?: OculosSolScalarWhereInput | OculosSolScalarWhereInput[]
+  export type MarcaCreateNestedOneWithoutProdutoInput = {
+    create?: XOR<MarcaCreateWithoutProdutoInput, MarcaUncheckedCreateWithoutProdutoInput>
+    connectOrCreate?: MarcaCreateOrConnectWithoutProdutoInput
+    connect?: MarcaWhereUniqueInput
   }
 
-  export type OculosSolUncheckedUpdateManyWithoutMarcaOculosSolNestedInput = {
-    create?: XOR<OculosSolCreateWithoutMarcaOculosSolInput, OculosSolUncheckedCreateWithoutMarcaOculosSolInput> | OculosSolCreateWithoutMarcaOculosSolInput[] | OculosSolUncheckedCreateWithoutMarcaOculosSolInput[]
-    connectOrCreate?: OculosSolCreateOrConnectWithoutMarcaOculosSolInput | OculosSolCreateOrConnectWithoutMarcaOculosSolInput[]
-    upsert?: OculosSolUpsertWithWhereUniqueWithoutMarcaOculosSolInput | OculosSolUpsertWithWhereUniqueWithoutMarcaOculosSolInput[]
-    createMany?: OculosSolCreateManyMarcaOculosSolInputEnvelope
-    set?: OculosSolWhereUniqueInput | OculosSolWhereUniqueInput[]
-    disconnect?: OculosSolWhereUniqueInput | OculosSolWhereUniqueInput[]
-    delete?: OculosSolWhereUniqueInput | OculosSolWhereUniqueInput[]
-    connect?: OculosSolWhereUniqueInput | OculosSolWhereUniqueInput[]
-    update?: OculosSolUpdateWithWhereUniqueWithoutMarcaOculosSolInput | OculosSolUpdateWithWhereUniqueWithoutMarcaOculosSolInput[]
-    updateMany?: OculosSolUpdateManyWithWhereWithoutMarcaOculosSolInput | OculosSolUpdateManyWithWhereWithoutMarcaOculosSolInput[]
-    deleteMany?: OculosSolScalarWhereInput | OculosSolScalarWhereInput[]
+  export type NullableStringFieldUpdateOperationsInput = {
+    set?: string | null
+  }
+
+  export type CategoriaUpdateOneRequiredWithoutProdutoNestedInput = {
+    create?: XOR<CategoriaCreateWithoutProdutoInput, CategoriaUncheckedCreateWithoutProdutoInput>
+    connectOrCreate?: CategoriaCreateOrConnectWithoutProdutoInput
+    upsert?: CategoriaUpsertWithoutProdutoInput
+    connect?: CategoriaWhereUniqueInput
+    update?: XOR<XOR<CategoriaUpdateToOneWithWhereWithoutProdutoInput, CategoriaUpdateWithoutProdutoInput>, CategoriaUncheckedUpdateWithoutProdutoInput>
+  }
+
+  export type MarcaUpdateOneRequiredWithoutProdutoNestedInput = {
+    create?: XOR<MarcaCreateWithoutProdutoInput, MarcaUncheckedCreateWithoutProdutoInput>
+    connectOrCreate?: MarcaCreateOrConnectWithoutProdutoInput
+    upsert?: MarcaUpsertWithoutProdutoInput
+    connect?: MarcaWhereUniqueInput
+    update?: XOR<XOR<MarcaUpdateToOneWithWhereWithoutProdutoInput, MarcaUpdateWithoutProdutoInput>, MarcaUncheckedUpdateWithoutProdutoInput>
+  }
+
+  export type ProdutoCreateNestedManyWithoutMarcaInput = {
+    create?: XOR<ProdutoCreateWithoutMarcaInput, ProdutoUncheckedCreateWithoutMarcaInput> | ProdutoCreateWithoutMarcaInput[] | ProdutoUncheckedCreateWithoutMarcaInput[]
+    connectOrCreate?: ProdutoCreateOrConnectWithoutMarcaInput | ProdutoCreateOrConnectWithoutMarcaInput[]
+    createMany?: ProdutoCreateManyMarcaInputEnvelope
+    connect?: ProdutoWhereUniqueInput | ProdutoWhereUniqueInput[]
+  }
+
+  export type ProdutoUncheckedCreateNestedManyWithoutMarcaInput = {
+    create?: XOR<ProdutoCreateWithoutMarcaInput, ProdutoUncheckedCreateWithoutMarcaInput> | ProdutoCreateWithoutMarcaInput[] | ProdutoUncheckedCreateWithoutMarcaInput[]
+    connectOrCreate?: ProdutoCreateOrConnectWithoutMarcaInput | ProdutoCreateOrConnectWithoutMarcaInput[]
+    createMany?: ProdutoCreateManyMarcaInputEnvelope
+    connect?: ProdutoWhereUniqueInput | ProdutoWhereUniqueInput[]
+  }
+
+  export type ProdutoUpdateManyWithoutMarcaNestedInput = {
+    create?: XOR<ProdutoCreateWithoutMarcaInput, ProdutoUncheckedCreateWithoutMarcaInput> | ProdutoCreateWithoutMarcaInput[] | ProdutoUncheckedCreateWithoutMarcaInput[]
+    connectOrCreate?: ProdutoCreateOrConnectWithoutMarcaInput | ProdutoCreateOrConnectWithoutMarcaInput[]
+    upsert?: ProdutoUpsertWithWhereUniqueWithoutMarcaInput | ProdutoUpsertWithWhereUniqueWithoutMarcaInput[]
+    createMany?: ProdutoCreateManyMarcaInputEnvelope
+    set?: ProdutoWhereUniqueInput | ProdutoWhereUniqueInput[]
+    disconnect?: ProdutoWhereUniqueInput | ProdutoWhereUniqueInput[]
+    delete?: ProdutoWhereUniqueInput | ProdutoWhereUniqueInput[]
+    connect?: ProdutoWhereUniqueInput | ProdutoWhereUniqueInput[]
+    update?: ProdutoUpdateWithWhereUniqueWithoutMarcaInput | ProdutoUpdateWithWhereUniqueWithoutMarcaInput[]
+    updateMany?: ProdutoUpdateManyWithWhereWithoutMarcaInput | ProdutoUpdateManyWithWhereWithoutMarcaInput[]
+    deleteMany?: ProdutoScalarWhereInput | ProdutoScalarWhereInput[]
+  }
+
+  export type ProdutoUncheckedUpdateManyWithoutMarcaNestedInput = {
+    create?: XOR<ProdutoCreateWithoutMarcaInput, ProdutoUncheckedCreateWithoutMarcaInput> | ProdutoCreateWithoutMarcaInput[] | ProdutoUncheckedCreateWithoutMarcaInput[]
+    connectOrCreate?: ProdutoCreateOrConnectWithoutMarcaInput | ProdutoCreateOrConnectWithoutMarcaInput[]
+    upsert?: ProdutoUpsertWithWhereUniqueWithoutMarcaInput | ProdutoUpsertWithWhereUniqueWithoutMarcaInput[]
+    createMany?: ProdutoCreateManyMarcaInputEnvelope
+    set?: ProdutoWhereUniqueInput | ProdutoWhereUniqueInput[]
+    disconnect?: ProdutoWhereUniqueInput | ProdutoWhereUniqueInput[]
+    delete?: ProdutoWhereUniqueInput | ProdutoWhereUniqueInput[]
+    connect?: ProdutoWhereUniqueInput | ProdutoWhereUniqueInput[]
+    update?: ProdutoUpdateWithWhereUniqueWithoutMarcaInput | ProdutoUpdateWithWhereUniqueWithoutMarcaInput[]
+    updateMany?: ProdutoUpdateManyWithWhereWithoutMarcaInput | ProdutoUpdateManyWithWhereWithoutMarcaInput[]
+    deleteMany?: ProdutoScalarWhereInput | ProdutoScalarWhereInput[]
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -3484,105 +4976,291 @@ export namespace Prisma {
     not?: NestedIntFilter<$PrismaModel> | number
   }
 
-  export type MarcaOculosSolCreateWithoutOculosSolInput = {
-    id?: string
-    marca: string
+  export type NestedStringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
-  export type MarcaOculosSolUncheckedCreateWithoutOculosSolInput = {
-    id?: string
-    marca: string
+  export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
-  export type MarcaOculosSolCreateOrConnectWithoutOculosSolInput = {
-    where: MarcaOculosSolWhereUniqueInput
-    create: XOR<MarcaOculosSolCreateWithoutOculosSolInput, MarcaOculosSolUncheckedCreateWithoutOculosSolInput>
+  export type NestedIntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
-  export type MarcaOculosSolUpsertWithoutOculosSolInput = {
-    update: XOR<MarcaOculosSolUpdateWithoutOculosSolInput, MarcaOculosSolUncheckedUpdateWithoutOculosSolInput>
-    create: XOR<MarcaOculosSolCreateWithoutOculosSolInput, MarcaOculosSolUncheckedCreateWithoutOculosSolInput>
-    where?: MarcaOculosSolWhereInput
+  export type ProdutoCreateWithoutCategoriaInput = {
+    id: string
+    nome: string
+    sku: string
+    descricao?: string | null
+    url_imagem: string
+    marca: MarcaCreateNestedOneWithoutProdutoInput
   }
 
-  export type MarcaOculosSolUpdateToOneWithWhereWithoutOculosSolInput = {
-    where?: MarcaOculosSolWhereInput
-    data: XOR<MarcaOculosSolUpdateWithoutOculosSolInput, MarcaOculosSolUncheckedUpdateWithoutOculosSolInput>
+  export type ProdutoUncheckedCreateWithoutCategoriaInput = {
+    id: string
+    nome: string
+    sku: string
+    descricao?: string | null
+    url_imagem: string
+    marcaId: string
   }
 
-  export type MarcaOculosSolUpdateWithoutOculosSolInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    marca?: StringFieldUpdateOperationsInput | string
+  export type ProdutoCreateOrConnectWithoutCategoriaInput = {
+    where: ProdutoWhereUniqueInput
+    create: XOR<ProdutoCreateWithoutCategoriaInput, ProdutoUncheckedCreateWithoutCategoriaInput>
   }
 
-  export type MarcaOculosSolUncheckedUpdateWithoutOculosSolInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    marca?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type OculosSolCreateWithoutMarcaOculosSolInput = {
-    codigo?: string
-    descricao: string
-  }
-
-  export type OculosSolUncheckedCreateWithoutMarcaOculosSolInput = {
-    codigo?: string
-    descricao: string
-  }
-
-  export type OculosSolCreateOrConnectWithoutMarcaOculosSolInput = {
-    where: OculosSolWhereUniqueInput
-    create: XOR<OculosSolCreateWithoutMarcaOculosSolInput, OculosSolUncheckedCreateWithoutMarcaOculosSolInput>
-  }
-
-  export type OculosSolCreateManyMarcaOculosSolInputEnvelope = {
-    data: OculosSolCreateManyMarcaOculosSolInput | OculosSolCreateManyMarcaOculosSolInput[]
+  export type ProdutoCreateManyCategoriaInputEnvelope = {
+    data: ProdutoCreateManyCategoriaInput | ProdutoCreateManyCategoriaInput[]
     skipDuplicates?: boolean
   }
 
-  export type OculosSolUpsertWithWhereUniqueWithoutMarcaOculosSolInput = {
-    where: OculosSolWhereUniqueInput
-    update: XOR<OculosSolUpdateWithoutMarcaOculosSolInput, OculosSolUncheckedUpdateWithoutMarcaOculosSolInput>
-    create: XOR<OculosSolCreateWithoutMarcaOculosSolInput, OculosSolUncheckedCreateWithoutMarcaOculosSolInput>
+  export type ProdutoUpsertWithWhereUniqueWithoutCategoriaInput = {
+    where: ProdutoWhereUniqueInput
+    update: XOR<ProdutoUpdateWithoutCategoriaInput, ProdutoUncheckedUpdateWithoutCategoriaInput>
+    create: XOR<ProdutoCreateWithoutCategoriaInput, ProdutoUncheckedCreateWithoutCategoriaInput>
   }
 
-  export type OculosSolUpdateWithWhereUniqueWithoutMarcaOculosSolInput = {
-    where: OculosSolWhereUniqueInput
-    data: XOR<OculosSolUpdateWithoutMarcaOculosSolInput, OculosSolUncheckedUpdateWithoutMarcaOculosSolInput>
+  export type ProdutoUpdateWithWhereUniqueWithoutCategoriaInput = {
+    where: ProdutoWhereUniqueInput
+    data: XOR<ProdutoUpdateWithoutCategoriaInput, ProdutoUncheckedUpdateWithoutCategoriaInput>
   }
 
-  export type OculosSolUpdateManyWithWhereWithoutMarcaOculosSolInput = {
-    where: OculosSolScalarWhereInput
-    data: XOR<OculosSolUpdateManyMutationInput, OculosSolUncheckedUpdateManyWithoutMarcaOculosSolInput>
+  export type ProdutoUpdateManyWithWhereWithoutCategoriaInput = {
+    where: ProdutoScalarWhereInput
+    data: XOR<ProdutoUpdateManyMutationInput, ProdutoUncheckedUpdateManyWithoutCategoriaInput>
   }
 
-  export type OculosSolScalarWhereInput = {
-    AND?: OculosSolScalarWhereInput | OculosSolScalarWhereInput[]
-    OR?: OculosSolScalarWhereInput[]
-    NOT?: OculosSolScalarWhereInput | OculosSolScalarWhereInput[]
-    codigo?: StringFilter<"OculosSol"> | string
-    descricao?: StringFilter<"OculosSol"> | string
-    marcaOculosSolId?: StringFilter<"OculosSol"> | string
+  export type ProdutoScalarWhereInput = {
+    AND?: ProdutoScalarWhereInput | ProdutoScalarWhereInput[]
+    OR?: ProdutoScalarWhereInput[]
+    NOT?: ProdutoScalarWhereInput | ProdutoScalarWhereInput[]
+    id?: StringFilter<"Produto"> | string
+    nome?: StringFilter<"Produto"> | string
+    sku?: StringFilter<"Produto"> | string
+    descricao?: StringNullableFilter<"Produto"> | string | null
+    url_imagem?: StringFilter<"Produto"> | string
+    categoriaId?: StringFilter<"Produto"> | string
+    marcaId?: StringFilter<"Produto"> | string
   }
 
-  export type OculosSolCreateManyMarcaOculosSolInput = {
-    codigo?: string
+  export type CategoriaCreateWithoutProdutoInput = {
+    id?: string
     descricao: string
   }
 
-  export type OculosSolUpdateWithoutMarcaOculosSolInput = {
-    codigo?: StringFieldUpdateOperationsInput | string
+  export type CategoriaUncheckedCreateWithoutProdutoInput = {
+    id?: string
+    descricao: string
+  }
+
+  export type CategoriaCreateOrConnectWithoutProdutoInput = {
+    where: CategoriaWhereUniqueInput
+    create: XOR<CategoriaCreateWithoutProdutoInput, CategoriaUncheckedCreateWithoutProdutoInput>
+  }
+
+  export type MarcaCreateWithoutProdutoInput = {
+    id?: string
+    nome: string
+  }
+
+  export type MarcaUncheckedCreateWithoutProdutoInput = {
+    id?: string
+    nome: string
+  }
+
+  export type MarcaCreateOrConnectWithoutProdutoInput = {
+    where: MarcaWhereUniqueInput
+    create: XOR<MarcaCreateWithoutProdutoInput, MarcaUncheckedCreateWithoutProdutoInput>
+  }
+
+  export type CategoriaUpsertWithoutProdutoInput = {
+    update: XOR<CategoriaUpdateWithoutProdutoInput, CategoriaUncheckedUpdateWithoutProdutoInput>
+    create: XOR<CategoriaCreateWithoutProdutoInput, CategoriaUncheckedCreateWithoutProdutoInput>
+    where?: CategoriaWhereInput
+  }
+
+  export type CategoriaUpdateToOneWithWhereWithoutProdutoInput = {
+    where?: CategoriaWhereInput
+    data: XOR<CategoriaUpdateWithoutProdutoInput, CategoriaUncheckedUpdateWithoutProdutoInput>
+  }
+
+  export type CategoriaUpdateWithoutProdutoInput = {
+    id?: StringFieldUpdateOperationsInput | string
     descricao?: StringFieldUpdateOperationsInput | string
   }
 
-  export type OculosSolUncheckedUpdateWithoutMarcaOculosSolInput = {
-    codigo?: StringFieldUpdateOperationsInput | string
+  export type CategoriaUncheckedUpdateWithoutProdutoInput = {
+    id?: StringFieldUpdateOperationsInput | string
     descricao?: StringFieldUpdateOperationsInput | string
   }
 
-  export type OculosSolUncheckedUpdateManyWithoutMarcaOculosSolInput = {
-    codigo?: StringFieldUpdateOperationsInput | string
-    descricao?: StringFieldUpdateOperationsInput | string
+  export type MarcaUpsertWithoutProdutoInput = {
+    update: XOR<MarcaUpdateWithoutProdutoInput, MarcaUncheckedUpdateWithoutProdutoInput>
+    create: XOR<MarcaCreateWithoutProdutoInput, MarcaUncheckedCreateWithoutProdutoInput>
+    where?: MarcaWhereInput
+  }
+
+  export type MarcaUpdateToOneWithWhereWithoutProdutoInput = {
+    where?: MarcaWhereInput
+    data: XOR<MarcaUpdateWithoutProdutoInput, MarcaUncheckedUpdateWithoutProdutoInput>
+  }
+
+  export type MarcaUpdateWithoutProdutoInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nome?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type MarcaUncheckedUpdateWithoutProdutoInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nome?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ProdutoCreateWithoutMarcaInput = {
+    id: string
+    nome: string
+    sku: string
+    descricao?: string | null
+    url_imagem: string
+    categoria: CategoriaCreateNestedOneWithoutProdutoInput
+  }
+
+  export type ProdutoUncheckedCreateWithoutMarcaInput = {
+    id: string
+    nome: string
+    sku: string
+    descricao?: string | null
+    url_imagem: string
+    categoriaId: string
+  }
+
+  export type ProdutoCreateOrConnectWithoutMarcaInput = {
+    where: ProdutoWhereUniqueInput
+    create: XOR<ProdutoCreateWithoutMarcaInput, ProdutoUncheckedCreateWithoutMarcaInput>
+  }
+
+  export type ProdutoCreateManyMarcaInputEnvelope = {
+    data: ProdutoCreateManyMarcaInput | ProdutoCreateManyMarcaInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type ProdutoUpsertWithWhereUniqueWithoutMarcaInput = {
+    where: ProdutoWhereUniqueInput
+    update: XOR<ProdutoUpdateWithoutMarcaInput, ProdutoUncheckedUpdateWithoutMarcaInput>
+    create: XOR<ProdutoCreateWithoutMarcaInput, ProdutoUncheckedCreateWithoutMarcaInput>
+  }
+
+  export type ProdutoUpdateWithWhereUniqueWithoutMarcaInput = {
+    where: ProdutoWhereUniqueInput
+    data: XOR<ProdutoUpdateWithoutMarcaInput, ProdutoUncheckedUpdateWithoutMarcaInput>
+  }
+
+  export type ProdutoUpdateManyWithWhereWithoutMarcaInput = {
+    where: ProdutoScalarWhereInput
+    data: XOR<ProdutoUpdateManyMutationInput, ProdutoUncheckedUpdateManyWithoutMarcaInput>
+  }
+
+  export type ProdutoCreateManyCategoriaInput = {
+    id: string
+    nome: string
+    sku: string
+    descricao?: string | null
+    url_imagem: string
+    marcaId: string
+  }
+
+  export type ProdutoUpdateWithoutCategoriaInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nome?: StringFieldUpdateOperationsInput | string
+    sku?: StringFieldUpdateOperationsInput | string
+    descricao?: NullableStringFieldUpdateOperationsInput | string | null
+    url_imagem?: StringFieldUpdateOperationsInput | string
+    marca?: MarcaUpdateOneRequiredWithoutProdutoNestedInput
+  }
+
+  export type ProdutoUncheckedUpdateWithoutCategoriaInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nome?: StringFieldUpdateOperationsInput | string
+    sku?: StringFieldUpdateOperationsInput | string
+    descricao?: NullableStringFieldUpdateOperationsInput | string | null
+    url_imagem?: StringFieldUpdateOperationsInput | string
+    marcaId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ProdutoUncheckedUpdateManyWithoutCategoriaInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nome?: StringFieldUpdateOperationsInput | string
+    sku?: StringFieldUpdateOperationsInput | string
+    descricao?: NullableStringFieldUpdateOperationsInput | string | null
+    url_imagem?: StringFieldUpdateOperationsInput | string
+    marcaId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ProdutoCreateManyMarcaInput = {
+    id: string
+    nome: string
+    sku: string
+    descricao?: string | null
+    url_imagem: string
+    categoriaId: string
+  }
+
+  export type ProdutoUpdateWithoutMarcaInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nome?: StringFieldUpdateOperationsInput | string
+    sku?: StringFieldUpdateOperationsInput | string
+    descricao?: NullableStringFieldUpdateOperationsInput | string | null
+    url_imagem?: StringFieldUpdateOperationsInput | string
+    categoria?: CategoriaUpdateOneRequiredWithoutProdutoNestedInput
+  }
+
+  export type ProdutoUncheckedUpdateWithoutMarcaInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nome?: StringFieldUpdateOperationsInput | string
+    sku?: StringFieldUpdateOperationsInput | string
+    descricao?: NullableStringFieldUpdateOperationsInput | string | null
+    url_imagem?: StringFieldUpdateOperationsInput | string
+    categoriaId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ProdutoUncheckedUpdateManyWithoutMarcaInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nome?: StringFieldUpdateOperationsInput | string
+    sku?: StringFieldUpdateOperationsInput | string
+    descricao?: NullableStringFieldUpdateOperationsInput | string | null
+    url_imagem?: StringFieldUpdateOperationsInput | string
+    categoriaId?: StringFieldUpdateOperationsInput | string
   }
 
 

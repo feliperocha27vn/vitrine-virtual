@@ -1,6 +1,6 @@
 import type { FastifyPluginAsyncZod } from 'fastify-type-provider-zod'
 import z from 'zod'
-import { prisma } from '../prisma/prisma'
+import { prisma } from '../../prisma/prisma'
 
 export const categoryInsertRoute: FastifyPluginAsyncZod = async app => {
   app.post(
