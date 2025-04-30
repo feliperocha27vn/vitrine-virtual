@@ -137,6 +137,11 @@ exports.Prisma.MarcaScalarFieldEnum = {
   nome: 'nome'
 };
 
+exports.Prisma.VendedoraScalarFieldEnum = {
+  id: 'id',
+  nome: 'nome'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -156,7 +161,8 @@ exports.Prisma.NullsOrder = {
 exports.Prisma.ModelName = {
   Categoria: 'Categoria',
   Produto: 'Produto',
-  Marca: 'Marca'
+  Marca: 'Marca',
+  Vendedora: 'Vendedora'
 };
 
 /**

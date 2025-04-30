@@ -42,3 +42,8 @@ model Marca {
 
   @@map("marca")
 }
+
+model Vendedora {
+  id   String @id
+  nome String
+}

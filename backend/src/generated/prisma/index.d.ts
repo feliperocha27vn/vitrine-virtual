@@ -28,6 +28,11 @@ export type Produto = $Result.DefaultSelection<Prisma.$ProdutoPayload>
  * 
  */
 export type Marca = $Result.DefaultSelection<Prisma.$MarcaPayload>
+/**
+ * Model Vendedora
+ * 
+ */
+export type Vendedora = $Result.DefaultSelection<Prisma.$VendedoraPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -183,6 +188,16 @@ export class PrismaClient<
     * ```
     */
   get marca(): Prisma.MarcaDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.vendedora`: Exposes CRUD operations for the **Vendedora** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Vendedoras
+    * const vendedoras = await prisma.vendedora.findMany()
+    * ```
+    */
+  get vendedora(): Prisma.VendedoraDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -625,7 +640,8 @@ export namespace Prisma {
   export const ModelName: {
     Categoria: 'Categoria',
     Produto: 'Produto',
-    Marca: 'Marca'
+    Marca: 'Marca',
+    Vendedora: 'Vendedora'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -644,7 +660,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "categoria" | "produto" | "marca"
+      modelProps: "categoria" | "produto" | "marca" | "vendedora"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -870,6 +886,80 @@ export namespace Prisma {
           }
         }
       }
+      Vendedora: {
+        payload: Prisma.$VendedoraPayload<ExtArgs>
+        fields: Prisma.VendedoraFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.VendedoraFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VendedoraPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.VendedoraFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VendedoraPayload>
+          }
+          findFirst: {
+            args: Prisma.VendedoraFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VendedoraPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.VendedoraFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VendedoraPayload>
+          }
+          findMany: {
+            args: Prisma.VendedoraFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VendedoraPayload>[]
+          }
+          create: {
+            args: Prisma.VendedoraCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VendedoraPayload>
+          }
+          createMany: {
+            args: Prisma.VendedoraCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.VendedoraCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VendedoraPayload>[]
+          }
+          delete: {
+            args: Prisma.VendedoraDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VendedoraPayload>
+          }
+          update: {
+            args: Prisma.VendedoraUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VendedoraPayload>
+          }
+          deleteMany: {
+            args: Prisma.VendedoraDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.VendedoraUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.VendedoraUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VendedoraPayload>[]
+          }
+          upsert: {
+            args: Prisma.VendedoraUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VendedoraPayload>
+          }
+          aggregate: {
+            args: Prisma.VendedoraAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateVendedora>
+          }
+          groupBy: {
+            args: Prisma.VendedoraGroupByArgs<ExtArgs>
+            result: $Utils.Optional<VendedoraGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.VendedoraCountArgs<ExtArgs>
+            result: $Utils.Optional<VendedoraCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -957,6 +1047,7 @@ export namespace Prisma {
     categoria?: CategoriaOmit
     produto?: ProdutoOmit
     marca?: MarcaOmit
+    vendedora?: VendedoraOmit
   }
 
   /* Types for Logging */
@@ -4267,6 +4358,962 @@ export namespace Prisma {
 
 
   /**
+   * Model Vendedora
+   */
+
+  export type AggregateVendedora = {
+    _count: VendedoraCountAggregateOutputType | null
+    _min: VendedoraMinAggregateOutputType | null
+    _max: VendedoraMaxAggregateOutputType | null
+  }
+
+  export type VendedoraMinAggregateOutputType = {
+    id: string | null
+    nome: string | null
+  }
+
+  export type VendedoraMaxAggregateOutputType = {
+    id: string | null
+    nome: string | null
+  }
+
+  export type VendedoraCountAggregateOutputType = {
+    id: number
+    nome: number
+    _all: number
+  }
+
+
+  export type VendedoraMinAggregateInputType = {
+    id?: true
+    nome?: true
+  }
+
+  export type VendedoraMaxAggregateInputType = {
+    id?: true
+    nome?: true
+  }
+
+  export type VendedoraCountAggregateInputType = {
+    id?: true
+    nome?: true
+    _all?: true
+  }
+
+  export type VendedoraAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Vendedora to aggregate.
+     */
+    where?: VendedoraWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Vendedoras to fetch.
+     */
+    orderBy?: VendedoraOrderByWithRelationInput | VendedoraOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: VendedoraWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Vendedoras from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Vendedoras.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Vendedoras
+    **/
+    _count?: true | VendedoraCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: VendedoraMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: VendedoraMaxAggregateInputType
+  }
+
+  export type GetVendedoraAggregateType<T extends VendedoraAggregateArgs> = {
+        [P in keyof T & keyof AggregateVendedora]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateVendedora[P]>
+      : GetScalarType<T[P], AggregateVendedora[P]>
+  }
+
+
+
+
+  export type VendedoraGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: VendedoraWhereInput
+    orderBy?: VendedoraOrderByWithAggregationInput | VendedoraOrderByWithAggregationInput[]
+    by: VendedoraScalarFieldEnum[] | VendedoraScalarFieldEnum
+    having?: VendedoraScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: VendedoraCountAggregateInputType | true
+    _min?: VendedoraMinAggregateInputType
+    _max?: VendedoraMaxAggregateInputType
+  }
+
+  export type VendedoraGroupByOutputType = {
+    id: string
+    nome: string
+    _count: VendedoraCountAggregateOutputType | null
+    _min: VendedoraMinAggregateOutputType | null
+    _max: VendedoraMaxAggregateOutputType | null
+  }
+
+  type GetVendedoraGroupByPayload<T extends VendedoraGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<VendedoraGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof VendedoraGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], VendedoraGroupByOutputType[P]>
+            : GetScalarType<T[P], VendedoraGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type VendedoraSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    nome?: boolean
+  }, ExtArgs["result"]["vendedora"]>
+
+  export type VendedoraSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    nome?: boolean
+  }, ExtArgs["result"]["vendedora"]>
+
+  export type VendedoraSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    nome?: boolean
+  }, ExtArgs["result"]["vendedora"]>
+
+  export type VendedoraSelectScalar = {
+    id?: boolean
+    nome?: boolean
+  }
+
+  export type VendedoraOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "nome", ExtArgs["result"]["vendedora"]>
+
+  export type $VendedoraPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Vendedora"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      nome: string
+    }, ExtArgs["result"]["vendedora"]>
+    composites: {}
+  }
+
+  type VendedoraGetPayload<S extends boolean | null | undefined | VendedoraDefaultArgs> = $Result.GetResult<Prisma.$VendedoraPayload, S>
+
+  type VendedoraCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<VendedoraFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: VendedoraCountAggregateInputType | true
+    }
+
+  export interface VendedoraDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Vendedora'], meta: { name: 'Vendedora' } }
+    /**
+     * Find zero or one Vendedora that matches the filter.
+     * @param {VendedoraFindUniqueArgs} args - Arguments to find a Vendedora
+     * @example
+     * // Get one Vendedora
+     * const vendedora = await prisma.vendedora.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends VendedoraFindUniqueArgs>(args: SelectSubset<T, VendedoraFindUniqueArgs<ExtArgs>>): Prisma__VendedoraClient<$Result.GetResult<Prisma.$VendedoraPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Vendedora that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {VendedoraFindUniqueOrThrowArgs} args - Arguments to find a Vendedora
+     * @example
+     * // Get one Vendedora
+     * const vendedora = await prisma.vendedora.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends VendedoraFindUniqueOrThrowArgs>(args: SelectSubset<T, VendedoraFindUniqueOrThrowArgs<ExtArgs>>): Prisma__VendedoraClient<$Result.GetResult<Prisma.$VendedoraPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Vendedora that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {VendedoraFindFirstArgs} args - Arguments to find a Vendedora
+     * @example
+     * // Get one Vendedora
+     * const vendedora = await prisma.vendedora.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends VendedoraFindFirstArgs>(args?: SelectSubset<T, VendedoraFindFirstArgs<ExtArgs>>): Prisma__VendedoraClient<$Result.GetResult<Prisma.$VendedoraPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Vendedora that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {VendedoraFindFirstOrThrowArgs} args - Arguments to find a Vendedora
+     * @example
+     * // Get one Vendedora
+     * const vendedora = await prisma.vendedora.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends VendedoraFindFirstOrThrowArgs>(args?: SelectSubset<T, VendedoraFindFirstOrThrowArgs<ExtArgs>>): Prisma__VendedoraClient<$Result.GetResult<Prisma.$VendedoraPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Vendedoras that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {VendedoraFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Vendedoras
+     * const vendedoras = await prisma.vendedora.findMany()
+     * 
+     * // Get first 10 Vendedoras
+     * const vendedoras = await prisma.vendedora.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const vendedoraWithIdOnly = await prisma.vendedora.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends VendedoraFindManyArgs>(args?: SelectSubset<T, VendedoraFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$VendedoraPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Vendedora.
+     * @param {VendedoraCreateArgs} args - Arguments to create a Vendedora.
+     * @example
+     * // Create one Vendedora
+     * const Vendedora = await prisma.vendedora.create({
+     *   data: {
+     *     // ... data to create a Vendedora
+     *   }
+     * })
+     * 
+     */
+    create<T extends VendedoraCreateArgs>(args: SelectSubset<T, VendedoraCreateArgs<ExtArgs>>): Prisma__VendedoraClient<$Result.GetResult<Prisma.$VendedoraPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Vendedoras.
+     * @param {VendedoraCreateManyArgs} args - Arguments to create many Vendedoras.
+     * @example
+     * // Create many Vendedoras
+     * const vendedora = await prisma.vendedora.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends VendedoraCreateManyArgs>(args?: SelectSubset<T, VendedoraCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Vendedoras and returns the data saved in the database.
+     * @param {VendedoraCreateManyAndReturnArgs} args - Arguments to create many Vendedoras.
+     * @example
+     * // Create many Vendedoras
+     * const vendedora = await prisma.vendedora.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Vendedoras and only return the `id`
+     * const vendedoraWithIdOnly = await prisma.vendedora.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends VendedoraCreateManyAndReturnArgs>(args?: SelectSubset<T, VendedoraCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$VendedoraPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Vendedora.
+     * @param {VendedoraDeleteArgs} args - Arguments to delete one Vendedora.
+     * @example
+     * // Delete one Vendedora
+     * const Vendedora = await prisma.vendedora.delete({
+     *   where: {
+     *     // ... filter to delete one Vendedora
+     *   }
+     * })
+     * 
+     */
+    delete<T extends VendedoraDeleteArgs>(args: SelectSubset<T, VendedoraDeleteArgs<ExtArgs>>): Prisma__VendedoraClient<$Result.GetResult<Prisma.$VendedoraPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Vendedora.
+     * @param {VendedoraUpdateArgs} args - Arguments to update one Vendedora.
+     * @example
+     * // Update one Vendedora
+     * const vendedora = await prisma.vendedora.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends VendedoraUpdateArgs>(args: SelectSubset<T, VendedoraUpdateArgs<ExtArgs>>): Prisma__VendedoraClient<$Result.GetResult<Prisma.$VendedoraPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Vendedoras.
+     * @param {VendedoraDeleteManyArgs} args - Arguments to filter Vendedoras to delete.
+     * @example
+     * // Delete a few Vendedoras
+     * const { count } = await prisma.vendedora.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends VendedoraDeleteManyArgs>(args?: SelectSubset<T, VendedoraDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Vendedoras.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {VendedoraUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Vendedoras
+     * const vendedora = await prisma.vendedora.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends VendedoraUpdateManyArgs>(args: SelectSubset<T, VendedoraUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Vendedoras and returns the data updated in the database.
+     * @param {VendedoraUpdateManyAndReturnArgs} args - Arguments to update many Vendedoras.
+     * @example
+     * // Update many Vendedoras
+     * const vendedora = await prisma.vendedora.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Vendedoras and only return the `id`
+     * const vendedoraWithIdOnly = await prisma.vendedora.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends VendedoraUpdateManyAndReturnArgs>(args: SelectSubset<T, VendedoraUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$VendedoraPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Vendedora.
+     * @param {VendedoraUpsertArgs} args - Arguments to update or create a Vendedora.
+     * @example
+     * // Update or create a Vendedora
+     * const vendedora = await prisma.vendedora.upsert({
+     *   create: {
+     *     // ... data to create a Vendedora
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Vendedora we want to update
+     *   }
+     * })
+     */
+    upsert<T extends VendedoraUpsertArgs>(args: SelectSubset<T, VendedoraUpsertArgs<ExtArgs>>): Prisma__VendedoraClient<$Result.GetResult<Prisma.$VendedoraPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Vendedoras.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {VendedoraCountArgs} args - Arguments to filter Vendedoras to count.
+     * @example
+     * // Count the number of Vendedoras
+     * const count = await prisma.vendedora.count({
+     *   where: {
+     *     // ... the filter for the Vendedoras we want to count
+     *   }
+     * })
+    **/
+    count<T extends VendedoraCountArgs>(
+      args?: Subset<T, VendedoraCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], VendedoraCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Vendedora.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {VendedoraAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends VendedoraAggregateArgs>(args: Subset<T, VendedoraAggregateArgs>): Prisma.PrismaPromise<GetVendedoraAggregateType<T>>
+
+    /**
+     * Group by Vendedora.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {VendedoraGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends VendedoraGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: VendedoraGroupByArgs['orderBy'] }
+        : { orderBy?: VendedoraGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, VendedoraGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetVendedoraGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Vendedora model
+   */
+  readonly fields: VendedoraFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Vendedora.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__VendedoraClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Vendedora model
+   */
+  interface VendedoraFieldRefs {
+    readonly id: FieldRef<"Vendedora", 'String'>
+    readonly nome: FieldRef<"Vendedora", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Vendedora findUnique
+   */
+  export type VendedoraFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Vendedora
+     */
+    select?: VendedoraSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Vendedora
+     */
+    omit?: VendedoraOmit<ExtArgs> | null
+    /**
+     * Filter, which Vendedora to fetch.
+     */
+    where: VendedoraWhereUniqueInput
+  }
+
+  /**
+   * Vendedora findUniqueOrThrow
+   */
+  export type VendedoraFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Vendedora
+     */
+    select?: VendedoraSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Vendedora
+     */
+    omit?: VendedoraOmit<ExtArgs> | null
+    /**
+     * Filter, which Vendedora to fetch.
+     */
+    where: VendedoraWhereUniqueInput
+  }
+
+  /**
+   * Vendedora findFirst
+   */
+  export type VendedoraFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Vendedora
+     */
+    select?: VendedoraSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Vendedora
+     */
+    omit?: VendedoraOmit<ExtArgs> | null
+    /**
+     * Filter, which Vendedora to fetch.
+     */
+    where?: VendedoraWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Vendedoras to fetch.
+     */
+    orderBy?: VendedoraOrderByWithRelationInput | VendedoraOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Vendedoras.
+     */
+    cursor?: VendedoraWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Vendedoras from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Vendedoras.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Vendedoras.
+     */
+    distinct?: VendedoraScalarFieldEnum | VendedoraScalarFieldEnum[]
+  }
+
+  /**
+   * Vendedora findFirstOrThrow
+   */
+  export type VendedoraFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Vendedora
+     */
+    select?: VendedoraSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Vendedora
+     */
+    omit?: VendedoraOmit<ExtArgs> | null
+    /**
+     * Filter, which Vendedora to fetch.
+     */
+    where?: VendedoraWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Vendedoras to fetch.
+     */
+    orderBy?: VendedoraOrderByWithRelationInput | VendedoraOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Vendedoras.
+     */
+    cursor?: VendedoraWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Vendedoras from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Vendedoras.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Vendedoras.
+     */
+    distinct?: VendedoraScalarFieldEnum | VendedoraScalarFieldEnum[]
+  }
+
+  /**
+   * Vendedora findMany
+   */
+  export type VendedoraFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Vendedora
+     */
+    select?: VendedoraSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Vendedora
+     */
+    omit?: VendedoraOmit<ExtArgs> | null
+    /**
+     * Filter, which Vendedoras to fetch.
+     */
+    where?: VendedoraWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Vendedoras to fetch.
+     */
+    orderBy?: VendedoraOrderByWithRelationInput | VendedoraOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Vendedoras.
+     */
+    cursor?: VendedoraWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Vendedoras from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Vendedoras.
+     */
+    skip?: number
+    distinct?: VendedoraScalarFieldEnum | VendedoraScalarFieldEnum[]
+  }
+
+  /**
+   * Vendedora create
+   */
+  export type VendedoraCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Vendedora
+     */
+    select?: VendedoraSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Vendedora
+     */
+    omit?: VendedoraOmit<ExtArgs> | null
+    /**
+     * The data needed to create a Vendedora.
+     */
+    data: XOR<VendedoraCreateInput, VendedoraUncheckedCreateInput>
+  }
+
+  /**
+   * Vendedora createMany
+   */
+  export type VendedoraCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Vendedoras.
+     */
+    data: VendedoraCreateManyInput | VendedoraCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Vendedora createManyAndReturn
+   */
+  export type VendedoraCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Vendedora
+     */
+    select?: VendedoraSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Vendedora
+     */
+    omit?: VendedoraOmit<ExtArgs> | null
+    /**
+     * The data used to create many Vendedoras.
+     */
+    data: VendedoraCreateManyInput | VendedoraCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Vendedora update
+   */
+  export type VendedoraUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Vendedora
+     */
+    select?: VendedoraSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Vendedora
+     */
+    omit?: VendedoraOmit<ExtArgs> | null
+    /**
+     * The data needed to update a Vendedora.
+     */
+    data: XOR<VendedoraUpdateInput, VendedoraUncheckedUpdateInput>
+    /**
+     * Choose, which Vendedora to update.
+     */
+    where: VendedoraWhereUniqueInput
+  }
+
+  /**
+   * Vendedora updateMany
+   */
+  export type VendedoraUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Vendedoras.
+     */
+    data: XOR<VendedoraUpdateManyMutationInput, VendedoraUncheckedUpdateManyInput>
+    /**
+     * Filter which Vendedoras to update
+     */
+    where?: VendedoraWhereInput
+    /**
+     * Limit how many Vendedoras to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Vendedora updateManyAndReturn
+   */
+  export type VendedoraUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Vendedora
+     */
+    select?: VendedoraSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Vendedora
+     */
+    omit?: VendedoraOmit<ExtArgs> | null
+    /**
+     * The data used to update Vendedoras.
+     */
+    data: XOR<VendedoraUpdateManyMutationInput, VendedoraUncheckedUpdateManyInput>
+    /**
+     * Filter which Vendedoras to update
+     */
+    where?: VendedoraWhereInput
+    /**
+     * Limit how many Vendedoras to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Vendedora upsert
+   */
+  export type VendedoraUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Vendedora
+     */
+    select?: VendedoraSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Vendedora
+     */
+    omit?: VendedoraOmit<ExtArgs> | null
+    /**
+     * The filter to search for the Vendedora to update in case it exists.
+     */
+    where: VendedoraWhereUniqueInput
+    /**
+     * In case the Vendedora found by the `where` argument doesn't exist, create a new Vendedora with this data.
+     */
+    create: XOR<VendedoraCreateInput, VendedoraUncheckedCreateInput>
+    /**
+     * In case the Vendedora was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<VendedoraUpdateInput, VendedoraUncheckedUpdateInput>
+  }
+
+  /**
+   * Vendedora delete
+   */
+  export type VendedoraDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Vendedora
+     */
+    select?: VendedoraSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Vendedora
+     */
+    omit?: VendedoraOmit<ExtArgs> | null
+    /**
+     * Filter which Vendedora to delete.
+     */
+    where: VendedoraWhereUniqueInput
+  }
+
+  /**
+   * Vendedora deleteMany
+   */
+  export type VendedoraDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Vendedoras to delete
+     */
+    where?: VendedoraWhereInput
+    /**
+     * Limit how many Vendedoras to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Vendedora without action
+   */
+  export type VendedoraDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Vendedora
+     */
+    select?: VendedoraSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Vendedora
+     */
+    omit?: VendedoraOmit<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -4307,6 +5354,14 @@ export namespace Prisma {
   };
 
   export type MarcaScalarFieldEnum = (typeof MarcaScalarFieldEnum)[keyof typeof MarcaScalarFieldEnum]
+
+
+  export const VendedoraScalarFieldEnum: {
+    id: 'id',
+    nome: 'nome'
+  };
+
+  export type VendedoraScalarFieldEnum = (typeof VendedoraScalarFieldEnum)[keyof typeof VendedoraScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -4517,6 +5572,43 @@ export namespace Prisma {
     nome?: StringWithAggregatesFilter<"Marca"> | string
   }
 
+  export type VendedoraWhereInput = {
+    AND?: VendedoraWhereInput | VendedoraWhereInput[]
+    OR?: VendedoraWhereInput[]
+    NOT?: VendedoraWhereInput | VendedoraWhereInput[]
+    id?: StringFilter<"Vendedora"> | string
+    nome?: StringFilter<"Vendedora"> | string
+  }
+
+  export type VendedoraOrderByWithRelationInput = {
+    id?: SortOrder
+    nome?: SortOrder
+  }
+
+  export type VendedoraWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: VendedoraWhereInput | VendedoraWhereInput[]
+    OR?: VendedoraWhereInput[]
+    NOT?: VendedoraWhereInput | VendedoraWhereInput[]
+    nome?: StringFilter<"Vendedora"> | string
+  }, "id">
+
+  export type VendedoraOrderByWithAggregationInput = {
+    id?: SortOrder
+    nome?: SortOrder
+    _count?: VendedoraCountOrderByAggregateInput
+    _max?: VendedoraMaxOrderByAggregateInput
+    _min?: VendedoraMinOrderByAggregateInput
+  }
+
+  export type VendedoraScalarWhereWithAggregatesInput = {
+    AND?: VendedoraScalarWhereWithAggregatesInput | VendedoraScalarWhereWithAggregatesInput[]
+    OR?: VendedoraScalarWhereWithAggregatesInput[]
+    NOT?: VendedoraScalarWhereWithAggregatesInput | VendedoraScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Vendedora"> | string
+    nome?: StringWithAggregatesFilter<"Vendedora"> | string
+  }
+
   export type CategoriaCreateInput = {
     id?: string
     descricao: string
@@ -4659,6 +5751,41 @@ export namespace Prisma {
   }
 
   export type MarcaUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nome?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type VendedoraCreateInput = {
+    id: string
+    nome: string
+  }
+
+  export type VendedoraUncheckedCreateInput = {
+    id: string
+    nome: string
+  }
+
+  export type VendedoraUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nome?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type VendedoraUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nome?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type VendedoraCreateManyInput = {
+    id: string
+    nome: string
+  }
+
+  export type VendedoraUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nome?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type VendedoraUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     nome?: StringFieldUpdateOperationsInput | string
   }
@@ -4810,6 +5937,21 @@ export namespace Prisma {
   }
 
   export type MarcaMinOrderByAggregateInput = {
+    id?: SortOrder
+    nome?: SortOrder
+  }
+
+  export type VendedoraCountOrderByAggregateInput = {
+    id?: SortOrder
+    nome?: SortOrder
+  }
+
+  export type VendedoraMaxOrderByAggregateInput = {
+    id?: SortOrder
+    nome?: SortOrder
+  }
+
+  export type VendedoraMinOrderByAggregateInput = {
     id?: SortOrder
     nome?: SortOrder
   }

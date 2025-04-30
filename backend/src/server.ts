@@ -5,19 +5,24 @@ import {
   serializerCompiler,
   validatorCompiler,
 } from 'fastify-type-provider-zod'
+
 import fastifySwaggerUi from '@fastify/swagger-ui'
 // Rotas de produto
-import { productInsertRoute } from './routes/product/product-insert-route'
-import { productGettAllRoute } from './routes/product/product-get-all-route'
+import { productInsertRoute } from './routes/product/insert-route'
+import { productGetAllRoute } from './routes/product/get-all-route'
+import { productGetById } from './routes/product/get-by-id-route'
 // Rotas de marca
-import { brandInsertRoute } from './routes/brand/brand-insert-route'
-import { brandGettAllRoute } from './routes/brand/brand-get-all-route'
+import { brandInsertRoute } from './routes/brand/insert-route'
+import { brandGetAllRoute } from './routes/brand/get-all-route'
+import { brandGetById } from './routes/brand/get-by-id-route'
 // Rotas de categoria
-import { categoryInsertRoute } from './routes/category/category-insert-route'
-import { categoryGettAllRoute } from './routes/category/category-get-all-route'
-import { productGetById } from './routes/product/product-get-by-id-route'
-import { categoryGetById } from './routes/category/category-get-by-id-route'
-import { brandGetById } from './routes/brand/brand-get-by-name-route'
+import { categoryInsertRoute } from './routes/category/insert-route'
+import { categoryGetAllRoute } from './routes/category/get-all-route'
+import { categoryGetById } from './routes/category/get-by-id-route'
+// Rotas de vendedora
+import { sellerInsertRoute } from './routes/seller/insert-route'
+import { sellerGetAllRoute } from './routes/seller/get-all-route'
+import { productGetByCategoryId } from './routes/product/get-by-category'
 
 app.setSerializerCompiler(serializerCompiler)
 app.setValidatorCompiler(validatorCompiler)
@@ -38,20 +43,28 @@ app.register(fastifySwaggerUi, {
 })
 
 // Rotas de inserção de dados
+// - marca
 app.register(brandInsertRoute)
+// - produto
 app.register(productInsertRoute)
+// - categoria
 app.register(categoryInsertRoute)
+// - vendedora
+app.register(sellerInsertRoute)
 
 // Rotas de busca de dados
 // - produto
-app.register(productGettAllRoute)
+app.register(productGetAllRoute)
 app.register(productGetById)
+app.register(productGetByCategoryId)
 // - categoria
-app.register(categoryGettAllRoute)
+app.register(categoryGetAllRoute)
 app.register(categoryGetById)
 // - marca
-app.register(brandGettAllRoute)
+app.register(brandGetAllRoute)
 app.register(brandGetById)
+// - vendedora
+app.register(sellerGetAllRoute)
 
 app
   .listen({
