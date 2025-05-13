@@ -44,6 +44,7 @@ model Marca {
 }
 
 model Vendedora {
-  id   String @id
-  nome String
+  id         String @id @default(cuid())
+  nome       String
+  senha_hash String
 }

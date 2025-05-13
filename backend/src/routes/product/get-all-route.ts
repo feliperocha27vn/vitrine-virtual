@@ -7,6 +7,7 @@ export const productGetAllRoute: FastifyPluginAsync = async app => {
     {
       schema: {
         summary: 'Rota responsável por trazer todos produtos',
+        tags: ['Produto'],
       },
     },
     async (request, resposne) => {

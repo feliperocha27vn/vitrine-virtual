@@ -4370,16 +4370,19 @@ export namespace Prisma {
   export type VendedoraMinAggregateOutputType = {
     id: string | null
     nome: string | null
+    senha_hash: string | null
   }
 
   export type VendedoraMaxAggregateOutputType = {
     id: string | null
     nome: string | null
+    senha_hash: string | null
   }
 
   export type VendedoraCountAggregateOutputType = {
     id: number
     nome: number
+    senha_hash: number
     _all: number
   }
 
@@ -4387,16 +4390,19 @@ export namespace Prisma {
   export type VendedoraMinAggregateInputType = {
     id?: true
     nome?: true
+    senha_hash?: true
   }
 
   export type VendedoraMaxAggregateInputType = {
     id?: true
     nome?: true
+    senha_hash?: true
   }
 
   export type VendedoraCountAggregateInputType = {
     id?: true
     nome?: true
+    senha_hash?: true
     _all?: true
   }
 
@@ -4475,6 +4481,7 @@ export namespace Prisma {
   export type VendedoraGroupByOutputType = {
     id: string
     nome: string
+    senha_hash: string
     _count: VendedoraCountAggregateOutputType | null
     _min: VendedoraMinAggregateOutputType | null
     _max: VendedoraMaxAggregateOutputType | null
@@ -4497,24 +4504,28 @@ export namespace Prisma {
   export type VendedoraSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     nome?: boolean
+    senha_hash?: boolean
   }, ExtArgs["result"]["vendedora"]>
 
   export type VendedoraSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     nome?: boolean
+    senha_hash?: boolean
   }, ExtArgs["result"]["vendedora"]>
 
   export type VendedoraSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     nome?: boolean
+    senha_hash?: boolean
   }, ExtArgs["result"]["vendedora"]>
 
   export type VendedoraSelectScalar = {
     id?: boolean
     nome?: boolean
+    senha_hash?: boolean
   }
 
-  export type VendedoraOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "nome", ExtArgs["result"]["vendedora"]>
+  export type VendedoraOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "nome" | "senha_hash", ExtArgs["result"]["vendedora"]>
 
   export type $VendedoraPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Vendedora"
@@ -4522,6 +4533,7 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: string
       nome: string
+      senha_hash: string
     }, ExtArgs["result"]["vendedora"]>
     composites: {}
   }
@@ -4947,6 +4959,7 @@ export namespace Prisma {
   interface VendedoraFieldRefs {
     readonly id: FieldRef<"Vendedora", 'String'>
     readonly nome: FieldRef<"Vendedora", 'String'>
+    readonly senha_hash: FieldRef<"Vendedora", 'String'>
   }
     
 
@@ -5358,7 +5371,8 @@ export namespace Prisma {
 
   export const VendedoraScalarFieldEnum: {
     id: 'id',
-    nome: 'nome'
+    nome: 'nome',
+    senha_hash: 'senha_hash'
   };
 
   export type VendedoraScalarFieldEnum = (typeof VendedoraScalarFieldEnum)[keyof typeof VendedoraScalarFieldEnum]
@@ -5578,11 +5592,13 @@ export namespace Prisma {
     NOT?: VendedoraWhereInput | VendedoraWhereInput[]
     id?: StringFilter<"Vendedora"> | string
     nome?: StringFilter<"Vendedora"> | string
+    senha_hash?: StringFilter<"Vendedora"> | string
   }
 
   export type VendedoraOrderByWithRelationInput = {
     id?: SortOrder
     nome?: SortOrder
+    senha_hash?: SortOrder
   }
 
   export type VendedoraWhereUniqueInput = Prisma.AtLeast<{
@@ -5591,11 +5607,13 @@ export namespace Prisma {
     OR?: VendedoraWhereInput[]
     NOT?: VendedoraWhereInput | VendedoraWhereInput[]
     nome?: StringFilter<"Vendedora"> | string
+    senha_hash?: StringFilter<"Vendedora"> | string
   }, "id">
 
   export type VendedoraOrderByWithAggregationInput = {
     id?: SortOrder
     nome?: SortOrder
+    senha_hash?: SortOrder
     _count?: VendedoraCountOrderByAggregateInput
     _max?: VendedoraMaxOrderByAggregateInput
     _min?: VendedoraMinOrderByAggregateInput
@@ -5607,6 +5625,7 @@ export namespace Prisma {
     NOT?: VendedoraScalarWhereWithAggregatesInput | VendedoraScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Vendedora"> | string
     nome?: StringWithAggregatesFilter<"Vendedora"> | string
+    senha_hash?: StringWithAggregatesFilter<"Vendedora"> | string
   }
 
   export type CategoriaCreateInput = {
@@ -5756,38 +5775,45 @@ export namespace Prisma {
   }
 
   export type VendedoraCreateInput = {
-    id: string
+    id?: string
     nome: string
+    senha_hash: string
   }
 
   export type VendedoraUncheckedCreateInput = {
-    id: string
+    id?: string
     nome: string
+    senha_hash: string
   }
 
   export type VendedoraUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     nome?: StringFieldUpdateOperationsInput | string
+    senha_hash?: StringFieldUpdateOperationsInput | string
   }
 
   export type VendedoraUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     nome?: StringFieldUpdateOperationsInput | string
+    senha_hash?: StringFieldUpdateOperationsInput | string
   }
 
   export type VendedoraCreateManyInput = {
-    id: string
+    id?: string
     nome: string
+    senha_hash: string
   }
 
   export type VendedoraUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     nome?: StringFieldUpdateOperationsInput | string
+    senha_hash?: StringFieldUpdateOperationsInput | string
   }
 
   export type VendedoraUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     nome?: StringFieldUpdateOperationsInput | string
+    senha_hash?: StringFieldUpdateOperationsInput | string
   }
 
   export type StringFilter<$PrismaModel = never> = {
@@ -5944,16 +5970,19 @@ export namespace Prisma {
   export type VendedoraCountOrderByAggregateInput = {
     id?: SortOrder
     nome?: SortOrder
+    senha_hash?: SortOrder
   }
 
   export type VendedoraMaxOrderByAggregateInput = {
     id?: SortOrder
     nome?: SortOrder
+    senha_hash?: SortOrder
   }
 
   export type VendedoraMinOrderByAggregateInput = {
     id?: SortOrder
     nome?: SortOrder
+    senha_hash?: SortOrder
   }
 
   export type ProdutoCreateNestedManyWithoutCategoriaInput = {

@@ -9,6 +9,7 @@ export const brandGetById: FastifyPluginAsyncZod = async app => {
       schema: {
         params: z.object({ id: z.string().uuid() }),
         summary: 'Rota responsável por trazer a marca pelo id',
+        tags: ['Marca'],
       },
     },
     async (request, response) => {

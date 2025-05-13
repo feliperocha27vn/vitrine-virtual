@@ -139,7 +139,8 @@ exports.Prisma.MarcaScalarFieldEnum = {
 
 exports.Prisma.VendedoraScalarFieldEnum = {
   id: 'id',
-  nome: 'nome'
+  nome: 'nome',
+  senha_hash: 'senha_hash'
 };
 
 exports.Prisma.SortOrder = {

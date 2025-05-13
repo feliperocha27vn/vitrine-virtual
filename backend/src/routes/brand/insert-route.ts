@@ -14,6 +14,7 @@ export const brandInsertRoute: FastifyPluginAsyncZod = async app => {
             .string()
             .min(1, { message: 'O campo do nome da marca é obrigatório!' }),
         }),
+        tags: ['Marca'],
       },
     },
     async (request, response) => {

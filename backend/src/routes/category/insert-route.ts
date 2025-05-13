@@ -16,6 +16,7 @@ export const categoryInsertRoute: FastifyPluginAsyncZod = async app => {
             message: z.string(),
           }),
         },
+        tags: ['Categoria'],
       },
     },
     async (request, response) => {

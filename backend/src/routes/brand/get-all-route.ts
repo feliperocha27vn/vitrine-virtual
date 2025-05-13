@@ -7,6 +7,7 @@ export const brandGetAllRoute: FastifyPluginAsync = async app => {
     {
       schema: {
         summary: 'Rota responsável por trazer todas marcas',
+        tags: ['Marca'],
       },
     },
     async (request, resposne) => {

@@ -42,3 +42,9 @@ model Marca {
 
   @@map("marca")
 }
+
+model Vendedora {
+  id         String @id @default(cuid())
+  nome       String
+  senha_hash String
+}

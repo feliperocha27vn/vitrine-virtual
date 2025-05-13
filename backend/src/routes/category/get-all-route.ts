@@ -7,6 +7,7 @@ export const categoryGetAllRoute: FastifyPluginAsync = async app => {
     {
       schema: {
         summary: 'Rota responsável por trazer todas categorias',
+        tags: ['Categoria'],
       },
     },
     async (request, resposne) => {

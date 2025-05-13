@@ -17,6 +17,7 @@ export const productInsertRoute: FastifyPluginAsyncZod = async app => {
           marca: z.string().uuid(),
           categoria: z.string().uuid(),
         }),
+        tags: ['Produto'],
       },
     },
     async (request, response) => {
